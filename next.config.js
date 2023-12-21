@@ -5,6 +5,9 @@
 await import("./src/env.js");
 
 /** @type {import("next").NextConfig} */
-const config = {};
+import WithNextIntl from "next-intl/plugin";
 
-export default config;
+const nextConfig = {};
+const withNextIntl = WithNextIntl("./src/i18n.ts")(nextConfig);
+
+export default withNextIntl;
