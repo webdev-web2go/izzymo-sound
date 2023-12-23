@@ -20,25 +20,34 @@ export default function Carrusel() {
     return () => clearInterval(interval);
   }, [imageIndex]);
   return (
-    <picture className="relative flex h-[700px] w-[700px] items-center justify-center overflow-hidden rounded-md">
+    <div className="relative aspect-square w-full overflow-hidden xl:w-11/12">
       {heroImages.map((img) => (
-        <Image
+        <picture
           key={img}
-          src={heroImages[imageIndex]!}
-          alt="Un evento social donde utilizan equipo de izzymo sound"
-          width={800}
-          height={800}
-          priority
-          className={cn("absolute transition-opacity duration-1000", {
-            "opacity-0": !img.includes((imageIndex + 1).toString()),
-            "opacity-100": img.includes((imageIndex + 1).toString()),
-          })}
-        />
+          className={cn(
+            "absolute overflow-hidden rounded-md transition-transform duration-1000",
+            {
+              "-z-10 translate-x-full": !img.includes(
+                (imageIndex + 1).toString(),
+              ),
+              "z-10 translate-x-0": img.includes((imageIndex + 1).toString()),
+            },
+          )}
+        >
+          <Image
+            src={img}
+            alt="Un evento social donde utilizan equipo de izzymo sound"
+            width={800}
+            height={800}
+            priority
+          />
+
+          <div
+            aria-hidden={true}
+            className="absolute inset-0 z-20 bg-gradient-to-br from-primary/40 to-primary-foreground/40"
+          />
+        </picture>
       ))}
-      <div
-        aria-hidden={true}
-        className="absolute inset-0 bg-gradient-to-br from-primary/40 to-primary-foreground/40"
-      />
-    </picture>
+    </div>
   );
 }
