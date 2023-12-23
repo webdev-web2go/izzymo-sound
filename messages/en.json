@@ -1,5 +1,14 @@
 {
   "home": {
-    "hello": "Hello"
+    "heroTitle": "Explore our packages and equipment for rent!",
+    "heroTextSound": "sound",
+    "heroTextMixer": "mixers",
+    "heroTextLighting": "lighting",
+    "heroTextOne": "High fidelity",
+    "heroTextTwo": "the best",
+    "heroTextThree": "on the market and",
+    "heroTextFour": "with a variety of effects and colors",
+    "heroRentButton": "Equipment",
+    "heroPackagesButton": "See packages"
   }
 }

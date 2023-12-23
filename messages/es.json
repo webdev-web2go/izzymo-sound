@@ -1,5 +1,14 @@
 {
   "home": {
-    "hello": "Hola"
+    "heroTitle": "Conoce nuestros paquetes y equipos en renta!",
+    "heroTextSound": "Sonido",
+    "heroTextMixer": "mezcladoras",
+    "heroTextLighting": "iluminación",
+    "heroTextOne": "de alta fidelidad",
+    "heroTextTwo": "las mejores",
+    "heroTextThree": "del mercado e",
+    "heroTextFour": "con variedad de efectos y colores",
+    "heroRentButton": "Equipos en renta",
+    "heroPackagesButton": "Ver paquetes"
   }
 }
