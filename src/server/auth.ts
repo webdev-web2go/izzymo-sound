@@ -49,8 +49,8 @@ export const authOptions: NextAuthOptions = {
   adapter: DrizzleAdapter(db, mysqlTable),
   providers: [
     GoogleProvider({
-      clientId: "",
-      clientSecret: "",
+      clientId: env.GOOGLE_CLIENT_ID,
+      clientSecret: env.GOOGLE_CLIENT_SECRET,
     }),
     /**
      * ...add more providers here.
