@@ -5,7 +5,6 @@ import HeroCarousel from "./hero-carousel";
 
 export default function Hero() {
   const t = useTranslations("home");
-  const locale = useLocale();
   return (
     <section className="mb-12 flex flex-col">
       <div className="grid items-center justify-center justify-items-center gap-10 px-4 xl:h-[90vh] xl:grid-cols-2 xl:gap-0 xl:px-12">
@@ -14,39 +13,12 @@ export default function Hero() {
             <h1 className="text-6xl font-bold tracking-tight [text-wrap:balance] sm:text-7xl">
               {t("heroTitle")}
             </h1>
-            <p className="text-xl text-muted-foreground sm:text-2xl">
-              {locale === "es" ? (
-                <>
-                  <span className="font-bold text-primary">
-                    {t("heroTextSound")}
-                  </span>{" "}
-                  {t("heroTextOne")}, {t("heroTextTwo")}{" "}
-                  <span className="font-bold text-primary">
-                    {t("heroTextMixer")}
-                  </span>{" "}
-                  {t("heroTextThree")}{" "}
-                  <span className="font-bold text-primary">
-                    {t("heroTextLighting")}
-                  </span>{" "}
-                  {t("heroTextFour")}
-                </>
-              ) : (
-                <>
-                  {t("heroTextOne")}{" "}
-                  <span className="font-bold text-primary">
-                    {t("heroTextSound")}
-                  </span>
-                  , {t("heroTextTwo")}{" "}
-                  <span className="font-bold text-primary">
-                    {t("heroTextMixer")}
-                  </span>{" "}
-                  {t("heroTextThree")}{" "}
-                  <span className="font-bold text-primary">
-                    {t("heroTextLighting")}
-                  </span>{" "}
-                  {t("heroTextFour")}
-                </>
-              )}
+            <p className="text-xl font-semibold text-muted-foreground sm:text-2xl">
+              {t("heroTextOne")}{" "}
+              <span className="font-bold text-primary">
+                {t("heroWideRange")}
+              </span>{" "}
+              {t("heroTextTwo")}
             </p>
           </div>
           <div className="flex w-full flex-col gap-4 md:flex-row">
@@ -56,7 +28,7 @@ export default function Hero() {
               size="lg"
               className="flex w-full items-center justify-center gap-2 py-4 text-lg font-bold hover:text-primary sm:text-xl"
             >
-              <Link href="/">{t("heroRentButton")}</Link>
+              <a href={`#${t("equipment")}`}>{t("heroRentButton")}</a>
             </Button>
             <Button
               asChild

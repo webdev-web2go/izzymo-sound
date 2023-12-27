@@ -1,21 +1,26 @@
 {
   "home": {
-    "heroTitle": "Explore our packages and equipment for rent!",
-    "heroTextSound": "sound",
-    "heroTextMixer": "mixers",
-    "heroTextLighting": "lighting",
-    "heroTextOne": "High fidelity",
-    "heroTextTwo": "the best",
-    "heroTextThree": "on the market and",
-    "heroTextFour": "with a variety of effects and colors",
+    "heroTitle": "Explore our equipment for rent!",
+    "cardsTextSound": "sound",
+    "cardsTextMixer": "mixers",
+    "cardsTextLighting": "lighting",
+    "cardsTextOne": "High fidelity",
+    "cardsTextTwo": "the best",
+    "cardsTextThree": "on the market and",
+    "cardsTextFour": "with a variety of effects and colors",
+    "heroWideRange": "wide range of equipment",
+    "heroTextOne": "Our",
+    "heroTextTwo": "can transform any occasion into a memorable celebration",
     "heroRentButton": "Equipment",
     "heroPackagesButton": "See packages",
+    "cardLinksTitle": "Individual or package rental",
     "mixerCardTitle": "Mixers and lighting",
     "mixerCardDescription": "Professional DJ system perfect for events, a bar or a club",
     "soundCardTitle": "Sound",
     "soundCardDescription": "High fidelity sound",
     "equipmentCardTitle": "Packages",
     "equipmentCardDescription": "Choose the package that best suits your social event",
-    "favorite": "Favorite"
+    "favorite": "Favorite",
+    "equipment": "equipment-for-rent"
   }
 }

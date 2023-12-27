@@ -1,21 +1,26 @@
 {
   "home": {
-    "heroTitle": "Conoce nuestros paquetes y equipos en renta!",
-    "heroTextSound": "Sonido",
-    "heroTextMixer": "mezcladoras",
-    "heroTextLighting": "iluminación",
-    "heroTextOne": "de alta fidelidad",
-    "heroTextTwo": "las mejores",
-    "heroTextThree": "del mercado e",
-    "heroTextFour": "con variedad de efectos y colores",
+    "heroTitle": "Conoce nuestros equipos en renta!",
+    "cardsTextSound": "Sonido",
+    "cardsTextMixer": "mezcladoras",
+    "cardsTextLighting": "iluminación",
+    "cardsTextOne": "de alta fidelidad",
+    "cardsTextTwo": "las mejores",
+    "cardsTextThree": "del mercado e",
+    "cardsTextFour": "con variedad de efectos y colores",
+    "heroWideRange": "amplia gama de equipos",
+    "heroTextOne": "Nuestra",
+    "heroTextTwo": "puede transformar cualquier ocasión en una celebración memorable",
     "heroRentButton": "Equipos en renta",
     "heroPackagesButton": "Ver paquetes",
+    "cardLinksTitle": "Renta individual ó por paquete",
     "mixerCardTitle": "Mezcladoras e iluminación",
     "mixerCardDescription": "Sistema DJ profesional perfecto para eventos, un bar ó un club",
     "soundCardTitle": "Sonido",
     "soundCardDescription": "Sonido de alta fidelidad",
     "equipmentCardTitle": "Paquetes",
     "equipmentCardDescription": "Escoge el paquete que mejor se acomode a tu evento social",
-    "favorite": "Favorito"
+    "favorite": "Favorito",
+    "equipment": "equipos-en-renta"
   }
 }
