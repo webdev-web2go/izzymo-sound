@@ -9,6 +9,13 @@
     "heroTextThree": "del mercado e",
     "heroTextFour": "con variedad de efectos y colores",
     "heroRentButton": "Equipos en renta",
-    "heroPackagesButton": "Ver paquetes"
+    "heroPackagesButton": "Ver paquetes",
+    "mixerCardTitle": "Mezcladoras e iluminación",
+    "mixerCardDescription": "Sistema DJ profesional perfecto para eventos, un bar ó un club",
+    "soundCardTitle": "Sonido",
+    "soundCardDescription": "Sonido de alta fidelidad",
+    "equipmentCardTitle": "Paquetes",
+    "equipmentCardDescription": "Escoge el paquete que mejor se acomode a tu evento social",
+    "favorite": "Favorito"
   }
 }

@@ -9,6 +9,13 @@
     "heroTextThree": "on the market and",
     "heroTextFour": "with a variety of effects and colors",
     "heroRentButton": "Equipment",
-    "heroPackagesButton": "See packages"
+    "heroPackagesButton": "See packages",
+    "mixerCardTitle": "Mixers and lighting",
+    "mixerCardDescription": "Professional DJ system perfect for events, a bar or a club",
+    "soundCardTitle": "Sound",
+    "soundCardDescription": "High fidelity sound",
+    "equipmentCardTitle": "Packages",
+    "equipmentCardDescription": "Choose the package that best suits your social event",
+    "favorite": "Favorite"
   }
 }

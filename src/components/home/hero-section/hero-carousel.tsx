@@ -36,7 +36,7 @@ export default function HeroCarousel() {
               />
               <div
                 aria-hidden={true}
-                className="absolute inset-0 z-20 bg-gradient-to-br from-primary/40 to-primary-foreground/40"
+                className="absolute inset-0 z-20 bg-gradient-to-br from-primary/30 to-primary-foreground/30"
               />
             </picture>
           </CarouselItem>
