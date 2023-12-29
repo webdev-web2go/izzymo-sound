@@ -2,6 +2,8 @@ import "~/styles/globals.css";
 
 import { Inter } from "next/font/google";
 import Nav from "~/components/shared/nav/nav";
+import { locales } from "~/navigation";
+import { unstable_setRequestLocale } from "next-intl/server";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -14,6 +16,10 @@ export const metadata = {
   icons: [{ rel: "icon", url: "/favicon.ico" }],
 };
 
+export function generateStaticParams() {
+  return locales.map((locale) => ({ locale }));
+}
+
 export default function RootLayout({
   children,
   params: { locale },
@@ -21,10 +27,12 @@ export default function RootLayout({
   children: React.ReactNode;
   params: { locale: string };
 }) {
+  unstable_setRequestLocale(locale);
+
   return (
     <html lang={locale}>
       <body className={`font-sans ${inter.variable}`}>
-        <Nav />
+        {/* <Nav /> */}
         {children}
       </body>
     </html>

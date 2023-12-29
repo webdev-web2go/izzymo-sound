@@ -23,6 +23,10 @@ export const pathnames = {
     en: "/equipment/packages",
     es: "/equipos/paquetes",
   },
+  "/equipment/mixers-and-light/mixer/[model]": {
+    en: "/equipment/mixers-and-light/mixer/[model]",
+    es: "/equipos/mezcladoras-e-iluminacion/mezcladora/[model]",
+  },
   //   "/services": {
   //     en: "/services",
   //     es: "/servicios",

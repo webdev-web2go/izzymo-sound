@@ -22,5 +22,16 @@
     "equipmentCardDescription": "Choose the package that best suits your social event",
     "favorite": "Favorite",
     "equipment": "equipment-for-rent"
+  },
+  "mixersAndLightsPage": {
+    "model": "Model",
+    "2ChannelFunction": "2 channels",
+    "4ChannelFunction": "4 channels",
+    "allInOne": "All in one",
+    "LEDFunction": "LED lights scattered in 8 sections, multi-color effect",
+    "sBarPower": "240 high intensity LEDs with 15 meters range",
+    "18LEDEach": "Lights with 18 LEDs each",
+    "RGBLight": "RGB, ambar light and black light",
+    "25MtsRange": "25 meters range"
   }
 }

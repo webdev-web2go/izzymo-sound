@@ -8,13 +8,13 @@ export default function CardLinks() {
   const t = useTranslations("home");
   const locale = useLocale();
   return (
-    <section className="mb-12" id={t("equipment")}>
-      <div className="grid items-center gap-8 px-4 antialiased sm:px-12 xl:grid-cols-2 2xl:px-20">
-        <header className="col-span-full mb-6 flex flex-col items-center gap-4">
-          <h2 className="text-center text-5xl font-bold tracking-tight text-primary [text-wrap:balance] sm:text-6xl">
+    <section className="mb-20" id={t("equipment")}>
+      <div className="grid items-center gap-8 px-4 antialiased xl:grid-cols-2 xl:px-12 2xl:px-20">
+        <header className="col-span-full mx-auto mb-6 flex max-w-3xl flex-col items-center gap-4 xl:max-w-full">
+          <h2 className="text-balance text-5xl font-bold tracking-tight text-primary sm:text-6xl xl:text-center">
             {t("cardLinksTitle")}
           </h2>
-          <p className="max-w-prose text-center text-xl font-semibold text-muted-foreground sm:text-2xl">
+          <p className="max-w-prose text-xl font-semibold text-muted-foreground sm:text-2xl xl:text-center">
             {locale === "es" ? (
               <>
                 <span className="font-bold text-primary">
@@ -52,9 +52,9 @@ export default function CardLinks() {
         {homeCardLinks.map(({ href, image, description, title }, i) => (
           <Link
             key={href}
-            href={href as keyof typeof pathnames}
+            href={href}
             className={cn(
-              "overflow-hidden rounded-md bg-cover bg-center bg-no-repeat transition-all duration-300 hover:-translate-y-2 hover:shadow-xl",
+              "mx-auto w-full overflow-hidden rounded-md bg-cover bg-center bg-no-repeat transition-all duration-300 hover:-translate-y-2 hover:shadow-xl lg:w-4/5 xl:w-full",
               {
                 "xl:col-start-2 xl:row-start-2 xl:row-end-4 xl:self-stretch":
                   i === 2,
