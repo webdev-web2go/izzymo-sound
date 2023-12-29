@@ -43,7 +43,7 @@ export const mixers = [
     system: "allInOne",
     price: "$1000 MXN",
     image: "/home/mixers/mixer2.webp",
-    href: "",
+    href: "/equipment/mixers-and-light/mixer/[model]",
   },
 ] as const;
 
@@ -55,7 +55,7 @@ export const lights = [
     power: "sBarPower",
     price: "$1000 MXN",
     image: "/home/light/light1.webp",
-    href: "",
+    href: "/equipment/mixers-and-light/light/[model]",
   },
   {
     model: "18 LEDs",
@@ -64,7 +64,7 @@ export const lights = [
     power: "25MtsRange",
     price: "$1000 MXN",
     image: "/home/light/light2.webp",
-    href: "",
+    href: "/equipment/mixers-and-light/light/[model]",
   },
   {
     model: "Pending",
@@ -73,6 +73,54 @@ export const lights = [
     power: "25MtsRange",
     price: "$1000 MXN",
     image: "/home/light/light3.webp",
-    href: "",
+    href: "/equipment/mixers-and-light/light/[model]",
+  },
+] as const;
+
+export const sound = [
+  {
+    model: "ELX200",
+    size: '12"',
+    productFunction: "monitor",
+    power: "1500 watts",
+    price: "$1000 MXN",
+    image: "/home/sound/sound2.webp",
+    href: "/equipment/sound/[model]",
+  },
+  {
+    model: "ETX200",
+    size: '12"',
+    productFunction: "monitor",
+    power: "1200 watts",
+    price: "$1000 MXN",
+    image: "/home/sound/sound3.webp",
+    href: "/equipment/sound/[model]",
+  },
+  {
+    model: "EKX200",
+    size: '15"',
+    productFunction: "monitor",
+    power: "1300 watts",
+    price: "$1000 MXN",
+    image: "/home/sound/sound4.webp",
+    href: "/equipment/sound/[model]",
+  },
+  {
+    model: "ELX200",
+    size: '18"',
+    productFunction: "sub",
+    power: "1600 watts",
+    price: "$1000 MXN",
+    image: "/home/sound/sound1.webp",
+    href: "/equipment/sound/[model]",
+  },
+  {
+    model: "EKX200",
+    size: '18"',
+    productFunction: "sub",
+    power: "1300 watts",
+    price: "$1000 MXN",
+    image: "/home/sound/sound5.webp",
+    href: "/equipment/sound/[model]",
   },
 ] as const;

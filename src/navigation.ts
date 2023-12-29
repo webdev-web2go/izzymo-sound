@@ -27,14 +27,14 @@ export const pathnames = {
     en: "/equipment/mixers-and-light/mixer/[model]",
     es: "/equipos/mezcladoras-e-iluminacion/mezcladora/[model]",
   },
-  //   "/services": {
-  //     en: "/services",
-  //     es: "/servicios",
-  //   },
-  //   "/quote": {
-  //     en: "/quote",
-  //     es: "/cotizar",
-  //   },
+  "/equipment/mixers-and-light/light/[model]": {
+    en: "/equipment/mixers-and-light/light/[model]",
+    es: "/equipos/mezcladoras-e-iluminación/iluminación/[model]",
+  },
+  "/equipment/sound/[model]": {
+    en: "/equipment/sound/[model]",
+    es: "/equipos/sonido/[model]",
+  },
 } satisfies Pathnames<typeof locales>;
 
 export const { Link, redirect, usePathname, useRouter, getPathname } =
