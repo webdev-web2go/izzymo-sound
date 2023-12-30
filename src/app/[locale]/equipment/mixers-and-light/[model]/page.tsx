@@ -17,7 +17,7 @@ interface Product {
   href: keyof typeof pathnames;
 }
 
-export default function MixerModelPage({
+export default function MixerAndLightDetailPage({
   params,
 }: {
   params: { locale: string; model: string };
