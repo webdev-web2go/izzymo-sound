@@ -34,7 +34,9 @@ export const mixers = [
     system: "allInOne",
     price: "$1000 MXN",
     image: "/home/mixers/mixer1.webp",
-    href: "/equipment/mixers-and-light/mixer/[model]",
+    href: "/equipment/mixers-and-light/[model]",
+    description:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora repellendus nihil, voluptatibus nam fugiat sequi illum est eos iure recusandae vitae beatae deleniti dolore veniam repellat labore tempore magnam neque? Lorem ipsum dolor, sit amet consectetur adipisicing elit. Praesentium quisquam nesciunt, possimus iure deserunt laudantium modi ad architecto est totam optio animi laborum minima natus ipsa dolorum doloribus ab repellat!",
   },
   {
     model: "XDJ-XZ",
@@ -43,7 +45,9 @@ export const mixers = [
     system: "allInOne",
     price: "$1000 MXN",
     image: "/home/mixers/mixer2.webp",
-    href: "/equipment/mixers-and-light/mixer/[model]",
+    href: "/equipment/mixers-and-light/[model]",
+    description:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora repellendus nihil, voluptatibus nam fugiat sequi illum est eos iure recusandae vitae beatae deleniti dolore veniam repellat labore tempore magnam neque? Lorem ipsum dolor, sit amet consectetur adipisicing elit. Praesentium quisquam nesciunt, possimus iure deserunt laudantium modi ad architecto est totam optio animi laborum minima natus ipsa dolorum doloribus ab repellat!",
   },
 ] as const;
 
@@ -55,7 +59,9 @@ export const lights = [
     power: "sBarPower",
     price: "$1000 MXN",
     image: "/home/light/light1.webp",
-    href: "/equipment/mixers-and-light/light/[model]",
+    href: "/equipment/mixers-and-light/[model]",
+    description:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora repellendus nihil, voluptatibus nam fugiat sequi illum est eos iure recusandae vitae beatae deleniti dolore veniam repellat labore tempore magnam neque? Lorem ipsum dolor, sit amet consectetur adipisicing elit. Praesentium quisquam nesciunt, possimus iure deserunt laudantium modi ad architecto est totam optio animi laborum minima natus ipsa dolorum doloribus ab repellat!",
   },
   {
     model: "18 LEDs",
@@ -64,7 +70,9 @@ export const lights = [
     power: "25MtsRange",
     price: "$1000 MXN",
     image: "/home/light/light2.webp",
-    href: "/equipment/mixers-and-light/light/[model]",
+    href: "/equipment/mixers-and-light/[model]",
+    description:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora repellendus nihil, voluptatibus nam fugiat sequi illum est eos iure recusandae vitae beatae deleniti dolore veniam repellat labore tempore magnam neque? Lorem ipsum dolor, sit amet consectetur adipisicing elit. Praesentium quisquam nesciunt, possimus iure deserunt laudantium modi ad architecto est totam optio animi laborum minima natus ipsa dolorum doloribus ab repellat!",
   },
   {
     model: "Pending",
@@ -73,7 +81,9 @@ export const lights = [
     power: "25MtsRange",
     price: "$1000 MXN",
     image: "/home/light/light3.webp",
-    href: "/equipment/mixers-and-light/light/[model]",
+    href: "/equipment/mixers-and-light/[model]",
+    description:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora repellendus nihil, voluptatibus nam fugiat sequi illum est eos iure recusandae vitae beatae deleniti dolore veniam repellat labore tempore magnam neque? Lorem ipsum dolor, sit amet consectetur adipisicing elit. Praesentium quisquam nesciunt, possimus iure deserunt laudantium modi ad architecto est totam optio animi laborum minima natus ipsa dolorum doloribus ab repellat!",
   },
 ] as const;
 
@@ -86,6 +96,8 @@ export const sound = [
     price: "$1000 MXN",
     image: "/home/sound/sound2.webp",
     href: "/equipment/sound/[model]",
+    description:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora repellendus nihil, voluptatibus nam fugiat sequi illum est eos iure recusandae vitae beatae deleniti dolore veniam repellat labore tempore magnam neque? Lorem ipsum dolor, sit amet consectetur adipisicing elit. Praesentium quisquam nesciunt, possimus iure deserunt laudantium modi ad architecto est totam optio animi laborum minima natus ipsa dolorum doloribus ab repellat!",
   },
   {
     model: "ETX200",
@@ -95,6 +107,8 @@ export const sound = [
     price: "$1000 MXN",
     image: "/home/sound/sound3.webp",
     href: "/equipment/sound/[model]",
+    description:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora repellendus nihil, voluptatibus nam fugiat sequi illum est eos iure recusandae vitae beatae deleniti dolore veniam repellat labore tempore magnam neque? Lorem ipsum dolor, sit amet consectetur adipisicing elit. Praesentium quisquam nesciunt, possimus iure deserunt laudantium modi ad architecto est totam optio animi laborum minima natus ipsa dolorum doloribus ab repellat!",
   },
   {
     model: "EKX200",
@@ -104,6 +118,8 @@ export const sound = [
     price: "$1000 MXN",
     image: "/home/sound/sound4.webp",
     href: "/equipment/sound/[model]",
+    description:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora repellendus nihil, voluptatibus nam fugiat sequi illum est eos iure recusandae vitae beatae deleniti dolore veniam repellat labore tempore magnam neque? Lorem ipsum dolor, sit amet consectetur adipisicing elit. Praesentium quisquam nesciunt, possimus iure deserunt laudantium modi ad architecto est totam optio animi laborum minima natus ipsa dolorum doloribus ab repellat!",
   },
   {
     model: "ELX200",
@@ -113,6 +129,8 @@ export const sound = [
     price: "$1000 MXN",
     image: "/home/sound/sound1.webp",
     href: "/equipment/sound/[model]",
+    description:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora repellendus nihil, voluptatibus nam fugiat sequi illum est eos iure recusandae vitae beatae deleniti dolore veniam repellat labore tempore magnam neque? Lorem ipsum dolor, sit amet consectetur adipisicing elit. Praesentium quisquam nesciunt, possimus iure deserunt laudantium modi ad architecto est totam optio animi laborum minima natus ipsa dolorum doloribus ab repellat!",
   },
   {
     model: "EKX200",
@@ -122,5 +140,7 @@ export const sound = [
     price: "$1000 MXN",
     image: "/home/sound/sound5.webp",
     href: "/equipment/sound/[model]",
+    description:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora repellendus nihil, voluptatibus nam fugiat sequi illum est eos iure recusandae vitae beatae deleniti dolore veniam repellat labore tempore magnam neque? Lorem ipsum dolor, sit amet consectetur adipisicing elit. Praesentium quisquam nesciunt, possimus iure deserunt laudantium modi ad architecto est totam optio animi laborum minima natus ipsa dolorum doloribus ab repellat!",
   },
 ] as const;

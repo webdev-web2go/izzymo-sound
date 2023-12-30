@@ -23,7 +23,7 @@ export default function MixersAndLightPage({
         <div aria-hidden={true} className="absolute inset-0 bg-black/80" />
       </section>
       <section>
-        <div className="mx-auto grid gap-10 px-4 py-10 2xl:grid-cols-2">
+        <div className="grid gap-10 px-4 py-10 2xl:grid-cols-2">
           {mixers.map(
             ({ model, size, productFunction, system, price, href, image }) => (
               <Product
