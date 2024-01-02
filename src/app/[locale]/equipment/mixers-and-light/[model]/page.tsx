@@ -3,7 +3,7 @@ import Image from "next/image";
 import Product from "~/components/shared/product/product";
 import { Button } from "~/components/ui/button";
 import { lights, mixers } from "~/constants";
-import { pathnames } from "~/navigation";
+import type { pathnames } from "~/navigation";
 
 interface Product {
   model: string;
@@ -56,8 +56,8 @@ export default function MixerAndLightDetailPage({
         <div className="grid grid-cols-[55fr_45fr] justify-items-center gap-10 px-4 py-10">
           <article className="flex flex-col gap-4">
             <Image
-              src={product?.image!}
-              alt={product?.model!}
+              src={product.image}
+              alt={product.model}
               width={600}
               height={600}
             />
@@ -70,13 +70,13 @@ export default function MixerAndLightDetailPage({
                   <div>
                     <p className="flex gap-2">
                       <span className="font-semibold">{t("model")}:</span>{" "}
-                      {product?.model}
+                      {product.model}
                     </p>
                     <p className="flex gap-2">
                       <span className="font-semibold">
                         {tEquipment("size")}:
                       </span>{" "}
-                      {product?.size}
+                      {product.size}
                     </p>
                   </div>
                   <div>
@@ -84,12 +84,12 @@ export default function MixerAndLightDetailPage({
                       <span className="font-semibold">
                         {tEquipment("function")}:
                       </span>{" "}
-                      {t(product?.productFunction)}
+                      {t(product.productFunction)}
                     </p>
                     <p className="flex gap-2">
                       <span className="font-semibold">
                         {tEquipment(
-                          product?.image.includes("mixer") ? "system" : "power",
+                          product.image.includes("mixer") ? "system" : "power",
                         )}
                         :
                       </span>
