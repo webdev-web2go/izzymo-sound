@@ -1,21 +1,13 @@
-import { useTranslations } from "next-intl";
+import {
+  NextIntlClientProvider,
+  useMessages,
+  useTranslations,
+} from "next-intl";
 import Image from "next/image";
-import Product from "~/components/shared/product/product";
+import ProductsCarousel from "~/components/shared/product/products-carousel";
 import { Button } from "~/components/ui/button";
-import { lights, mixers } from "~/constants";
-import type { pathnames } from "~/navigation";
-
-interface Product {
-  model: string;
-  size: string;
-  productFunction: string;
-  system?: string;
-  power?: string;
-  price: string;
-  image: string;
-  description: string;
-  href: keyof typeof pathnames;
-}
+import { mixerAndLightProducts } from "~/constants";
+import type { ProductI } from "~/types";
 
 export default function MixerAndLightDetailPage({
   params,
@@ -25,21 +17,13 @@ export default function MixerAndLightDetailPage({
   const tHome = useTranslations("home");
   const tEquipment = useTranslations("equipmentFeatures");
   const t = useTranslations("mixersAndLightsPage");
+  const messages = useMessages();
 
-  const mixer = mixers.find(
-    (mixer) =>
-      mixer.model + t(mixer.productFunction) ===
+  const mainProduct = mixerAndLightProducts.find(
+    (product) =>
+      product.model + t(product.productFunction) ===
       decodeURIComponent(params.model),
-  );
-
-  const light = lights.find((light) => {
-    return (
-      light.model + t(light.productFunction) ===
-      decodeURIComponent(params.model)
-    );
-  });
-
-  const product = (mixer ? mixer : light) as Product;
+  ) as ProductI;
 
   return (
     <main>
@@ -53,30 +37,30 @@ export default function MixerAndLightDetailPage({
         <div aria-hidden={true} className="absolute inset-0 bg-black/80" />
       </section>
       <section>
-        <div className="grid grid-cols-[55fr_45fr] justify-items-center gap-10 px-4 py-10">
-          <article className="flex flex-col gap-4">
+        <div className="grid items-center justify-items-center px-4 py-20 2xl:grid-cols-[55fr_45fr]">
+          <article className="flex flex-col items-center justify-center gap-4 lg:flex-row 2xl:flex-col">
             <Image
-              src={product.image}
-              alt={product.model}
+              src={mainProduct.image}
+              alt={mainProduct.model}
               width={600}
               height={600}
             />
             <div className="flex flex-col gap-4 text-lg text-muted-foreground antialiased">
               <header className="flex flex-col gap-2">
                 <strong className="text-5xl text-primary">
-                  {product.price}
+                  {mainProduct.price}
                 </strong>
-                <div className="flex gap-4">
+                <div className="flex flex-col gap-4 2xl:flex-row">
                   <div>
                     <p className="flex gap-2">
                       <span className="font-semibold">{t("model")}:</span>{" "}
-                      {product.model}
+                      {mainProduct.model}
                     </p>
                     <p className="flex gap-2">
                       <span className="font-semibold">
                         {tEquipment("size")}:
                       </span>{" "}
-                      {product.size}
+                      {mainProduct.size}
                     </p>
                   </div>
                   <div>
@@ -84,57 +68,40 @@ export default function MixerAndLightDetailPage({
                       <span className="font-semibold">
                         {tEquipment("function")}:
                       </span>{" "}
-                      {t(product.productFunction)}
+                      {t(mainProduct.productFunction)}
                     </p>
                     <p className="flex gap-2">
                       <span className="font-semibold">
                         {tEquipment(
-                          product.image.includes("mixer") ? "system" : "power",
+                          mainProduct.image.includes("mixer")
+                            ? "system"
+                            : "power",
                         )}
                         :
                       </span>
-                      {product.system
-                        ? t(product.system)
-                        : product.power?.includes("watt")
-                          ? product.power
-                          : t(product.power)}
+                      {mainProduct.system
+                        ? t(mainProduct.system)
+                        : mainProduct.power?.includes("watt")
+                          ? mainProduct.power
+                          : t(mainProduct.power)}
                     </p>
                   </div>
                 </div>
               </header>
-              <p className="max-w-prose">{product.description}</p>
+              <p className="max-w-prose">{mainProduct.description}</p>
               <Button className="py-6 text-xl">Reservar</Button>
             </div>
           </article>
-          <div className="h-[800px] overflow-scroll">
-            {mixers
-              .filter((mixerEl) => mixerEl.image !== mixer?.image)
-              .map((mixer) => (
-                <Product
-                  key={mixer.image}
-                  feature={mixer.system}
-                  href={mixer.href}
-                  image={mixer.image}
-                  model={mixer.model}
-                  price={mixer.price}
-                  productFunction={mixer.productFunction}
-                  size={mixer.size}
-                />
-              ))}
-            {lights
-              .filter((lightEl) => lightEl.image !== light?.image)
-              .map((light) => (
-                <Product
-                  key={light.image}
-                  feature={light.power}
-                  href={light.href}
-                  image={light.image}
-                  model={light.model}
-                  price={light.price}
-                  productFunction={light.productFunction}
-                  size={light.size}
-                />
-              ))}
+          <div className="">
+            <h2 className="text-balance text-4xl font-bold tracking-tight text-primary sm:text-5xl">
+              También podría interesarte
+            </h2>
+            <NextIntlClientProvider messages={messages}>
+              <ProductsCarousel
+                mainProduct={mainProduct}
+                products={mixerAndLightProducts}
+              />
+            </NextIntlClientProvider>
           </div>
         </div>
       </section>

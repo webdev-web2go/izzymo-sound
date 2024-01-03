@@ -1,7 +1,7 @@
 import { useTranslations } from "next-intl";
 import { unstable_setRequestLocale } from "next-intl/server";
 import Product from "~/components/shared/product/product";
-import { lights, mixers } from "~/constants";
+import { mixerAndLightProducts } from "~/constants";
 
 export default function MixersAndLightPage({
   params: { locale },
@@ -11,6 +11,7 @@ export default function MixersAndLightPage({
   unstable_setRequestLocale(locale);
 
   const tHome = useTranslations("home");
+
   return (
     <main>
       <section className="relative flex h-96 items-end bg-[url('/home/mixers/mixer_card.webp')] bg-cover bg-center p-4 sm:bg-bottom">
@@ -24,34 +25,18 @@ export default function MixersAndLightPage({
       </section>
       <section>
         <div className="grid gap-10 px-4 py-10 2xl:grid-cols-2">
-          {mixers.map(
-            ({ model, size, productFunction, system, price, href, image }) => (
-              <Product
-                key={image}
-                model={model}
-                size={size}
-                productFunction={productFunction}
-                feature={system}
-                price={price}
-                href={href}
-                image={image}
-              />
-            ),
-          )}
-          {lights.map(
-            ({ model, size, productFunction, power, price, href, image }) => (
-              <Product
-                key={image}
-                model={model}
-                size={size}
-                productFunction={productFunction}
-                feature={power}
-                price={price}
-                href={href}
-                image={image}
-              />
-            ),
-          )}
+          {mixerAndLightProducts.map((product) => (
+            <Product
+              key={product.image}
+              model={product.model}
+              size={product.size}
+              productFunction={product.productFunction}
+              feature={(product.system || product.power) as string}
+              price={product.price}
+              href={product.href}
+              image={product.image}
+            />
+          ))}
         </div>
       </section>
     </main>

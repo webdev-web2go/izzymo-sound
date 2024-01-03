@@ -2,9 +2,9 @@ import { useTranslations } from "next-intl";
 import Image from "next/image";
 import { Button } from "~/components/ui/button";
 import { cn } from "~/lib/utils";
-import { Link, pathnames } from "~/navigation";
+import { Link, type pathnames } from "~/navigation";
 
-interface Product {
+interface ProductCard {
   model: string;
   size: string;
   productFunction: string;
@@ -12,6 +12,7 @@ interface Product {
   price: string;
   image: string;
   href: keyof typeof pathnames;
+  isCarousel?: boolean;
 }
 
 export default function Product({
@@ -22,14 +23,20 @@ export default function Product({
   price,
   href,
   model,
-}: Product) {
+  isCarousel,
+}: ProductCard) {
   const tEquipment = useTranslations("equipmentFeatures");
   const t = useTranslations("mixersAndLightsPage");
 
   return (
     <article
       key={image}
-      className="flex flex-col items-center gap-2 rounded-lg p-4 shadow-md md:flex-row md:gap-0"
+      className={cn(
+        "flex flex-col items-center gap-2 rounded-lg p-4 md:gap-0",
+        {
+          "shadow-md md:flex-row": !isCarousel,
+        },
+      )}
     >
       <Image
         src={image}
@@ -62,8 +69,12 @@ export default function Product({
             {feature.includes("watt") ? feature : t(feature)}
           </p>
         </div>
-        <footer className="flex flex-col-reverse gap-2 sm:flex-row sm:items-center sm:justify-between">
-          <Button asChild variant="link" className="p-0 text-lg">
+        <footer className="mt-auto grid grid-cols-[1fr_2fr] gap-2">
+          <Button
+            asChild
+            variant="link"
+            className="justify-self-start p-0 text-lg"
+          >
             <Link
               href={{
                 pathname: href,
@@ -73,7 +84,10 @@ export default function Product({
               Ver más &rarr;
             </Link>
           </Button>
-          <strong className="text-3xl font-bold text-primary">{price}</strong>
+          <strong className="justify-self-end text-3xl font-bold text-primary">
+            {price}
+          </strong>
+          <Button className="col-span-full py-6 text-xl">Reservar</Button>
         </footer>
       </div>
     </article>
