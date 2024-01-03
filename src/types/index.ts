@@ -1,0 +1,13 @@
+import type { pathnames } from "~/navigation";
+
+export interface ProductI {
+  model: string;
+  size: string;
+  productFunction: string;
+  system?: string;
+  power?: string;
+  price: string;
+  image: string;
+  description: string;
+  href: keyof typeof pathnames;
+}
