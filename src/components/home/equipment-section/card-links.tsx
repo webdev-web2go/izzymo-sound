@@ -2,7 +2,7 @@ import { useLocale, useTranslations } from "next-intl";
 import { Badge } from "~/components/ui/badge";
 import { homeCardLinks } from "~/constants";
 import { cn } from "~/lib/utils";
-import { Link, pathnames } from "~/navigation";
+import { Link } from "~/navigation";
 
 export default function CardLinks() {
   const t = useTranslations("home");

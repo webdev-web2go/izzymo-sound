@@ -1,5 +1,20 @@
 import { ProductI } from "~/types";
 
+export const navItems = [
+  {
+    label: "mixerCardTitle",
+    href: "/equipment/mixers-and-light",
+  },
+  {
+    label: "soundCardTitle",
+    href: "/equipment/sound",
+  },
+  {
+    label: "equipmentCardTitle",
+    href: "/equipment/packages",
+  },
+] as const;
+
 export const heroImages = [
   "/home/hero1.webp",
   "/home/hero2.webp",

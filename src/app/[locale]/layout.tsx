@@ -31,8 +31,10 @@ export default function RootLayout({
 
   return (
     <html lang={locale}>
-      <body className={`font-sans ${inter.variable}`}>
-        {/* <Nav /> */}
+      <body
+        className={`font-sans ${inter.variable} bg-white bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px]`}
+      >
+        <Nav />
         {children}
       </body>
     </html>

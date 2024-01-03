@@ -6,7 +6,7 @@ import HeroCarousel from "./hero-carousel";
 export default function Hero() {
   const t = useTranslations("home");
   return (
-    <section className="mb-20 flex flex-col">
+    <section className="mb-20 mt-20 flex flex-col">
       <div className="grid items-center justify-center justify-items-center px-4 sm:gap-10 xl:h-[90vh] xl:grid-cols-2 xl:gap-0 xl:px-12">
         <div className="flex w-full flex-col items-center gap-10 self-center py-4 text-primary antialiased sm:max-w-3xl xl:max-w-2xl">
           <div className="flex flex-col gap-5">
