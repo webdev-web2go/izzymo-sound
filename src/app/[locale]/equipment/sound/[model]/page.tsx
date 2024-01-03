@@ -23,7 +23,7 @@ export default function SoundDetailPage({
     (product) =>
       product.model + t(product.productFunction) ===
       decodeURIComponent(params.model),
-  ) as ProductI;
+  )!;
 
   return (
     <main>
@@ -103,22 +103,6 @@ export default function SoundDetailPage({
               />
             </NextIntlClientProvider>
           </div>
-          {/* <div className="h-[800px] overflow-scroll">
-            {products
-              .filter((product) => product.image !== mainProduct.image)
-              .map((product) => (
-                <Product
-                  key={product.image}
-                  feature={(product.system || product.power) as string}
-                  href={product.href}
-                  image={product.image}
-                  model={product.model}
-                  price={product.price}
-                  productFunction={product.productFunction}
-                  size={product.size}
-                />
-              ))}
-          </div> */}
         </div>
       </section>
     </main>

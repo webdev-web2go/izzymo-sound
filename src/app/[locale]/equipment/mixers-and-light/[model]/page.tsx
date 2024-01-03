@@ -23,7 +23,7 @@ export default function MixerAndLightDetailPage({
     (product) =>
       product.model + t(product.productFunction) ===
       decodeURIComponent(params.model),
-  ) as ProductI;
+  )!;
 
   return (
     <main>

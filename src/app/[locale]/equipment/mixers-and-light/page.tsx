@@ -31,7 +31,7 @@ export default function MixersAndLightPage({
               model={product.model}
               size={product.size}
               productFunction={product.productFunction}
-              feature={(product.system || product.power) as string}
+              feature={product.system ?? product.power!}
               price={product.price}
               href={product.href}
               image={product.image}

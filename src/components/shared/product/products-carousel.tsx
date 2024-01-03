@@ -32,7 +32,7 @@ export default function ProductsCarousel({
             <CarouselItem key={product.image} className="h-full">
               <Product
                 key={product.image}
-                feature={(product.system || product.power) as string}
+                feature={product.system ?? product.power!}
                 href={product.href}
                 image={product.image}
                 model={product.model}
