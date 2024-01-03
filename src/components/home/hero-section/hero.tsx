@@ -1,10 +1,16 @@
 import { Link } from "~/navigation";
-import { useLocale, useTranslations } from "next-intl";
+import {
+  NextIntlClientProvider,
+  useMessages,
+  useTranslations,
+} from "next-intl";
 import { Button } from "~/components/ui/button";
 import HeroCarousel from "./hero-carousel";
+import RentButton from "./rent-button";
 
 export default function Hero() {
   const t = useTranslations("home");
+  const messages = useMessages();
   return (
     <section className="mb-20 mt-20 flex flex-col">
       <div className="grid items-center justify-center justify-items-center px-4 sm:gap-10 xl:h-[90vh] xl:grid-cols-2 xl:gap-0 xl:px-12">
@@ -22,14 +28,9 @@ export default function Hero() {
             </p>
           </div>
           <div className="flex w-full flex-col gap-4 md:flex-row">
-            <Button
-              asChild
-              variant="outline"
-              size="lg"
-              className="flex w-full items-center justify-center gap-2 py-4 text-lg font-bold hover:text-primary sm:text-xl"
-            >
-              <a href={`#${t("equipment")}`}>{t("heroRentButton")}</a>
-            </Button>
+            <NextIntlClientProvider messages={messages}>
+              <RentButton />
+            </NextIntlClientProvider>
             <Button
               asChild
               size="lg"
