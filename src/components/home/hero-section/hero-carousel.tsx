@@ -12,7 +12,7 @@ import { heroImages } from "~/constants";
 export default function HeroCarousel() {
   return (
     <Carousel
-      className="relative row-start-1 aspect-square w-full overflow-hidden rounded-md md:row-start-2 lg:w-4/5 xl:col-start-2 xl:row-start-1 xl:w-11/12"
+      className="relative row-start-1 aspect-square w-full cursor-grab overflow-hidden rounded-md md:row-start-2 lg:w-4/5 xl:col-start-2 xl:row-start-1 xl:w-11/12"
       opts={{
         loop: true,
       }}
