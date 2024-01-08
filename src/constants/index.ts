@@ -1,4 +1,4 @@
-import { ProductI } from "~/types";
+import type { ProductI } from "~/types";
 
 export const navItems = [
   {

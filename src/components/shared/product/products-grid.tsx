@@ -1,7 +1,7 @@
 import type { ProductI } from "~/types";
 import Product from "./product-card";
 import { cn } from "~/lib/utils";
-import { HTMLAttributes } from "react";
+import type { HTMLAttributes } from "react";
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
   products: ProductI[];

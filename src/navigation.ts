@@ -1,6 +1,6 @@
 import {
   createLocalizedPathnamesNavigation,
-  Pathnames,
+  type Pathnames,
 } from "next-intl/navigation";
 
 export const locales = ["en", "es"] as const;
