@@ -1,6 +1,6 @@
 "use client";
 
-import Product from "~/components/shared/product/product";
+import Product from "~/components/shared/product/product-card";
 import {
   Carousel,
   CarouselContent,
@@ -11,41 +11,36 @@ import {
 import type { ProductI } from "~/types";
 
 export default function ProductsCarousel({
-  mainProduct,
   products,
 }: {
-  mainProduct: ProductI;
   products: ProductI[];
 }) {
   return (
     <Carousel
-      className="cursor-grab rounded-md 2xl:w-[500px]"
-      //   className="col-start-2"
+      className="mx-auto hidden w-[380px] cursor-grab rounded-md sm:w-[500px] md:w-[600px] lg:w-[700px] 2xl:block 2xl:w-[500px]"
       opts={{
         loop: true,
       }}
     >
-      <CarouselContent className="items-center">
-        {products
-          .filter((product) => product.image !== mainProduct.image)
-          .map((product) => (
-            <CarouselItem key={product.image} className="h-full">
-              <Product
-                key={product.image}
-                feature={product.system ?? product.power!}
-                href={product.href}
-                image={product.image}
-                model={product.model}
-                price={product.price}
-                productFunction={product.productFunction}
-                size={product.size}
-                isCarousel
-              />
-            </CarouselItem>
-          ))}
+      <CarouselContent className="w-full items-center">
+        {products.map((product) => (
+          <CarouselItem key={product.image} className="w-full">
+            <Product
+              key={product.image}
+              feature={product.system ?? product.power!}
+              href={product.href}
+              image={product.image}
+              model={product.model}
+              price={product.price}
+              productFunction={product.productFunction}
+              size={product.size}
+              isCarousel
+            />
+          </CarouselItem>
+        ))}
       </CarouselContent>
-      <CarouselPrevious className="h-12 w-12" />
-      <CarouselNext className="h-12 w-12" />
+      <CarouselPrevious className=" h-12 w-12" />
+      <CarouselNext className=" h-12 w-12" />
     </Carousel>
   );
 }

@@ -38,9 +38,7 @@
     "sBarPower": "240 high intensity LEDs with 15 meters range",
     "18LEDEach": "Lights with 18 LEDs each",
     "RGBLight": "RGB, ambar light and black light",
-    "25MtsRange": "25 meters range",
-    "monitor": "Monitor and media",
-    "sub": "Sub-buffer"
+    "25MtsRange": "25 meters range"
   },
   "soundPage": {
     "monitor": "Monitor and media",

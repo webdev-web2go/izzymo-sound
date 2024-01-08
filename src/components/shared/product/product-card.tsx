@@ -31,12 +31,9 @@ export default function Product({
   return (
     <article
       key={image}
-      className={cn(
-        "flex flex-col items-center gap-2 rounded-lg p-4 md:gap-0",
-        {
-          "shadow-md md:flex-row": !isCarousel,
-        },
-      )}
+      className={cn("flex flex-col items-center gap-2 rounded-lg md:gap-0", {
+        "p-4 shadow-md md:flex-row": !isCarousel,
+      })}
     >
       <Image
         src={image}
@@ -69,7 +66,7 @@ export default function Product({
             {feature.includes("watt") ? feature : t(feature)}
           </p>
         </div>
-        <footer className="mt-auto grid grid-cols-[1fr_2fr] gap-2">
+        <footer className="mt-auto grid gap-2 sm:grid-cols-[1fr_2fr]">
           <Button
             asChild
             variant="link"
@@ -84,7 +81,7 @@ export default function Product({
               Ver más &rarr;
             </Link>
           </Button>
-          <strong className="justify-self-end text-3xl font-bold text-primary">
+          <strong className="row-start-1 text-3xl font-bold text-primary sm:row-start-auto sm:justify-self-end">
             {price}
           </strong>
           <Button className="col-span-full py-6 text-xl">Reservar</Button>
