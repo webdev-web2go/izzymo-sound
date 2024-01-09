@@ -1,5 +1,7 @@
 import type { ProductI } from "~/types";
 
+export const adminEmail = "efrachaga@gmail.com";
+
 export const navItems = [
   {
     label: "mixerCardTitle",
@@ -53,7 +55,7 @@ export const mixers = [
     image: "/home/mixers/mixer1.webp",
     href: "/equipment/mixers-and-light/[model]",
     description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora repellendus nihil, voluptatibus nam fugiat sequi illum est eos iure recusandae vitae beatae deleniti dolore veniam repellat labore tempore magnam neque? Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora repellendus nihil, voluptatibus nam fugiat sequi illum est eos iure recusandae vitae beatae deleniti dolore veniam repellat labore tempore magnam neque? Lorem ipsum dolor, sit amet consectetur adipisicing elit 1.",
   },
   {
     model: "XDJ-XZ",
@@ -64,7 +66,7 @@ export const mixers = [
     image: "/home/mixers/mixer2.webp",
     href: "/equipment/mixers-and-light/[model]",
     description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora repellendus nihil, voluptatibus nam fugiat sequi illum est eos iure recusandae vitae beatae deleniti dolore veniam repellat labore tempore magnam neque? Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora repellendus nihil, voluptatibus nam fugiat sequi illum est eos iure recusandae vitae beatae deleniti dolore veniam repellat labore tempore magnam neque? Lorem ipsum dolor, sit amet consectetur adipisicing elit 2.",
   },
 ] as const;
 
@@ -78,7 +80,7 @@ export const lights = [
     image: "/home/light/light1.webp",
     href: "/equipment/mixers-and-light/[model]",
     description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora repellendus nihil, voluptatibus nam fugiat sequi illum est eos iure recusandae vitae beatae deleniti dolore veniam repellat labore tempore magnam neque? Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora repellendus nihil, voluptatibus nam fugiat sequi illum est eos iure recusandae vitae beatae deleniti dolore veniam repellat labore tempore magnam neque? Lorem ipsum dolor, sit amet consectetur adipisicing elit 3.",
   },
   {
     model: "18 LEDs",
@@ -89,7 +91,7 @@ export const lights = [
     image: "/home/light/light2.webp",
     href: "/equipment/mixers-and-light/[model]",
     description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora repellendus nihil, voluptatibus nam fugiat sequi illum est eos iure recusandae vitae beatae deleniti dolore veniam repellat labore tempore magnam neque? Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora repellendus nihil, voluptatibus nam fugiat sequi illum est eos iure recusandae vitae beatae deleniti dolore veniam repellat labore tempore magnam neque? Lorem ipsum dolor, sit amet consectetur adipisicing elit 4.",
   },
   {
     model: "Pending",
@@ -100,7 +102,7 @@ export const lights = [
     image: "/home/light/light3.webp",
     href: "/equipment/mixers-and-light/[model]",
     description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora repellendus nihil, voluptatibus nam fugiat sequi illum est eos iure recusandae vitae beatae deleniti dolore veniam repellat labore tempore magnam neque? Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora repellendus nihil, voluptatibus nam fugiat sequi illum est eos iure recusandae vitae beatae deleniti dolore veniam repellat labore tempore magnam neque? Lorem ipsum dolor, sit amet consectetur adipisicing elit5 .",
   },
 ] as const;
 
@@ -114,7 +116,7 @@ export const sound = [
     image: "/home/sound/sound2.webp",
     href: "/equipment/sound/[model]",
     description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora repellendus nihil, voluptatibus nam fugiat sequi illum est eos iure recusandae vitae beatae deleniti dolore veniam repellat labore tempore magnam neque? Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora repellendus nihil, voluptatibus nam fugiat sequi illum est eos iure recusandae vitae beatae deleniti dolore veniam repellat labore tempore magnam neque? Lorem ipsum dolor, sit amet consectetur adipisicing elit 6.",
   },
   {
     model: "ETX200",
@@ -125,7 +127,7 @@ export const sound = [
     image: "/home/sound/sound3.webp",
     href: "/equipment/sound/[model]",
     description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora repellendus nihil, voluptatibus nam fugiat sequi illum est eos iure recusandae vitae beatae deleniti dolore veniam repellat labore tempore magnam neque? Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora repellendus nihil, voluptatibus nam fugiat sequi illum est eos iure recusandae vitae beatae deleniti dolore veniam repellat labore tempore magnam neque? Lorem ipsum dolor, sit amet consectetur adipisicing elit 7.",
   },
   {
     model: "EKX200",
@@ -136,7 +138,7 @@ export const sound = [
     image: "/home/sound/sound4.webp",
     href: "/equipment/sound/[model]",
     description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora repellendus nihil, voluptatibus nam fugiat sequi illum est eos iure recusandae vitae beatae deleniti dolore veniam repellat labore tempore magnam neque? Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora repellendus nihil, voluptatibus nam fugiat sequi illum est eos iure recusandae vitae beatae deleniti dolore veniam repellat labore tempore magnam neque? Lorem ipsum dolor, sit amet consectetur adipisicing elit 8.",
   },
   {
     model: "ELX200",
@@ -147,7 +149,7 @@ export const sound = [
     image: "/home/sound/sound1.webp",
     href: "/equipment/sound/[model]",
     description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora repellendus nihil, voluptatibus nam fugiat sequi illum est eos iure recusandae vitae beatae deleniti dolore veniam repellat labore tempore magnam neque? Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora repellendus nihil, voluptatibus nam fugiat sequi illum est eos iure recusandae vitae beatae deleniti dolore veniam repellat labore tempore magnam neque? Lorem ipsum dolor, sit amet consectetur adipisicing elit 9.",
   },
   {
     model: "EKX200",
@@ -158,7 +160,7 @@ export const sound = [
     image: "/home/sound/sound5.webp",
     href: "/equipment/sound/[model]",
     description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora repellendus nihil, voluptatibus nam fugiat sequi illum est eos iure recusandae vitae beatae deleniti dolore veniam repellat labore tempore magnam neque? Lorem ipsum dolor, sit amet consectetur adipisicing elit.",
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora repellendus nihil, voluptatibus nam fugiat sequi illum est eos iure recusandae vitae beatae deleniti dolore veniam repellat labore tempore magnam neque? Lorem ipsum dolor, sit amet consectetur adipisicing elit 10.",
   },
 ] as const;
 

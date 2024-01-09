@@ -4,6 +4,8 @@ import {
   type DefaultSession,
   type NextAuthOptions,
 } from "next-auth";
+import Email from "next-auth/providers/email";
+import { env } from "~/env";
 
 import { db } from "~/server/db";
 import { mysqlTable } from "~/server/db/schema";
@@ -55,7 +57,22 @@ export const authOptions: NextAuthOptions = {
      *
      * @see https://next-auth.js.org/providers/github
      */
+    Email({
+      server: {
+        host: env.SMTP_HOST,
+        port: Number(env.SMTP_PORT),
+        auth: {
+          user: env.SMTP_USER,
+          pass: env.SMTP_PASSWORD,
+        },
+      },
+      from: env.EMAIL_FROM,
+    }),
   ],
+  pages: {
+    signIn: "/login",
+    verifyRequest: "/login/verificar-correo",
+  },
 };
 
 /**

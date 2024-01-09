@@ -8,11 +8,7 @@ export default function SoundDetailPage({
 }) {
   return (
     <main>
-      <ProductPage
-        pageName="soundPage"
-        params={params}
-        products={soundProducts}
-      />
+      <ProductPage params={params} products={soundProducts} />
     </main>
   );
 }

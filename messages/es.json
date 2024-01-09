@@ -27,9 +27,7 @@
     "size": "Medidas",
     "function": "Función",
     "system": "Sistema",
-    "power": "Potencia"
-  },
-  "mixersAndLightsPage": {
+    "power": "Potencia",
     "model": "Modelo",
     "2ChannelFunction": "2 canales",
     "4ChannelFunction": "4 canales",
@@ -38,9 +36,7 @@
     "sBarPower": "240 LED de alta intensidad con 15 metros de alcance",
     "18LEDEach": "Luces con 18 LED cada una",
     "RGBLight": "RGB, luz ámbar y luz negra",
-    "25MtsRange": "25 metros de alcance"
-  },
-  "soundPage": {
+    "25MtsRange": "25 metros de alcance",
     "monitor": "Monitor y medios",
     "sub": "Sub buffer"
   }

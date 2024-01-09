@@ -11,18 +11,16 @@ import type { ProductI } from "~/types";
 
 interface Props {
   products: ProductI[];
-  pageName: string;
   params: { locale: string; model: string };
 }
 
-export default function ProductPage({ products, pageName, params }: Props) {
-  const t = useTranslations(pageName);
+export default function ProductPage({ products, params }: Props) {
+  const t = useTranslations("equipmentFeatures");
   const messages = useMessages();
 
   const mainProduct = products.find(
     (product) =>
-      product.model + t(product.productFunction) ===
-      decodeURIComponent(params.model),
+      `${product.model} ${product.size}` === decodeURIComponent(params.model),
   )!;
 
   const restOfProducts = products.filter(

@@ -4,6 +4,8 @@ import { Inter } from "next/font/google";
 import Nav from "~/components/shared/nav/nav";
 import { locales } from "~/navigation";
 import { unstable_setRequestLocale } from "next-intl/server";
+import { getServerAuthSession } from "~/server/auth";
+import SessionProvider from "~/components/session-provider/session-provider";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -20,7 +22,7 @@ export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
 }
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
   params: { locale },
 }: {
@@ -29,13 +31,17 @@ export default function RootLayout({
 }) {
   unstable_setRequestLocale(locale);
 
+  const session = await getServerAuthSession();
+
   return (
     <html lang={locale}>
       <body
         className={`font-sans ${inter.variable} bg-white bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px]`}
       >
-        <Nav />
-        {children}
+        <SessionProvider session={session}>
+          <Nav />
+          {children}
+        </SessionProvider>
       </body>
     </html>
   );

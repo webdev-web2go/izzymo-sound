@@ -8,11 +8,7 @@ export default function MixerAndLightDetailPage({
 }) {
   return (
     <main>
-      <ProductPage
-        pageName="mixersAndLightsPage"
-        params={params}
-        products={mixerAndLightProducts}
-      />
+      <ProductPage params={params} products={mixerAndLightProducts} />
     </main>
   );
 }

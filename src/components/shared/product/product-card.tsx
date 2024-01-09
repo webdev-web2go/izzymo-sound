@@ -26,7 +26,7 @@ export default function Product({
   isCarousel,
 }: ProductCard) {
   const tEquipment = useTranslations("equipmentFeatures");
-  const t = useTranslations("mixersAndLightsPage");
+  const t = useTranslations("equipmentFeatures");
 
   return (
     <article
@@ -75,7 +75,7 @@ export default function Product({
             <Link
               href={{
                 pathname: href,
-                params: { model: model + t(productFunction) },
+                params: { model: `${model} ${size}` },
               }}
             >
               Ver más &rarr;

@@ -50,6 +50,7 @@
     "drizzle-kit": "^0.19.3",
     "eslint": "^8.54.0",
     "mysql2": "^3.6.1",
+    "nodemailer": "^6.9.8",
     "postcss": "^8.4.31",
     "prettier": "^3.1.0",
     "prettier-plugin-tailwindcss": "^0.5.7",

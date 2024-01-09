@@ -11,6 +11,7 @@ export const localePrefix = "always";
 
 export const pathnames = {
   "/": "/",
+  "/login": "/login",
   "/equipment/mixers-and-light": {
     en: "/equipment/mixers-and-light",
     es: "/equipos/mezcladoras-e-iluminacion",

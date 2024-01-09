@@ -11,3 +11,10 @@ export interface ProductI {
   description: string;
   href: keyof typeof pathnames;
 }
+
+export interface FormState {
+  email: string;
+  errors: {
+    email: string;
+  };
+}
