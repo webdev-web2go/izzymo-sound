@@ -4,10 +4,12 @@ import { signIn } from "next-auth/react";
 import { Button } from "~/components/ui/button";
 import { Input } from "~/components/ui/input";
 import type { FormState } from "~/types";
-import { FormEvent, useState } from "react";
+import { type FormEvent, useState } from "react";
 import { adminEmail } from "~/constants";
+import SubmitButton from "./submit-button";
 
 export default function LoginPage() {
+  const [loading, setLoading] = useState(false);
   const [formState, setFormState] = useState<FormState>({
     email: "",
     errors: {
@@ -37,10 +39,14 @@ export default function LoginPage() {
 
     setFormState({ email: "", errors });
 
+    setLoading(true);
+
     signIn("email", {
       email: formState.email,
       callbackUrl: "/admin",
-    });
+    })
+      .then(() => setLoading(false))
+      .catch((e) => console.error(e));
   };
 
   return (
@@ -68,7 +74,7 @@ export default function LoginPage() {
             <p className="text-sm text-destructive">{formState.errors.email}</p>
           )}
         </label>
-        <Button className="w-full">Iniciar sesión</Button>
+        <SubmitButton loading={loading} />
       </form>
     </main>
   );
