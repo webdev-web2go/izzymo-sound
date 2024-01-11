@@ -3,11 +3,14 @@ import Image from "next/image";
 import { Button } from "~/components/ui/button";
 import { cn } from "~/lib/utils";
 import { Link, type pathnames } from "~/navigation";
+import AvailabilityBadge from "./availability-badge";
+import { Suspense } from "react";
 
 interface ProductCard {
   model: string;
   size: string;
   productFunction: string;
+  productFunctionNoTranslate: string;
   feature: string;
   price: string;
   image: string;
@@ -19,6 +22,7 @@ export default function Product({
   image,
   size,
   productFunction,
+  productFunctionNoTranslate,
   feature,
   price,
   href,
@@ -27,6 +31,7 @@ export default function Product({
 }: ProductCard) {
   const tEquipment = useTranslations("equipmentFeatures");
   const t = useTranslations("equipmentFeatures");
+  const isLightingProduct = image.includes("light");
 
   return (
     <article
@@ -47,6 +52,13 @@ export default function Product({
       />
       <div className="flex w-full flex-col gap-6 px-4 text-lg text-muted-foreground antialiased">
         <header className="flex flex-col gap-1">
+          <Suspense fallback={<AvailabilityBadgeLoader />}>
+            <AvailabilityBadge
+              isLightingProduct={isLightingProduct}
+              model={model}
+              productFunction={productFunctionNoTranslate}
+            />
+          </Suspense>
           <p>
             <span className="font-semibold">{t("model")}:</span> {model}
           </p>
@@ -88,5 +100,14 @@ export default function Product({
         </footer>
       </div>
     </article>
+  );
+}
+
+function AvailabilityBadgeLoader() {
+  return (
+    <span
+      aria-hidden={true}
+      className="h-[30px] w-28 animate-pulse self-end rounded-full bg-slate-300"
+    />
   );
 }
