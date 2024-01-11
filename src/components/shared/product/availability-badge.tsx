@@ -32,7 +32,7 @@ export default async function AvailabilityBadge({
 
   return (
     <Badge
-      className={cn("self-end text-base", {
+      className={cn("pointer-events-none self-end text-base", {
         "bg-muted-foreground": !!event,
       })}
     >
