@@ -33,6 +33,7 @@ export default function ProductsCarousel({
               model={product.model}
               price={product.price}
               productFunction={product.productFunction}
+              productFunctionNoTranslate={product.productFunctionNoTranslate}
               size={product.size}
               isCarousel
             />
