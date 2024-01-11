@@ -18,3 +18,11 @@ export interface FormState {
     email: string;
   };
 }
+
+export interface Event {
+  id: string;
+  title: string;
+  start: Date;
+  end: Date;
+  allDay: boolean;
+}
