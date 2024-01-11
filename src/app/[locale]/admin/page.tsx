@@ -1,50 +1,70 @@
+import { NextIntlClientProvider } from "next-intl";
+import { getMessages } from "next-intl/server";
+import Calendar from "~/components/calendar/calendar";
 import { Button } from "~/components/ui/button";
+import { adminEmail } from "~/constants";
 import { Link } from "~/navigation";
 import { getServerAuthSession } from "~/server/auth";
+import { db } from "~/server/db";
+import { Event } from "~/types";
 
 export default async function AdminPage() {
   const session = await getServerAuthSession();
+  const messages = await getMessages();
+  const events = await db.query.events.findMany({
+    columns: {
+      id: true,
+      title: true,
+      start: true,
+      end: true,
+      allDay: true,
+    },
+  });
 
   if (!session) {
-    return (
-      <main className="flex min-h-screen flex-col items-center justify-center gap-2 px-4 text-center text-muted-foreground antialiased">
-        <h1 className="text-3xl font-bold text-primary">
-          Ésta es una página privada
-        </h1>
-        <p className="text-lg font-semibold">
-          <Button asChild variant="link" className="p-0 text-lg">
-            <Link href="/login">Inicia sesión</Link>
-          </Button>{" "}
-          para continuar
-        </p>
-      </main>
-    );
+    return <NoSession />;
   }
 
-  if (session.user.email !== "efrachaga@gmail.com") {
-    return (
-      <main className="flex min-h-screen flex-col items-center justify-center gap-2 px-4 text-center text-muted-foreground antialiased">
-        <h1 className="text-3xl font-bold text-primary">
-          No estás autorizado para entrar a ésta página
-        </h1>
-        <p className="text-lg font-semibold">
-          <Button asChild variant="link" className="p-0 text-lg">
-            <Link href="/">Vuelve al inicio</Link>
-          </Button>{" "}
-          ó utiliza la barra de navegación
-        </p>
-      </main>
-    );
+  if (session.user.email !== adminEmail) {
+    return <NotAuthorized />;
   }
 
   return (
+    <main className="mx-auto flex max-w-5xl items-center justify-center gap-2 px-4 text-center text-muted-foreground antialiased">
+      <NextIntlClientProvider messages={messages}>
+        <Calendar events={events as (Event & { id: string })[]} />
+      </NextIntlClientProvider>
+    </main>
+  );
+}
+
+function NoSession() {
+  return (
     <main className="flex min-h-screen flex-col items-center justify-center gap-2 px-4 text-center text-muted-foreground antialiased">
-      <h1 className="text-3xl font-bold text-primary">Bienvenido admin</h1>
+      <h1 className="text-3xl font-bold text-primary">
+        Ésta es una página privada
+      </h1>
       <p className="text-lg font-semibold">
-        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quisquam
-        delectus dicta, corrupti quas fuga obcaecati dignissimos alias,
-        doloremque nam vitae aliquid eligendi quam, animi sed. Fugiat quos
-        obcaecati recusandae laboriosam.
+        <Button asChild variant="link" className="p-0 text-lg">
+          <Link href="/login">Inicia sesión</Link>
+        </Button>{" "}
+        para continuar
+      </p>
+    </main>
+  );
+}
+
+function NotAuthorized() {
+  return (
+    <main className="flex min-h-screen flex-col items-center justify-center gap-2 px-4 text-center text-muted-foreground antialiased">
+      <h1 className="text-3xl font-bold text-primary">
+        No estás autorizado para entrar a ésta página
+      </h1>
+      <p className="text-lg font-semibold">
+        <Button asChild variant="link" className="p-0 text-lg">
+          <Link href="/">Vuelve al inicio</Link>
+        </Button>{" "}
+        ó utiliza la barra de navegación
       </p>
     </main>
   );
