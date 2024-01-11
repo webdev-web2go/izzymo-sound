@@ -6,10 +6,10 @@ import {
 } from "~/components/ui/dialog";
 import { lights, mixers, sound } from "~/constants";
 import { Button } from "~/components/ui/button";
-import { createEventAction } from "~/app/[locale]/admin/event-actions";
+import { createEventAction } from "~/components/calendar/event-actions";
 import { Input } from "~/components/ui/input";
 import { useTranslations } from "next-intl";
-import { Dispatch, SetStateAction } from "react";
+import type { Dispatch, SetStateAction } from "react";
 
 interface Props {
   open: boolean;

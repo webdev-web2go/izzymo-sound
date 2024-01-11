@@ -6,7 +6,7 @@ import { adminEmail } from "~/constants";
 import { Link } from "~/navigation";
 import { getServerAuthSession } from "~/server/auth";
 import { db } from "~/server/db";
-import { Event } from "~/types";
+import type { Event } from "~/types";
 
 export default async function AdminPage() {
   const session = await getServerAuthSession();
@@ -30,7 +30,7 @@ export default async function AdminPage() {
   }
 
   return (
-    <main className="mx-auto flex max-w-5xl items-center justify-center gap-2 px-4 text-center text-muted-foreground antialiased">
+    <main className="mx-auto flex min-h-screen max-w-5xl items-center justify-center px-4 text-center text-muted-foreground antialiased">
       <NextIntlClientProvider messages={messages}>
         <Calendar events={events as (Event & { id: string })[]} />
       </NextIntlClientProvider>

@@ -1,7 +1,6 @@
 "use client";
 
 import { signIn } from "next-auth/react";
-import { Button } from "~/components/ui/button";
 import { Input } from "~/components/ui/input";
 import type { FormState } from "~/types";
 import { type FormEvent, useState } from "react";

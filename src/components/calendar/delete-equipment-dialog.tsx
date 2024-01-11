@@ -1,4 +1,4 @@
-import { Dispatch, SetStateAction } from "react";
+import type { Dispatch, SetStateAction } from "react";
 import {
   Dialog,
   DialogContent,
@@ -7,8 +7,8 @@ import {
   DialogTitle,
 } from "~/components/ui/dialog";
 import { Button } from "~/components/ui/button";
-import { Event } from "~/types";
-import { deleteEventAction } from "~/app/[locale]/admin/event-actions";
+import type { Event } from "~/types";
+import { deleteEventAction } from "~/components/calendar/event-actions";
 
 interface Props {
   open: boolean;

@@ -3,10 +3,10 @@ import FullCalendar from "@fullcalendar/react";
 import dayGridPlugin from "@fullcalendar/daygrid";
 import interactionPlugin from "@fullcalendar/interaction";
 import { useState } from "react";
-import { updateEventAction } from "~/app/[locale]/admin/event-actions";
+import { updateEventAction } from "~/components/calendar/event-actions";
 import ChooseEquipmentDialog from "./choose-equipment-dialog";
 import DeleteEquipmentDialog from "./delete-equipment-dialog";
-import { Event } from "~/types";
+import type { Event } from "~/types";
 
 interface Props {
   events: (Event & { id: string })[];
@@ -20,7 +20,7 @@ export default function Calendar({ events }: Props) {
   const [endDate, setEndDate] = useState<Date | null>(null);
 
   return (
-    <div className="mt-28 aspect-square w-full">
+    <div className="aspect-square h-[600px] w-full md:mt-28 md:h-full">
       <FullCalendar
         plugins={[dayGridPlugin, interactionPlugin]}
         dateClick={(e) => {
@@ -33,7 +33,7 @@ export default function Calendar({ events }: Props) {
         events={events}
         eventResize={async (e) => {
           if (
-            e.event.end?.setHours(0, 0, 0, 0)! <
+            (e.event.end?.setHours(0, 0, 0, 0) as number) <
             new Date().setHours(0, 0, 0, 0) + 24 * 60 * 60 * 1000
           ) {
             e.revert();
@@ -46,7 +46,10 @@ export default function Calendar({ events }: Props) {
           setEventToDelete(e.event as Event);
           setOpenDelete(true);
         }}
-        nowIndicator={true}
+        // nowIndicator={true}
+        headerToolbar={{
+          end: "prev,next",
+        }}
         editable={true}
         selectable={true}
         height="100%"
