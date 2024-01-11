@@ -2,7 +2,7 @@ import { relations, sql } from "drizzle-orm";
 import {
   bigint,
   boolean,
-  datetime,
+  date,
   index,
   int,
   mysqlTableCreator,
@@ -26,14 +26,15 @@ export const events = mysqlTable(
   {
     id: bigint("id", { mode: "number" }).primaryKey().autoincrement(),
     title: varchar("title", { length: 256 }).notNull(),
-    start: datetime("start").notNull(),
-    allDay: boolean("all_day").default(true),
+    start: date("start").notNull(),
+    end: date("end").notNull(),
+    allDay: boolean("all_day").notNull().default(true),
     createdAt: timestamp("created_at")
       .default(sql`CURRENT_TIMESTAMP`)
       .notNull(),
   },
-  (example) => ({
-    nameIndex: index("name_idx").on(example.title),
+  (table) => ({
+    titleIndex: index("title_idx").on(table.title),
   }),
 );
 
