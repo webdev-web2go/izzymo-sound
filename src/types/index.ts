@@ -20,7 +20,7 @@ export interface FormState {
 }
 
 export interface Event {
-  id: string;
+  id: string | number;
   title: string;
   start: Date;
   end: Date;
