@@ -1,7 +1,7 @@
 import type { ProductI } from "~/types";
 import Product from "./product-card";
 import { cn } from "~/lib/utils";
-import type { HTMLAttributes } from "react";
+import { type HTMLAttributes } from "react";
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
   products: ProductI[];
@@ -16,6 +16,7 @@ export default function ProductsGrid({ products, className }: Props) {
           model={product.model}
           size={product.size}
           productFunction={product.productFunction}
+          productFunctionNoTranslate={product.productFunctionNoTranslate}
           feature={product.system ?? product.power!}
           price={product.price}
           href={product.href}
