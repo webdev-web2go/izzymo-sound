@@ -4,6 +4,7 @@ export interface ProductI {
   model: string;
   size: string;
   productFunction: string;
+  productFunctionNoTranslate: string;
   system?: string;
   power?: string;
   price: string;
