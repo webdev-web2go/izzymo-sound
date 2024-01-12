@@ -1,9 +1,11 @@
-import { useTranslations } from "next-intl";
+import { useMessages, useTranslations } from "next-intl";
 import Image from "next/image";
 import { Button } from "~/components/ui/button";
 import { cn } from "~/lib/utils";
 import { Link, type pathnames } from "~/navigation";
-import AvailabilityBadge from "./availability-badge";
+import AvailabilityBadge, {
+  AvailabilityBadgeSkeleton,
+} from "./availability-badge";
 import { Suspense } from "react";
 
 interface ProductCard {
@@ -29,8 +31,9 @@ export default function Product({
   model,
   isCarousel,
 }: ProductCard) {
-  const tEquipment = useTranslations("equipmentFeatures");
   const t = useTranslations("equipmentFeatures");
+  const tHome = useTranslations("home");
+  const messages = useMessages();
   const isLightingProduct = image.includes("light");
 
   return (
@@ -52,7 +55,7 @@ export default function Product({
       />
       <div className="flex w-full flex-col gap-6 px-4 text-lg text-muted-foreground antialiased">
         <header className="flex flex-col gap-1">
-          <Suspense fallback={<AvailabilityBadgeLoader />}>
+          <Suspense fallback={<AvailabilityBadgeSkeleton />}>
             <AvailabilityBadge
               isLightingProduct={isLightingProduct}
               model={model}
@@ -63,17 +66,17 @@ export default function Product({
             <span className="font-semibold">{t("model")}:</span> {model}
           </p>
           <p>
-            <span className="font-semibold">{tEquipment("size")}:</span> {size}
+            <span className="font-semibold">{t("size")}:</span> {size}
           </p>
         </header>
         <div className="flex flex-col gap-1">
           <p>
-            <span className="font-semibold">{tEquipment("function")}:</span>{" "}
+            <span className="font-semibold">{t("function")}:</span>{" "}
             {t(productFunction)}
           </p>
           <p>
             <span className="font-semibold">
-              {tEquipment(image.includes("mixer") ? "system" : "power")}:
+              {t(image.includes("mixer") ? "system" : "power")}:
             </span>{" "}
             {feature.includes("watt") ? feature : t(feature)}
           </p>
@@ -90,24 +93,17 @@ export default function Product({
                 params: { model: `${model} ${size}` },
               }}
             >
-              Ver más &rarr;
+              {tHome("seeMore")} &rarr;
             </Link>
           </Button>
           <strong className="row-start-1 text-3xl font-bold text-primary sm:row-start-auto sm:justify-self-end">
             {price}
           </strong>
-          <Button className="col-span-full py-6 text-xl">Reservar</Button>
+          <Button className="col-span-full py-6 text-xl">
+            {tHome("reserve")}
+          </Button>
         </footer>
       </div>
     </article>
-  );
-}
-
-function AvailabilityBadgeLoader() {
-  return (
-    <span
-      aria-hidden={true}
-      className="h-[30px] w-28 animate-pulse self-end rounded-full bg-slate-300"
-    />
   );
 }
