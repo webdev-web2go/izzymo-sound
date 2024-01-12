@@ -21,7 +21,14 @@
     "equipmentCardTitle": "Packages",
     "equipmentCardDescription": "Choose the package that best suits your social event",
     "favorite": "Favorite",
-    "equipment": "equipment-for-rent"
+    "equipment": "equipment-for-rent",
+    "seeDates": "See availability",
+    "reserved": "Reserved equipment",
+    "clickTag": "Click on the tag to see the item",
+    "reserve": "Reserve",
+    "seeMore": "See more",
+    "available": "Available",
+    "notAvailable": "Unavailable"
   },
   "equipmentFeatures": {
     "size": "Size",

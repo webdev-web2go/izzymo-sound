@@ -21,7 +21,14 @@
     "equipmentCardTitle": "Paquetes",
     "equipmentCardDescription": "Escoge el paquete que mejor se acomode a tu evento social",
     "favorite": "Favorito",
-    "equipment": "equipos-en-renta"
+    "equipment": "equipos-en-renta",
+    "seeDates": "Consultar disponibilidad",
+    "reserved": "Equipos reservados",
+    "clickTag": "Da click a la etiqueta para visualizar el artículo",
+    "reserve": "Reservar",
+    "seeMore": "Ver más",
+    "available": "Disponible",
+    "notAvailable": "No disponible"
   },
   "equipmentFeatures": {
     "size": "Medidas",
