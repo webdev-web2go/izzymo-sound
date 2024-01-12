@@ -18,6 +18,7 @@ interface Props {
 
 export default function ProductPage({ products, params }: Props) {
   const t = useTranslations("equipmentFeatures");
+  const tHome = useTranslations("home");
   const messages = useMessages();
 
   const mainProduct = products.find(
@@ -39,7 +40,7 @@ export default function ProductPage({ products, params }: Props) {
           <ProductDetail mainProduct={mainProduct} t={t} />
           <div className="w-full">
             <h2 className="mb-4 text-balance text-4xl font-bold tracking-tight text-primary sm:text-5xl">
-              También podría interesarte
+              {tHome("interest")}
             </h2>
             <ProductsGrid
               products={restOfProducts}
@@ -47,7 +48,7 @@ export default function ProductPage({ products, params }: Props) {
             />
             <NextIntlClientProvider messages={messages}>
               <ProductsCarousel>
-                {products.map((product) => (
+                {restOfProducts.map((product) => (
                   <CarouselItemWrapper key={product.image} className="w-full">
                     <Product
                       key={product.image}
