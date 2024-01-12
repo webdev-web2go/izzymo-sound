@@ -15,7 +15,7 @@ import { useLocale, useTranslations } from "next-intl";
 interface Props {
   events: (Event & { id: string })[];
   isModal?: boolean;
-  setProduct: Dispatch<SetStateAction<ProductI | null>>;
+  setProduct?: Dispatch<SetStateAction<ProductI | null>>;
 }
 
 export default function Calendar({ events, isModal, setProduct }: Props) {
@@ -70,7 +70,7 @@ export default function Calendar({ events, isModal, setProduct }: Props) {
                 `${product.model} ${product.productFunctionNoTranslate}` ===
                   e.event.title,
             );
-            setProduct(productToShow as ProductI);
+            if (setProduct) setProduct(productToShow as ProductI);
           }
         }}
         headerToolbar={{
