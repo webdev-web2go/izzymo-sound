@@ -1,6 +1,6 @@
 "use client";
 
-import Product from "~/components/shared/product/product-card";
+import { PropsWithChildren } from "react";
 import {
   Carousel,
   CarouselContent,
@@ -8,13 +8,8 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "~/components/ui/carousel";
-import type { ProductI } from "~/types";
 
-export default function ProductsCarousel({
-  products,
-}: {
-  products: ProductI[];
-}) {
+export default function ProductsCarousel({ children }: PropsWithChildren) {
   return (
     <Carousel
       className="mx-auto hidden w-[380px] cursor-grab rounded-md sm:w-[500px] md:w-[600px] lg:w-[700px] 2xl:block 2xl:w-[500px]"
@@ -23,22 +18,7 @@ export default function ProductsCarousel({
       }}
     >
       <CarouselContent className="w-full items-center">
-        {products.map((product) => (
-          <CarouselItem key={product.image} className="w-full">
-            <Product
-              key={product.image}
-              feature={product.system ?? product.power!}
-              href={product.href}
-              image={product.image}
-              model={product.model}
-              price={product.price}
-              productFunction={product.productFunction}
-              productFunctionNoTranslate={product.productFunctionNoTranslate}
-              size={product.size}
-              isCarousel
-            />
-          </CarouselItem>
-        ))}
+        {children}
       </CarouselContent>
       <CarouselPrevious className=" h-12 w-12" />
       <CarouselNext className=" h-12 w-12" />

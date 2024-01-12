@@ -3,11 +3,13 @@ import {
   useMessages,
   useTranslations,
 } from "next-intl";
-import MainBanner from "../main-banner/main-banner";
-import ProductDetail from "../product/product-detail";
-import ProductsGrid from "../product/products-grid";
-import ProductsCarousel from "../product/products-carousel";
+import MainBanner from "~/components/shared/main-banner/main-banner";
+import ProductDetail from "~/components/shared/product/product-detail";
+import ProductsGrid from "~/components/shared/product/products-grid";
+import ProductsCarousel from "~/components/shared/product/products-carousel";
 import type { ProductI } from "~/types";
+import Product from "~/components/shared/product/product-card";
+import CarouselItemWrapper from "../product/carousel-item-wrapper";
 
 interface Props {
   products: ProductI[];
@@ -29,7 +31,7 @@ export default function ProductPage({ products, params }: Props) {
 
   return (
     <>
-      <section className="relative flex h-96 items-end bg-[url('/home/mixers/mixer_card.webp')] bg-cover bg-center p-4 sm:bg-bottom">
+      <section className="relative flex h-96 items-end justify-between bg-[url('/home/mixers/mixer_card.webp')] bg-cover bg-center p-4 sm:bg-bottom">
         <MainBanner translation="mixerCardTitle" />
       </section>
       <section>
@@ -44,7 +46,26 @@ export default function ProductPage({ products, params }: Props) {
               className="p-0 2xl:hidden"
             />
             <NextIntlClientProvider messages={messages}>
-              <ProductsCarousel products={restOfProducts} />
+              <ProductsCarousel>
+                {products.map((product) => (
+                  <CarouselItemWrapper key={product.image} className="w-full">
+                    <Product
+                      key={product.image}
+                      feature={product.system ?? product.power!}
+                      href={product.href}
+                      image={product.image}
+                      model={product.model}
+                      price={product.price}
+                      productFunction={product.productFunction}
+                      productFunctionNoTranslate={
+                        product.productFunctionNoTranslate
+                      }
+                      size={product.size}
+                      isCarousel
+                    />
+                  </CarouselItemWrapper>
+                ))}
+              </ProductsCarousel>
             </NextIntlClientProvider>
           </div>
         </div>
