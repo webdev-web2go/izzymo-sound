@@ -40,7 +40,7 @@ export default function Calendar({ events, isModal, setProduct }: Props) {
         locale={locale}
         dateClick={(e) => {
           if (session.status === "unauthenticated") return;
-          if (e.date.getTime() >= new Date().setHours(0, 0, 0, 0)) {
+          if (e.date.getTime() >= new Date().setHours(0, 0, 0, 0) && !isModal) {
             setOpenReservation(true);
             setStartDate(e.date.toISOString().split("T")[0]!);
             setEndDate(e.date);
