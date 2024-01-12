@@ -5,6 +5,14 @@ import { revalidatePath } from "next/cache";
 import { db } from "~/server/db";
 import { events } from "~/server/db/schema";
 
+export async function getEventsAction() {
+  try {
+    return await db.query.events.findMany();
+  } catch (error) {
+    console.log(error);
+  }
+}
+
 export async function createEventAction(formData: FormData) {
   const title = formData.get("product") as string;
   const startDateStr = formData.get("date") as string;
