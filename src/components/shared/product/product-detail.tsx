@@ -1,7 +1,11 @@
 import { useTranslations } from "next-intl";
 import Image from "next/image";
+import { Suspense } from "react";
 import { Button } from "~/components/ui/button";
 import type { ProductI } from "~/types";
+import AvailabilityBadge, {
+  AvailabilityBadgeSkeleton,
+} from "./availability-badge";
 
 interface Props {
   mainProduct: ProductI;
@@ -10,6 +14,7 @@ interface Props {
 
 export default function ProductDetail({ mainProduct, t }: Props) {
   const tEquipment = useTranslations("equipmentFeatures");
+  const isLightingProduct = mainProduct.image.includes("light");
 
   return (
     <article className="flex flex-col items-center justify-center gap-4 lg:flex-row 2xl:flex-col">
@@ -21,7 +26,18 @@ export default function ProductDetail({ mainProduct, t }: Props) {
       />
       <div className="flex flex-col gap-4 text-lg text-muted-foreground antialiased">
         <header className="flex flex-col gap-2">
-          <strong className="text-5xl text-primary">{mainProduct.price}</strong>
+          <div className="flex items-center justify-between">
+            <strong className="text-5xl text-primary">
+              {mainProduct.price}
+            </strong>
+            <Suspense fallback={<AvailabilityBadgeSkeleton />}>
+              <AvailabilityBadge
+                isLightingProduct={isLightingProduct}
+                model={mainProduct.model}
+                productFunction={mainProduct.productFunctionNoTranslate}
+              />
+            </Suspense>
+          </div>
           <div className="flex flex-col gap-4 2xl:flex-row">
             <div>
               <p className="flex gap-2">
