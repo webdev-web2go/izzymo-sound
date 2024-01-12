@@ -33,7 +33,6 @@ export default function Product({
 }: ProductCard) {
   const t = useTranslations("equipmentFeatures");
   const tHome = useTranslations("home");
-  const messages = useMessages();
   const isLightingProduct = image.includes("light");
 
   return (
