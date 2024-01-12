@@ -28,7 +28,9 @@
     "reserve": "Reserve",
     "seeMore": "See more",
     "available": "Available",
-    "notAvailable": "Unavailable"
+    "notAvailable": "Unavailable",
+    "interest": "These could also be of your interest",
+    "language": "Language"
   },
   "equipmentFeatures": {
     "size": "Size",
