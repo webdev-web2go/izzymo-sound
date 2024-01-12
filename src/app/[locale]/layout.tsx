@@ -3,9 +3,10 @@ import "~/styles/globals.css";
 import { Inter } from "next/font/google";
 import Nav from "~/components/shared/nav/nav";
 import { locales } from "~/navigation";
-import { unstable_setRequestLocale } from "next-intl/server";
+import { getMessages, unstable_setRequestLocale } from "next-intl/server";
 import { getServerAuthSession } from "~/server/auth";
 import SessionProvider from "~/components/session-provider/session-provider";
+import { NextIntlClientProvider } from "next-intl";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -32,6 +33,7 @@ export default async function RootLayout({
   unstable_setRequestLocale(locale);
 
   const session = await getServerAuthSession();
+  const messages = await getMessages();
 
   return (
     <html lang={locale}>
@@ -39,7 +41,9 @@ export default async function RootLayout({
         className={`font-sans ${inter.variable} bg-white bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px]`}
       >
         <SessionProvider session={session}>
-          <Nav />
+          <NextIntlClientProvider messages={messages}>
+            <Nav />
+          </NextIntlClientProvider>
           {children}
         </SessionProvider>
       </body>
