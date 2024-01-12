@@ -7,6 +7,7 @@ import NavBackground from "./nav-background";
 import { useTranslations } from "next-intl";
 import { useEffect, useState } from "react";
 import { cn } from "~/lib/utils";
+import SelectLanguage from "./select-language";
 
 export default function NavMobile() {
   const t = useTranslations("home");
@@ -45,6 +46,8 @@ export default function NavMobile() {
             {t(label)}
           </Link>
         ))}
+        <SelectLanguage placeholder={t("language")} />
+
         <NavBackground />
       </div>
     </>

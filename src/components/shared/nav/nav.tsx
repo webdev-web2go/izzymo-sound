@@ -8,6 +8,7 @@ import NavBackground from "./nav-background";
 import NavMobile from "./nav-mobile";
 import { useState } from "react";
 import { cn } from "~/lib/utils";
+import SelectLanguage from "./select-language";
 
 export default function Nav() {
   const t = useTranslations("home");
@@ -56,6 +57,9 @@ export default function Nav() {
             />
           </Link>
         ))}
+        <li>
+          <SelectLanguage placeholder={t("language")} />
+        </li>
       </ul>
     </nav>
   );
