@@ -16,6 +16,10 @@ html {
   overflow: hidden;
 }
 
+.fc-daygrid-event-harness {
+  cursor: pointer;
+}
+
 @layer base {
   :root {
     --background: 0 0% 100%;
