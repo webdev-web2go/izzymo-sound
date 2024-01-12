@@ -26,6 +26,7 @@ export default function CalendarModal({ children }: PropsWithChildren) {
     setLoading(true);
     getEventsAction()
       .then((events) => setEvents(events ?? []))
+      .catch((e) => console.log(e))
       .finally(() => setLoading(false));
   }, []);
 
