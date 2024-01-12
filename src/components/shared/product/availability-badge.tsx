@@ -1,4 +1,5 @@
 import { and, eq, ne } from "drizzle-orm";
+import { useTranslations } from "next-intl";
 import { Badge } from "~/components/ui/badge";
 import { cn } from "~/lib/utils";
 import { db } from "~/server/db";
@@ -15,6 +16,7 @@ export default async function AvailabilityBadge({
   productFunction,
   isLightingProduct,
 }: Props) {
+  const t = useTranslations("home");
   const todayEnding = new Date(
     new Date(new Date().setDate(new Date().getDate() + 1))
       .toISOString()
@@ -36,7 +38,16 @@ export default async function AvailabilityBadge({
         "bg-muted-foreground": !!event,
       })}
     >
-      {event ? "No disponible" : "Disponible"}
+      {event ? t("notAvailable") : t("available")}
     </Badge>
+  );
+}
+
+export function AvailabilityBadgeSkeleton() {
+  return (
+    <span
+      aria-hidden={true}
+      className="h-[30px] w-28 animate-pulse self-end rounded-full bg-slate-300"
+    />
   );
 }
