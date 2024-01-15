@@ -33,8 +33,8 @@ export default function UserCalendar() {
         {!!product && (
           <div>
             <Image
-              src={product?.image as string}
-              alt={`${product?.model} ${product?.productFunction}`}
+              src={product.image}
+              alt={`${product.model} ${product.productFunction}`}
               width={300}
               height={300}
               className="h-auto w-full"
