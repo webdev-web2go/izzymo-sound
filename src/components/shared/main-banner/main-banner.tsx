@@ -3,7 +3,7 @@ import {
   useMessages,
   useTranslations,
 } from "next-intl";
-import CalendarModal from "~/components/calendar/calendar-modal";
+import CalendarButton from "./calendar-button";
 
 export default function MainBanner({ translation }: { translation: string }) {
   const tHome = useTranslations("home");
@@ -17,7 +17,7 @@ export default function MainBanner({ translation }: { translation: string }) {
         </h1>
       </div>
       <NextIntlClientProvider messages={messages}>
-        <CalendarModal>{tHome("seeDates")}</CalendarModal>
+        <CalendarButton />
       </NextIntlClientProvider>
       <div aria-hidden={true} className="absolute inset-0 bg-black/80" />
     </div>

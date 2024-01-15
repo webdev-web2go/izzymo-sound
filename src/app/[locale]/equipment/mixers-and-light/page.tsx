@@ -1,4 +1,6 @@
+import { NextIntlClientProvider, useMessages } from "next-intl";
 import { unstable_setRequestLocale } from "next-intl/server";
+import UserCalendar from "~/components/calendar/user-calendar";
 import MainBanner from "~/components/shared/main-banner/main-banner";
 import ProductsGrid from "~/components/shared/product/products-grid";
 import { mixerAndLightProducts } from "~/constants";
@@ -9,6 +11,7 @@ export default function MixersAndLightPage({
   params: { locale: string };
 }) {
   unstable_setRequestLocale(locale);
+  const messages = useMessages();
 
   return (
     <main>
@@ -17,6 +20,11 @@ export default function MixersAndLightPage({
       </section>
       <section>
         <ProductsGrid products={mixerAndLightProducts} />
+      </section>
+      <section>
+        <NextIntlClientProvider messages={messages}>
+          <UserCalendar />
+        </NextIntlClientProvider>
       </section>
     </main>
   );
