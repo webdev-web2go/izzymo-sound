@@ -1,14 +1,13 @@
-import { NextIntlClientProvider } from "next-intl";
-import { getMessages } from "next-intl/server";
-import Calendar from "~/components/calendar/calendar";
 import { Button } from "~/components/ui/button";
 import { adminEmail } from "~/constants";
 import { Link } from "~/navigation";
 import { getServerAuthSession } from "~/server/auth";
+import AdminCalendar from "./admin-calendar";
+import { Suspense } from "react";
+import { CalendarSkeleton } from "~/components/calendar/calendar";
 
 export default async function AdminPage() {
   const session = await getServerAuthSession();
-  const messages = await getMessages();
 
   if (!session) {
     return <NoSession />;
@@ -20,9 +19,9 @@ export default async function AdminPage() {
 
   return (
     <main className="mx-auto flex min-h-screen max-w-5xl items-center justify-center px-4 text-center text-muted-foreground antialiased">
-      <NextIntlClientProvider messages={messages}>
-        <Calendar />
-      </NextIntlClientProvider>
+      <Suspense fallback={<CalendarSkeleton />}>
+        <AdminCalendar />
+      </Suspense>
     </main>
   );
 }
