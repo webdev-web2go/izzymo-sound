@@ -5,21 +5,10 @@ import { Button } from "~/components/ui/button";
 import { adminEmail } from "~/constants";
 import { Link } from "~/navigation";
 import { getServerAuthSession } from "~/server/auth";
-import { db } from "~/server/db";
-import type { Event } from "~/types";
 
 export default async function AdminPage() {
   const session = await getServerAuthSession();
   const messages = await getMessages();
-  const events = await db.query.events.findMany({
-    columns: {
-      id: true,
-      title: true,
-      start: true,
-      end: true,
-      allDay: true,
-    },
-  });
 
   if (!session) {
     return <NoSession />;
@@ -32,7 +21,7 @@ export default async function AdminPage() {
   return (
     <main className="mx-auto flex min-h-screen max-w-5xl items-center justify-center px-4 text-center text-muted-foreground antialiased">
       <NextIntlClientProvider messages={messages}>
-        <Calendar events={events as (Event & { id: string })[]} />
+        <Calendar />
       </NextIntlClientProvider>
     </main>
   );

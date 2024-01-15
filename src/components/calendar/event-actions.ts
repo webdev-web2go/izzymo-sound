@@ -24,7 +24,7 @@ export async function createEventAction(formData: FormData) {
     await db.insert(events).values({
       title,
       start: new Date(startDate.getTime() + 24 * 60 * 60 * 1000),
-      end: new Date(endDate.getTime() + 24 * 60 * 60 * 1000),
+      end: new Date(endDate.getTime() + 24 * 60 * 60 * 1000 * 2),
     });
   } catch (error) {
     console.log(error);

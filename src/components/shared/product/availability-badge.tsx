@@ -1,4 +1,4 @@
-import { and, eq, ne } from "drizzle-orm";
+import { and, eq, gte, lte } from "drizzle-orm";
 import { useTranslations } from "next-intl";
 import { Badge } from "~/components/ui/badge";
 import { cn } from "~/lib/utils";
@@ -17,18 +17,14 @@ export default async function AvailabilityBadge({
   isLightingProduct,
 }: Props) {
   const t = useTranslations("home");
-  const todayEnding = new Date(
-    new Date(new Date().setDate(new Date().getDate() + 1))
-      .toISOString()
-      .split("T")[0] ?? "",
-  );
   const event = await db.query.events.findFirst({
     where: and(
       eq(
         events.title,
         isLightingProduct ? model : `${model} ${productFunction}`,
       ),
-      eq(events.end, todayEnding),
+      lte(events.start, new Date(new Date().setDate(new Date().getDate() + 1))),
+      gte(events.end, new Date(new Date().setDate(new Date().getDate() + 1))),
     ),
   });
 
