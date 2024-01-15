@@ -1,6 +1,6 @@
 "use client";
 
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import Image from "next/image";
 import { navItems } from "~/constants";
 import { Link } from "~/navigation";
@@ -12,6 +12,7 @@ import SelectLanguage from "./select-language";
 
 export default function Nav() {
   const t = useTranslations("home");
+  const locale = useLocale();
 
   const [activeTab, setActiveTab] = useState("");
 
@@ -58,7 +59,9 @@ export default function Nav() {
           </Link>
         ))}
         <li>
-          <SelectLanguage placeholder={t("language")} />
+          <SelectLanguage
+            placeholder={locale === "es" ? "🇲🇽 Español" : "🇺🇸 English"}
+          />
         </li>
       </ul>
     </nav>

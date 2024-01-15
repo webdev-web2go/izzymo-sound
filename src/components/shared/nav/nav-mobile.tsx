@@ -4,13 +4,14 @@ import { MenuIcon, X } from "lucide-react";
 import { navItems } from "~/constants";
 import { Link } from "~/navigation";
 import NavBackground from "./nav-background";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { useEffect, useState } from "react";
 import { cn } from "~/lib/utils";
 import SelectLanguage from "./select-language";
 
 export default function NavMobile() {
   const t = useTranslations("home");
+  const locale = useLocale();
 
   const [isOpen, setIsOpen] = useState(false);
 
@@ -46,7 +47,9 @@ export default function NavMobile() {
             {t(label)}
           </Link>
         ))}
-        <SelectLanguage placeholder={t("language")} />
+        <SelectLanguage
+          placeholder={locale === "es" ? "🇲🇽 Español" : "🇺🇸 English"}
+        />
 
         <NavBackground />
       </div>

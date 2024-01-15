@@ -28,12 +28,12 @@ export default function SelectLanguage({
       <SelectTrigger className="w-[130px] text-base text-primary">
         <SelectValue placeholder={placeholder} defaultValue={currentLocale} />
       </SelectTrigger>
-      <SelectContent className="text-base">
+      <SelectContent className="text-base" align="start">
         <SelectItem
           value={currentLocale === "en" ? "es" : "en"}
           className="text-base text-primary antialiased"
         >
-          {currentLocale === "en" ? "Español" : "English"}
+          {currentLocale === "en" ? "🇲🇽 Español" : "🇺🇸 English"}
         </SelectItem>
       </SelectContent>
     </Select>
