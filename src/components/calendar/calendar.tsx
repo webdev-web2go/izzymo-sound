@@ -100,7 +100,7 @@ export default function Calendar({ events, isForUser, setProduct }: Props) {
 
 export function CalendarSkeleton() {
   return (
-    <div className="flex h-full w-full flex-col gap-[1.5em]">
+    <div className="flex aspect-square h-full w-full flex-col gap-[1.5em]">
       <div className="flex justify-between">
         <div className="h-10 w-44 animate-pulse rounded bg-slate-300" />
         <div className="h-10 w-24 animate-pulse rounded bg-slate-300" />

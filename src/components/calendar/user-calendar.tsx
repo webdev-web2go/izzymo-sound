@@ -1,15 +1,26 @@
 "use client";
 
-import React, { useState } from "react";
-import Calendar from "./calendar";
+import React, { useEffect, useState } from "react";
+import Calendar, { CalendarSkeleton } from "./calendar";
 import Image from "next/image";
-import type { ProductI } from "~/types";
+import type { Event, ProductI } from "~/types";
 import { cn } from "~/lib/utils";
 import { useTranslations } from "next-intl";
+import { getEventsAction } from "./event-actions";
 
 export default function UserCalendar() {
   const [product, setProduct] = useState<ProductI | null>(null);
+  const [events, setEvents] = useState<Event[]>([]);
+  const [loading, setLoading] = useState(false);
   const t = useTranslations("home");
+
+  useEffect(() => {
+    setLoading(true);
+    getEventsAction()
+      .then((events) => setEvents(events as Event[]))
+      .catch((e) => console.log(e))
+      .finally(() => setLoading(false));
+  }, []);
 
   return (
     <div className="flex flex-col gap-10 py-10" id="user-calendar">
@@ -27,8 +38,12 @@ export default function UserCalendar() {
           "max-w-7xl": !product,
         })}
       >
-        <div className="">
-          <Calendar isForUser setProduct={setProduct} />
+        <div>
+          {loading ? (
+            <CalendarSkeleton />
+          ) : (
+            <Calendar events={events} isForUser setProduct={setProduct} />
+          )}
         </div>
         {!!product && (
           <div>
