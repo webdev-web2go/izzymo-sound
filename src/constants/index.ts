@@ -174,3 +174,56 @@ export const sound = [
 export const mixerAndLightProducts = [...mixers, ...lights] as ProductI[];
 
 export const soundProducts = [...sound] as ProductI[];
+
+export const packages = [
+  {
+    id: 1,
+    category: "audio",
+    equipment: "packageOneAudio",
+    size: "packageOneAudioSize",
+    price: "$3500 MXN",
+    extraHourPrice: "$500 MXN",
+    isFavorite: false,
+    timeForPrice: "6Hours",
+  },
+  {
+    id: 2,
+    category: "audio",
+    equipment: "packageTwoAudio",
+    size: "packageTwoAudioSize",
+    price: "$8000 MXN",
+    extraHourPrice: "$750 MXN",
+    isFavorite: false,
+    timeForPrice: "6Hours",
+  },
+  {
+    id: 3,
+    category: "audio",
+    equipment: "packageThreeAudio",
+    size: "packageThreeAudioSize",
+    price: "$15000 MXN",
+    extraHourPrice: "$1500 MXN",
+    isFavorite: true,
+    timeForPrice: "6Hours",
+  },
+  {
+    id: 4,
+    category: "lighting",
+    equipment: "packageOneLighting",
+    size: null,
+    price: "$1000 MXN",
+    extraHourPrice: null,
+    isFavorite: false,
+    timeForPrice: "fixedPrice",
+  },
+  {
+    id: 5,
+    category: "lighting",
+    equipment: "packageTwoLighting",
+    size: null,
+    price: "$2000 MXN",
+    extraHourPrice: null,
+    isFavorite: false,
+    timeForPrice: "fixedPrice",
+  },
+] as const;

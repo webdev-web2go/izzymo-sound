@@ -4,8 +4,14 @@ import {
   useTranslations,
 } from "next-intl";
 import CalendarButton from "./calendar-button";
+import { cn } from "~/lib/utils";
 
-export default function MainBanner({ translation }: { translation: string }) {
+interface Props {
+  translation: string;
+  className?: string;
+}
+
+export default function MainBanner({ translation, className }: Props) {
   const tHome = useTranslations("home");
   const messages = useMessages();
   return (
@@ -19,7 +25,10 @@ export default function MainBanner({ translation }: { translation: string }) {
       <NextIntlClientProvider messages={messages}>
         <CalendarButton />
       </NextIntlClientProvider>
-      <div aria-hidden={true} className="absolute inset-0 bg-black/80" />
+      <div
+        aria-hidden={true}
+        className={cn("absolute inset-0 bg-black/80", className)}
+      />
     </div>
   );
 }
