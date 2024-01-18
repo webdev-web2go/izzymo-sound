@@ -46,7 +46,8 @@
     "fixedPrice": "Fixed price",
     "6Hours": "Price for 6 hours",
     "audioPackages": "Audio packages",
-    "lightingPackages": "Lighting packages"
+    "lightingPackages": "Lighting packages",
+    "interested": "Hello! I'm interested in"
   },
   "equipmentFeatures": {
     "size": "Size",

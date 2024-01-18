@@ -1,11 +1,15 @@
-import { useTranslations } from "next-intl";
+import {
+  NextIntlClientProvider,
+  useMessages,
+  useTranslations,
+} from "next-intl";
 import Image from "next/image";
 import { Suspense } from "react";
-import { Button } from "~/components/ui/button";
 import type { ProductI } from "~/types";
 import AvailabilityBadge, {
   AvailabilityBadgeSkeleton,
 } from "./availability-badge";
+import ReserveButton from "./reserve-button";
 
 interface Props {
   mainProduct: ProductI;
@@ -13,6 +17,7 @@ interface Props {
 }
 
 export default function ProductDetail({ mainProduct, t }: Props) {
+  const messages = useMessages();
   const tEquipment = useTranslations("equipmentFeatures");
   const isLightingProduct = mainProduct.image.includes("light");
 
@@ -71,7 +76,13 @@ export default function ProductDetail({ mainProduct, t }: Props) {
           </div>
         </header>
         <p className="max-w-prose">{mainProduct.description}</p>
-        <Button className="py-6 text-xl">Reservar</Button>
+        <NextIntlClientProvider messages={messages}>
+          <ReserveButton
+            isPackage={false}
+            model={mainProduct.model}
+            productFunction={mainProduct.productFunction}
+          />
+        </NextIntlClientProvider>
       </div>
     </article>
   );

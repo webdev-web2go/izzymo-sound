@@ -46,7 +46,8 @@
     "fixedPrice": "Precio fijo",
     "6Hours": "Precio por 6 horas",
     "audioPackages": "Paquetes de audio",
-    "lightingPackages": "Paquetes de iluminación"
+    "lightingPackages": "Paquetes de iluminación",
+    "interested": "Hola! estoy interesad@ en"
   },
   "equipmentFeatures": {
     "size": "Medidas",

@@ -1,4 +1,8 @@
-import { useMessages, useTranslations } from "next-intl";
+import {
+  NextIntlClientProvider,
+  useMessages,
+  useTranslations,
+} from "next-intl";
 import Image from "next/image";
 import { Button } from "~/components/ui/button";
 import { cn } from "~/lib/utils";
@@ -7,6 +11,7 @@ import AvailabilityBadge, {
   AvailabilityBadgeSkeleton,
 } from "./availability-badge";
 import { Suspense } from "react";
+import ReserveButton from "./reserve-button";
 
 interface ProductCard {
   model: string;
@@ -31,6 +36,7 @@ export default function Product({
   model,
   isCarousel,
 }: ProductCard) {
+  const messages = useMessages();
   const t = useTranslations("equipmentFeatures");
   const tHome = useTranslations("home");
   const isLightingProduct = image.includes("light");
@@ -98,9 +104,14 @@ export default function Product({
           <strong className="row-start-1 text-3xl font-bold text-primary sm:row-start-auto sm:justify-self-end">
             {price}
           </strong>
-          <Button className="col-span-full py-6 text-xl">
-            {tHome("reserve")}
-          </Button>
+          <NextIntlClientProvider messages={messages}>
+            <ReserveButton
+              model={model}
+              productFunction={productFunction}
+              image={image}
+              isPackage={false}
+            />
+          </NextIntlClientProvider>
         </footer>
       </div>
     </article>
