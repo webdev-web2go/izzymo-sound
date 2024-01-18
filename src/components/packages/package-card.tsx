@@ -37,9 +37,14 @@ export default function PackageCard({
   return (
     <Card
       className={cn(
-        "flex flex-col gap-4 overflow-hidden p-2 text-muted-foreground antialiased",
+        "flex flex-col gap-4 overflow-hidden p-4 text-muted-foreground antialiased sm:p-2",
         {
-          "col-start-2 col-end-3 row-start-2 scale-110 shadow-lg": isFavorite,
+          "relative row-start-2 shadow-lg lg:static lg:col-start-2 lg:col-end-3 lg:scale-110":
+            isFavorite,
+          "lg:justify-self-end": id === 4,
+          "lg:justify-self-start": id === 5,
+          "sm:w-[450px] md:w-[350px] lg:w-[400px]": category === "lighting",
+          "sm:w-[450px] md:w-[350px] lg:w-auto": category === "audio",
         },
       )}
     >
@@ -48,7 +53,7 @@ export default function PackageCard({
           {t("favorite")}
         </Badge>
       )}
-      <CardHeader className="flex flex-row items-center gap-2 p-4">
+      <CardHeader className="flex flex-row items-center gap-2 p-2 sm:p-4">
         <h3 className="text-3xl font-bold">
           {t("package")} #{id}
         </h3>

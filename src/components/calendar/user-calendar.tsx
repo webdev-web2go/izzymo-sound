@@ -23,7 +23,7 @@ export default function UserCalendar() {
   }, []);
 
   return (
-    <div className="flex flex-col gap-10 py-10" id="user-calendar">
+    <div className="flex flex-col gap-10 px-2 py-10" id="user-calendar">
       <header className="flex flex-col items-center">
         <h2 className="mb-4 text-balance text-4xl font-bold tracking-tight text-primary sm:text-5xl">
           {t("reserved")}

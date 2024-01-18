@@ -25,8 +25,8 @@ export default function PackagesPage({
         <MainBanner translation="equipmentCardTitle" className="bg-black/60" />
       </section>
       <section>
-        <div className="mx-auto grid max-w-7xl grid-cols-3 gap-y-20 px-6 py-10">
-          <h2 className="col-span-full row-start-1 text-balance text-5xl font-bold tracking-tight text-primary sm:text-6xl xl:text-center">
+        <div className="mx-auto grid max-w-7xl justify-items-center gap-x-4 gap-y-10 px-2 py-10 sm:px-6 md:grid-cols-2 lg:grid-cols-3 lg:justify-items-stretch lg:gap-x-0 lg:gap-y-20">
+          <h2 className="col-span-full row-start-1 justify-self-start text-balance text-5xl font-bold tracking-tight text-primary sm:text-6xl lg:justify-self-center xl:text-center">
             {t("audioPackages")}
           </h2>
           {packages
@@ -45,8 +45,8 @@ export default function PackagesPage({
               />
             ))}
         </div>
-        <div className="mx-auto grid max-w-4xl grid-cols-2 gap-x-6 gap-y-14 px-6 py-10">
-          <h2 className="col-span-full text-balance text-5xl font-bold tracking-tight text-primary sm:text-6xl xl:text-center">
+        <div className="mx-auto grid max-w-7xl justify-items-center gap-x-4 gap-y-14 px-6 py-10 md:grid-cols-2 lg:gap-x-6">
+          <h2 className="col-span-full justify-self-start text-balance text-5xl font-bold tracking-tight text-primary sm:text-6xl lg:justify-self-center xl:text-center">
             {t("lightingPackages")}
           </h2>
           {packages
