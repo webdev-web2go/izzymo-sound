@@ -7,6 +7,7 @@ import { getMessages, unstable_setRequestLocale } from "next-intl/server";
 import { getServerAuthSession } from "~/server/auth";
 import SessionProvider from "~/components/session-provider/session-provider";
 import { NextIntlClientProvider } from "next-intl";
+import { Toaster } from "~/components/ui/sonner";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -45,6 +46,7 @@ export default async function RootLayout({
             <Nav />
           </NextIntlClientProvider>
           {children}
+          <Toaster richColors />
         </SessionProvider>
       </body>
     </html>

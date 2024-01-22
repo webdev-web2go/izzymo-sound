@@ -1,4 +1,4 @@
-import type { Dispatch, SetStateAction } from "react";
+import { type Dispatch, type SetStateAction, useState } from "react";
 import {
   Dialog,
   DialogContent,
@@ -9,6 +9,8 @@ import {
 import { Button } from "~/components/ui/button";
 import type { Event } from "~/types";
 import { deleteEventAction } from "~/components/calendar/event-actions";
+import { toast } from "sonner";
+import { cn } from "~/lib/utils";
 
 interface Props {
   open: boolean;
@@ -17,6 +19,26 @@ interface Props {
 }
 
 export default function DeleteEquipmentDialog({ open, setOpen, event }: Props) {
+  const [loading, setLoading] = useState(false);
+
+  const deleteEvent = async (id: number) => {
+    setLoading(true);
+    const result = await deleteEventAction(id);
+
+    if (result.error) {
+      toast.error(result.error, {
+        style: { background: "#fff0f0", color: "red", border: "none" },
+      });
+    } else {
+      setOpen(false);
+      toast.success(result.success, {
+        style: { background: "#ecfdf3", color: "green", border: "none" },
+      });
+    }
+
+    setLoading(false);
+  };
+
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogContent className="flex flex-col gap-3">
@@ -27,14 +49,35 @@ export default function DeleteEquipmentDialog({ open, setOpen, event }: Props) {
         </DialogHeader>
         <DialogDescription>{event?.title}</DialogDescription>
         <Button
-          onClick={async () => {
-            await deleteEventAction(Number(event?.id));
-            setOpen(false);
-          }}
+          className={cn(loading && "animate-pulse")}
+          onClick={() => deleteEvent(Number(event?.id))}
         >
-          eliminar
+          {loading ? "Eliminando reservación..." : "Eliminar reservación"}
         </Button>
       </DialogContent>
     </Dialog>
   );
 }
+
+// function SubmitButton({
+//   setOpen,
+//   setSuccess,
+//   success,
+// }: {
+//   setOpen: Dispatch<SetStateAction<boolean>>;
+//   setSuccess: Dispatch<SetStateAction<boolean>>;
+//   success: boolean;
+// }) {
+//   const { pending } = useFormStatus();
+
+//   useEffect(() => {
+//     if (success) setOpen(false);
+//     setSuccess(false);
+//   }, [success]);
+
+//   return (
+//     <Button className={cn(pending && "animate-pulse")}>
+//       {pending ? "Creando reservación..." : "Crear reservación"}
+//     </Button>
+//   );
+// }

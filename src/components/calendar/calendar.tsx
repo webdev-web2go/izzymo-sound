@@ -11,6 +11,7 @@ import { useSession } from "next-auth/react";
 import { cn } from "~/lib/utils";
 import { mixerAndLightProducts, soundProducts } from "~/constants";
 import { useLocale } from "next-intl";
+import { toast } from "sonner";
 
 interface Props {
   events: Event[];
@@ -24,7 +25,7 @@ export default function Calendar({ events, isForUser, setProduct }: Props) {
   const [openDelete, setOpenDelete] = useState(false);
   const [eventToDelete, setEventToDelete] = useState<Event | null>(null);
   const [startDate, setStartDate] = useState("");
-  const [endDate, setEndDate] = useState<Date | null>(null);
+  const [endDate, setEndDate] = useState("");
 
   const session = useSession();
 
@@ -45,12 +46,11 @@ export default function Calendar({ events, isForUser, setProduct }: Props) {
           ) {
             setOpenReservation(true);
             setStartDate(e.date.toISOString().split("T")[0]!);
-            setEndDate(e.date);
+            setEndDate(e.date.toISOString().split("T")[0]!);
           }
         }}
         events={events as (Event & { id: string })[]}
         eventResize={async (e) => {
-          console.log({ delta: e.endDelta, event: e.event });
           if (
             (e.event.end?.setHours(0, 0, 0, 0) as number) <
             new Date().setHours(0, 0, 0, 0) + 24 * 60 * 60 * 1000
@@ -59,7 +59,24 @@ export default function Calendar({ events, isForUser, setProduct }: Props) {
             return;
           }
 
-          await updateEventAction(Number(e.event.id), e.event.end!);
+          const result = await updateEventAction(
+            Number(e.event.id),
+            e.event.title,
+            e.event.end?.toISOString().split("T")[0] ?? "",
+            e.event.start?.toISOString().split("T")[0] ?? "",
+          );
+
+          if (result.error) {
+            toast.error(result.error, {
+              duration: 6000,
+              style: { background: "#fff0f0", color: "red" },
+            });
+            e.revert();
+          } else {
+            toast.success(result.success, {
+              style: { background: "#ecfdf3", color: "green" },
+            });
+          }
         }}
         eventClick={(e) => {
           if (!isForUser && session.status === "authenticated") {

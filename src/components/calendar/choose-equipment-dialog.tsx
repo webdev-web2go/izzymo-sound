@@ -9,13 +9,16 @@ import { Button } from "~/components/ui/button";
 import { createEventAction } from "~/components/calendar/event-actions";
 import { Input } from "~/components/ui/input";
 import { useTranslations } from "next-intl";
-import type { Dispatch, SetStateAction } from "react";
+import { useState, type Dispatch, type SetStateAction, useEffect } from "react";
+import { toast } from "sonner";
+import { useFormStatus } from "react-dom";
+import { cn } from "~/lib/utils";
 
 interface Props {
   open: boolean;
   setOpen: Dispatch<SetStateAction<boolean>>;
   startDate: string;
-  endDate: Date | null;
+  endDate: string;
 }
 
 export default function ChooseEquipmentDialog({
@@ -25,6 +28,22 @@ export default function ChooseEquipmentDialog({
   endDate,
 }: Props) {
   const t = useTranslations("equipmentFeatures");
+  const [success, setSuccess] = useState(false);
+
+  const createEvent = async (formData: FormData) => {
+    const result = await createEventAction(formData);
+
+    if (result.error) {
+      toast.error(result.error, {
+        style: { background: "#fff0f0", color: "red" },
+      });
+    } else {
+      setSuccess(true);
+      toast.success(result.success, {
+        style: { background: "#ecfdf3", color: "green" },
+      });
+    }
+  };
 
   return (
     <Dialog open={open} onOpenChange={setOpen}>
@@ -35,7 +54,7 @@ export default function ChooseEquipmentDialog({
           </DialogTitle>
         </DialogHeader>
         <form
-          action={createEventAction}
+          action={createEvent}
           className="flex flex-col gap-4 text-muted-foreground antialiased"
         >
           <input type="hidden" name="date" value={startDate} />
@@ -88,9 +107,36 @@ export default function ChooseEquipmentDialog({
               ))}
             </div>
           </div>
-          <Button onClick={() => setOpen(false)}>Enviar</Button>
+          <SubmitButton
+            success={success}
+            setSuccess={setSuccess}
+            setOpen={setOpen}
+          />
         </form>
       </DialogContent>
     </Dialog>
+  );
+}
+
+function SubmitButton({
+  setOpen,
+  setSuccess,
+  success,
+}: {
+  setOpen: Dispatch<SetStateAction<boolean>>;
+  setSuccess: Dispatch<SetStateAction<boolean>>;
+  success: boolean;
+}) {
+  const { pending } = useFormStatus();
+
+  useEffect(() => {
+    if (success) setOpen(false);
+    setSuccess(false);
+  }, [success]);
+
+  return (
+    <Button className={cn(pending && "animate-pulse")}>
+      {pending ? "Creando reservación..." : "Crear reservación"}
+    </Button>
   );
 }
