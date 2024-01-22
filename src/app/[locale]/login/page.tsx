@@ -4,7 +4,7 @@ import { signIn } from "next-auth/react";
 import { Input } from "~/components/ui/input";
 import type { FormState } from "~/types";
 import { type FormEvent, useState } from "react";
-import { adminEmail } from "~/constants";
+import { adminEmails } from "~/constants";
 import SubmitButton from "./submit-button";
 
 export default function LoginPage() {
@@ -26,7 +26,7 @@ export default function LoginPage() {
       errors["email"] = "Es necesario ingresar el correo";
     } else if (!/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/g.test(email)) {
       errors["email"] = "El correo debe ser válido";
-    } else if (email !== adminEmail) {
+    } else if (!adminEmails.includes(email)) {
       errors["email"] = "El correo ingresado no tiene autorización";
     } else {
       errors["email"] = "";

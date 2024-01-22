@@ -1,6 +1,6 @@
 import type { ProductI } from "~/types";
 
-export const adminEmail = "efrachaga@gmail.com";
+export const adminEmails = ["izzymo1313@gmail.com", "efrachaga@gmail.com"];
 
 export const navItems = [
   {
@@ -55,8 +55,7 @@ export const mixers = [
     price: "$1000 MXN",
     image: "/home/mixers/mixer1.webp",
     href: "/equipment/mixers-and-light/[model]",
-    description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora repellendus nihil, voluptatibus nam fugiat sequi illum est eos iure recusandae vitae beatae deleniti dolore veniam repellat labore tempore magnam neque? Lorem ipsum dolor, sit amet consectetur adipisicing elit 1.",
+    description: "XDJ2ChannelDescription",
   },
   {
     model: "XDJ-XZ",
@@ -67,8 +66,7 @@ export const mixers = [
     price: "$1000 MXN",
     image: "/home/mixers/mixer2.webp",
     href: "/equipment/mixers-and-light/[model]",
-    description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora repellendus nihil, voluptatibus nam fugiat sequi illum est eos iure recusandae vitae beatae deleniti dolore veniam repellat labore tempore magnam neque? Lorem ipsum dolor, sit amet consectetur adipisicing elit 2.",
+    description: "XDJ4ChannelDescription",
   },
 ] as const;
 

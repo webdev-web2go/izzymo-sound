@@ -1,5 +1,5 @@
 import { Button } from "~/components/ui/button";
-import { adminEmail } from "~/constants";
+import { adminEmails } from "~/constants";
 import { Link } from "~/navigation";
 import { getServerAuthSession } from "~/server/auth";
 import AdminCalendar from "./admin-calendar";
@@ -13,7 +13,7 @@ export default async function AdminPage() {
     return <NoSession />;
   }
 
-  if (session.user.email !== adminEmail) {
+  if (!adminEmails.includes(session.user.email!)) {
     return <NotAuthorized />;
   }
 
