@@ -1,8 +1,4 @@
-import {
-  NextIntlClientProvider,
-  useMessages,
-  useTranslations,
-} from "next-intl";
+import { useTranslations } from "next-intl";
 import CalendarButton from "./calendar-button";
 import { cn } from "~/lib/utils";
 
@@ -13,7 +9,6 @@ interface Props {
 
 export default function MainBanner({ translation, className }: Props) {
   const tHome = useTranslations("home");
-  const messages = useMessages();
   return (
     <div className="flex w-full flex-col-reverse items-center justify-between gap-4 md:flex-row">
       <div className="z-20 flex flex-col-reverse gap-2 self-start sm:flex-row sm:items-center">
@@ -22,9 +17,7 @@ export default function MainBanner({ translation, className }: Props) {
           {tHome(translation)}
         </h1>
       </div>
-      <NextIntlClientProvider messages={messages}>
-        <CalendarButton />
-      </NextIntlClientProvider>
+      <CalendarButton />
       <div
         aria-hidden={true}
         className={cn("absolute inset-0 bg-black/80", className)}

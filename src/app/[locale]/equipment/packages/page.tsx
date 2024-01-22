@@ -1,8 +1,4 @@
-import {
-  NextIntlClientProvider,
-  useMessages,
-  useTranslations,
-} from "next-intl";
+import { useTranslations } from "next-intl";
 import { unstable_setRequestLocale } from "next-intl/server";
 import UserCalendar from "~/components/calendar/user-calendar";
 import PackageCard from "~/components/packages/package-card";
@@ -17,7 +13,6 @@ export default function PackagesPage({
   unstable_setRequestLocale(locale);
 
   const t = useTranslations("home");
-  const messages = useMessages();
 
   return (
     <main>
@@ -67,9 +62,7 @@ export default function PackagesPage({
         </div>
       </section>
       <section>
-        <NextIntlClientProvider messages={messages}>
-          <UserCalendar />
-        </NextIntlClientProvider>
+        <UserCalendar />
       </section>
     </main>
   );

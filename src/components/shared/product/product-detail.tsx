@@ -1,8 +1,4 @@
-import {
-  NextIntlClientProvider,
-  useMessages,
-  useTranslations,
-} from "next-intl";
+import { useTranslations } from "next-intl";
 import Image from "next/image";
 import { Suspense } from "react";
 import type { ProductI } from "~/types";
@@ -17,7 +13,6 @@ interface Props {
 }
 
 export default function ProductDetail({ mainProduct, t }: Props) {
-  const messages = useMessages();
   const tEquipment = useTranslations("equipmentFeatures");
   const isLightingProduct = mainProduct.image.includes("light");
 
@@ -76,13 +71,11 @@ export default function ProductDetail({ mainProduct, t }: Props) {
           </div>
         </header>
         <p className="max-w-prose">{mainProduct.description}</p>
-        <NextIntlClientProvider messages={messages}>
-          <ReserveButton
-            isPackage={false}
-            model={mainProduct.model}
-            productFunction={mainProduct.productFunction}
-          />
-        </NextIntlClientProvider>
+        <ReserveButton
+          isPackage={false}
+          model={mainProduct.model}
+          productFunction={mainProduct.productFunction}
+        />
       </div>
     </article>
   );

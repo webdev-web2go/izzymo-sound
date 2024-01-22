@@ -1,8 +1,4 @@
-import {
-  NextIntlClientProvider,
-  useMessages,
-  useTranslations,
-} from "next-intl";
+import { useTranslations } from "next-intl";
 import MainBanner from "~/components/shared/main-banner/main-banner";
 import ProductDetail from "~/components/shared/product/product-detail";
 import ProductsGrid from "~/components/shared/product/products-grid";
@@ -19,7 +15,6 @@ interface Props {
 export default function ProductPage({ products, params }: Props) {
   const t = useTranslations("equipmentFeatures");
   const tHome = useTranslations("home");
-  const messages = useMessages();
 
   const mainProduct = products.find(
     (product) =>
@@ -46,28 +41,26 @@ export default function ProductPage({ products, params }: Props) {
               products={restOfProducts}
               className="p-0 2xl:hidden"
             />
-            <NextIntlClientProvider messages={messages}>
-              <ProductsCarousel>
-                {restOfProducts.map((product) => (
-                  <CarouselItemWrapper key={product.image} className="w-full">
-                    <Product
-                      key={product.image}
-                      feature={product.system ?? product.power!}
-                      href={product.href}
-                      image={product.image}
-                      model={product.model}
-                      price={product.price}
-                      productFunction={product.productFunction}
-                      productFunctionNoTranslate={
-                        product.productFunctionNoTranslate
-                      }
-                      size={product.size}
-                      isCarousel
-                    />
-                  </CarouselItemWrapper>
-                ))}
-              </ProductsCarousel>
-            </NextIntlClientProvider>
+            <ProductsCarousel>
+              {restOfProducts.map((product) => (
+                <CarouselItemWrapper key={product.image} className="w-full">
+                  <Product
+                    key={product.image}
+                    feature={product.system ?? product.power!}
+                    href={product.href}
+                    image={product.image}
+                    model={product.model}
+                    price={product.price}
+                    productFunction={product.productFunction}
+                    productFunctionNoTranslate={
+                      product.productFunctionNoTranslate
+                    }
+                    size={product.size}
+                    isCarousel
+                  />
+                </CarouselItemWrapper>
+              ))}
+            </ProductsCarousel>
           </div>
         </div>
       </section>

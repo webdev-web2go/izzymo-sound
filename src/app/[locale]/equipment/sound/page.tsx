@@ -1,4 +1,3 @@
-import { NextIntlClientProvider, useMessages } from "next-intl";
 import { unstable_setRequestLocale } from "next-intl/server";
 import UserCalendar from "~/components/calendar/user-calendar";
 import MainBanner from "~/components/shared/main-banner/main-banner";
@@ -11,7 +10,6 @@ export default function SoundPage({
   params: { locale: string };
 }) {
   unstable_setRequestLocale(locale);
-  const messages = useMessages();
 
   return (
     <main>
@@ -22,9 +20,7 @@ export default function SoundPage({
         <ProductsGrid products={soundProducts} />
       </section>
       <section>
-        <NextIntlClientProvider messages={messages}>
-          <UserCalendar />
-        </NextIntlClientProvider>
+        <UserCalendar />
       </section>
     </main>
   );

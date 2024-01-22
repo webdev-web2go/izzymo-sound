@@ -1,8 +1,4 @@
-import {
-  NextIntlClientProvider,
-  useMessages,
-  useTranslations,
-} from "next-intl";
+import { useTranslations } from "next-intl";
 import Image from "next/image";
 import { Button } from "~/components/ui/button";
 import { cn } from "~/lib/utils";
@@ -36,7 +32,6 @@ export default function Product({
   model,
   isCarousel,
 }: ProductCard) {
-  const messages = useMessages();
   const t = useTranslations("equipmentFeatures");
   const tHome = useTranslations("home");
   const isLightingProduct = image.includes("light");
@@ -104,14 +99,12 @@ export default function Product({
           <strong className="row-start-1 text-3xl font-bold text-primary sm:row-start-auto sm:justify-self-end">
             {price}
           </strong>
-          <NextIntlClientProvider messages={messages}>
-            <ReserveButton
-              model={model}
-              productFunction={productFunction}
-              image={image}
-              isPackage={false}
-            />
-          </NextIntlClientProvider>
+          <ReserveButton
+            model={model}
+            productFunction={productFunction}
+            image={image}
+            isPackage={false}
+          />
         </footer>
       </div>
     </article>

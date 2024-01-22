@@ -1,8 +1,4 @@
-import {
-  NextIntlClientProvider,
-  useMessages,
-  useTranslations,
-} from "next-intl";
+import { useTranslations } from "next-intl";
 import {
   Card,
   CardContent,
@@ -12,7 +8,6 @@ import {
 } from "../ui/card";
 import { CheckCheckIcon } from "lucide-react";
 import { cn } from "~/lib/utils";
-import { Button } from "../ui/button";
 import { Badge } from "../ui/badge";
 import ReserveButton from "../shared/product/reserve-button";
 
@@ -37,7 +32,6 @@ export default function PackageCard({
   isFavorite,
   timeForPrice,
 }: Props) {
-  const messages = useMessages();
   const t = useTranslations("home");
 
   return (
@@ -90,9 +84,7 @@ export default function PackageCard({
             {extraHourPrice} {t("extraHour")}
           </p>
         )}
-        <NextIntlClientProvider messages={messages}>
-          <ReserveButton isPackage packageNumber={id} />
-        </NextIntlClientProvider>
+        <ReserveButton isPackage packageNumber={id} />
       </CardFooter>
     </Card>
   );

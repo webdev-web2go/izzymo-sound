@@ -44,9 +44,9 @@ export default async function RootLayout({
         <SessionProvider session={session}>
           <NextIntlClientProvider messages={messages}>
             <Nav />
+            {children}
+            <Toaster richColors />
           </NextIntlClientProvider>
-          {children}
-          <Toaster richColors />
         </SessionProvider>
       </body>
     </html>
