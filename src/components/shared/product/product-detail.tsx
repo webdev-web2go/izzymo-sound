@@ -13,7 +13,7 @@ interface Props {
 }
 
 export default function ProductDetail({ mainProduct, t }: Props) {
-  const tEquipment = useTranslations("equipmentFeatures");
+  const tHome = useTranslations("home");
   const isLightingProduct = mainProduct.image.includes("light");
 
   return (
@@ -45,21 +45,18 @@ export default function ProductDetail({ mainProduct, t }: Props) {
                 {mainProduct.model}
               </p>
               <p className="flex gap-2">
-                <span className="font-semibold">{tEquipment("size")}:</span>{" "}
+                <span className="font-semibold">{t("size")}:</span>{" "}
                 {mainProduct.size}
               </p>
             </div>
             <div>
               <p className="flex gap-2">
-                <span className="font-semibold">{tEquipment("function")}:</span>{" "}
+                <span className="font-semibold">{t("function")}:</span>{" "}
                 {t(mainProduct.productFunction)}
               </p>
               <p className="flex gap-2">
                 <span className="font-semibold">
-                  {tEquipment(
-                    mainProduct.image.includes("mixer") ? "system" : "power",
-                  )}
-                  :
+                  {t(mainProduct.image.includes("mixer") ? "system" : "power")}:
                 </span>
                 {mainProduct.system
                   ? t(mainProduct.system)
@@ -70,7 +67,7 @@ export default function ProductDetail({ mainProduct, t }: Props) {
             </div>
           </div>
         </header>
-        <p className="max-w-prose">{mainProduct.description}</p>
+        <p className="max-w-prose">{tHome(mainProduct.description)}</p>
         <ReserveButton
           isPackage={false}
           model={mainProduct.model}

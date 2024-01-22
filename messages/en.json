@@ -47,7 +47,13 @@
     "6Hours": "Price for 6 hours",
     "audioPackages": "Audio packages",
     "lightingPackages": "Lighting packages",
-    "interested": "Hello! I'm interested in"
+    "interested": "Hello! I'm interested in",
+    "XDJ2ChannelDescription": "The XDJ-RX2 is the perfect all-in-one DJ system for enthusiasts and experienced DJs alike. With two professional DJ decks, a 2-channel audio interface and a wide range of features, the XDJ-RX2 lets you mix like a pro anywhere.",
+    "XDJ4ChannelDescription": "The XDJ-XZ is an all-in-one professional DJ system perfect for events, a bar or club, or for your personal studio. Wherever you take it, the XDJ-XZ gives you all the features you need to achieve results. This 4-channel system has a professional design, so you'll feel just like using our club-standard NXS2 setup.",
+    "EKX200-15": "The EKX200-15P loudspeaker features a high-efficiency Class D power amplifier (up to 1200 watts) with integrated QuickSmartDSP and provides an SLP of up to 130 dB using transducers conceived and designed by EV (EVS-15M 15 inch woofer with 1 inch driver DH-1C titanium compression fitting). Full-range powered models allow easy setup via four presets (Music, Live, Speech, Club), sub-top crossovers, 3-band equalizer, five programmable user presets (Store and Recall settings), visual monitoring limiter status, input level control and meters and master volume control, to ensure optimal gain structure.",
+    "EKX200-18": "18 inch active subwoofer with Class D amplifier, power: 1300W, frequency response: (-3 dB): 40 Hz – 150 Hz, (-10 dB): 35 Hz – 180 Hz, maximum SPL: 134 dB, connectors : (2) XLR/TRS combo jacks and (2) XLR link outputs, 15 mm plywood cabinet with EVCoat finish, 18 AWG powder-coated steel grille, dimensions: 520 x 606 x 612 mm, weight: 32.8 kg.",
+    "EKX200-12": "Active speaker, EKX series, power: 1500W, impedance: 8 ohms, transducers designed and developed by EV, patented synchronized signal transducers (SST) waveguide design that offers precision and constant coverage, rubber feet, sensitivity: 95 dB , Maximum SPL: 132 dB, frequency Response (-3 dB): 60 Hz – 18 kHz, (-10 dB): 50 Hz – 20 kHz, Coverage: 90° x 60°, LF Transducer: 12 inch EVS-12M, HF transducer: 1 inch DH-1M titanium compression driver, inputs: 1 stereo RCA, 2 XLR/TRS combo jack, outputs: 1 XLR link, 15 mm plywood cabinet with EVCoat coating, steel grill 18 gauge powder coated, dimensions: height: 607 mm, width: 375 mm, depth: 356 mm, weight: 18.8 kg.",
+    "ELX200-18": "18 inch active subwoofer with Class D amplifier, power: 1500W, frequency response: (-3 dB): 40 Hz – 150 Hz, (-10 dB): 35 Hz – 180 Hz, maximum SPL: 134 dB, connectors : (2) XLR/TRS combo jacks and (2) XLR link outputs, 15 mm plywood cabinet with EVCoat finish, 18 AWG powder-coated steel grille, dimensions: 520 x 606 x 612 mm, weight: 32.8 kg."
   },
   "equipmentFeatures": {
     "size": "Size",

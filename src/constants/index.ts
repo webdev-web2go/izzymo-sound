@@ -52,7 +52,7 @@ export const mixers = [
     productFunction: "2ChannelFunction",
     productFunctionNoTranslate: "2 canales",
     system: "allInOne",
-    price: "$1000 MXN",
+    price: "$1500 MXN",
     image: "/home/mixers/mixer1.webp",
     href: "/equipment/mixers-and-light/[model]",
     description: "XDJ2ChannelDescription",
@@ -63,7 +63,7 @@ export const mixers = [
     productFunction: "4ChannelFunction",
     productFunctionNoTranslate: "4 canales",
     system: "allInOne",
-    price: "$1000 MXN",
+    price: "$4500 MXN",
     image: "/home/mixers/mixer2.webp",
     href: "/equipment/mixers-and-light/[model]",
     description: "XDJ4ChannelDescription",
@@ -113,14 +113,13 @@ export const sound = [
     productFunction: "monitor",
     productFunctionNoTranslate: "Monitor y medios",
     power: "1500 watts",
-    price: "$1000 MXN",
+    price: "$1200 MXN",
     image: "/home/sound/sound2.webp",
     href: "/equipment/sound/[model]",
-    description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora repellendus nihil, voluptatibus nam fugiat sequi illum est eos iure recusandae vitae beatae deleniti dolore veniam repellat labore tempore magnam neque? Lorem ipsum dolor, sit amet consectetur adipisicing elit 6.",
+    description: "EKX200-15",
   },
   {
-    model: "ETX200",
+    model: "EKX200",
     size: '12"',
     productFunction: "monitor",
     productFunctionNoTranslate: "Monitor y medios",
@@ -128,8 +127,7 @@ export const sound = [
     price: "$1000 MXN",
     image: "/home/sound/sound3.webp",
     href: "/equipment/sound/[model]",
-    description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora repellendus nihil, voluptatibus nam fugiat sequi illum est eos iure recusandae vitae beatae deleniti dolore veniam repellat labore tempore magnam neque? Lorem ipsum dolor, sit amet consectetur adipisicing elit 7.",
+    description: "EKX200-12",
   },
   {
     model: "EKX200",
@@ -140,20 +138,18 @@ export const sound = [
     price: "$1000 MXN",
     image: "/home/sound/sound4.webp",
     href: "/equipment/sound/[model]",
-    description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora repellendus nihil, voluptatibus nam fugiat sequi illum est eos iure recusandae vitae beatae deleniti dolore veniam repellat labore tempore magnam neque? Lorem ipsum dolor, sit amet consectetur adipisicing elit 8.",
+    description: "EKX200-15",
   },
   {
     model: "ELX200",
     size: '18"',
     productFunction: "sub",
     productFunctionNoTranslate: "Sub buffer",
-    power: "1600 watts",
-    price: "$1000 MXN",
+    power: "1500 watts",
+    price: "$2000 MXN",
     image: "/home/sound/sound1.webp",
     href: "/equipment/sound/[model]",
-    description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora repellendus nihil, voluptatibus nam fugiat sequi illum est eos iure recusandae vitae beatae deleniti dolore veniam repellat labore tempore magnam neque? Lorem ipsum dolor, sit amet consectetur adipisicing elit 9.",
+    description: "ELX200-18",
   },
   {
     model: "EKX200",
@@ -161,11 +157,10 @@ export const sound = [
     productFunction: "sub",
     productFunctionNoTranslate: "Sub buffer",
     power: "1300 watts",
-    price: "$1000 MXN",
+    price: "$1500 MXN",
     image: "/home/sound/sound5.webp",
     href: "/equipment/sound/[model]",
-    description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora repellendus nihil, voluptatibus nam fugiat sequi illum est eos iure recusandae vitae beatae deleniti dolore veniam repellat labore tempore magnam neque? Lorem ipsum dolor, sit amet consectetur adipisicing elit 10.",
+    description: "EKX200-18",
   },
 ] as const;
 
