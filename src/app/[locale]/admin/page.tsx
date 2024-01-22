@@ -5,6 +5,7 @@ import { getServerAuthSession } from "~/server/auth";
 import AdminCalendar from "./admin-calendar";
 import { Suspense } from "react";
 import { CalendarSkeleton } from "~/components/calendar/calendar";
+import { CheckIcon } from "lucide-react";
 
 export default async function AdminPage() {
   const session = await getServerAuthSession();
@@ -18,7 +19,33 @@ export default async function AdminPage() {
   }
 
   return (
-    <main className="mx-auto flex min-h-screen max-w-5xl items-center justify-center px-4 text-center text-muted-foreground antialiased">
+    <main className="mx-auto mt-32 flex min-h-screen max-w-5xl flex-col items-center gap-12 px-4 text-center text-muted-foreground antialiased">
+      <header className="flex flex-col gap-6">
+        <h1 className="text-balance text-4xl font-bold tracking-tight text-primary sm:text-5xl">
+          Crea, edita y elimina reservaciones
+        </h1>
+        <ul className="flex flex-col items-start gap-2 text-left sm:text-lg">
+          <li className="flex items-center gap-2">
+            <span>
+              <CheckIcon />
+            </span>{" "}
+            Haz click en una fecha actual ó futura para hacer una reservación.
+          </li>
+          <li className="flex items-center gap-2">
+            <span>
+              <CheckIcon />
+            </span>{" "}
+            Selecciona la reservación en el extremo derecho de la etiqueta y
+            arrastra para modificar su duración.
+          </li>
+          <li className="flex items-center gap-2">
+            <span>
+              <CheckIcon />
+            </span>{" "}
+            Haz click en una etiqueta para eliminarla.
+          </li>
+        </ul>
+      </header>
       <Suspense fallback={<CalendarSkeleton />}>
         <AdminCalendar />
       </Suspense>

@@ -8,7 +8,6 @@ import ChooseEquipmentDialog from "./choose-equipment-dialog";
 import DeleteEquipmentDialog from "./delete-equipment-dialog";
 import type { Event, ProductI } from "~/types";
 import { useSession } from "next-auth/react";
-import { cn } from "~/lib/utils";
 import { mixerAndLightProducts, soundProducts } from "~/constants";
 import { useLocale } from "next-intl";
 import { toast } from "sonner";
@@ -30,11 +29,7 @@ export default function Calendar({ events, isForUser, setProduct }: Props) {
   const session = useSession();
 
   return (
-    <div
-      className={cn("aspect-square w-full md:h-full", {
-        "md:mt-28": !isForUser,
-      })}
-    >
+    <div className="aspect-square w-full md:h-full">
       <FullCalendar
         plugins={[dayGridPlugin, interactionPlugin]}
         locale={locale}
