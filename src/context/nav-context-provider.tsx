@@ -1,9 +1,14 @@
 "use client";
 
 import { useTranslations } from "next-intl";
-import { PropsWithChildren, createContext, useEffect, useState } from "react";
+import {
+  type PropsWithChildren,
+  createContext,
+  useEffect,
+  useState,
+} from "react";
 import { usePathname } from "~/navigation";
-import { NavContextI } from "~/types";
+import type { NavContextI } from "~/types";
 
 export const NavContext = createContext<NavContextI>({
   activeTab: "",
