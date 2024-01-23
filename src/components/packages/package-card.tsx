@@ -43,13 +43,14 @@ export default function PackageCard({
             isFavorite,
           "lg:justify-self-end": id === 4,
           "lg:justify-self-start": id === 5,
-          "sm:w-[450px] md:w-[350px] lg:w-[400px]": category === "lighting",
-          "sm:w-[450px] md:w-[350px] lg:w-auto": category === "audio",
+          "w-full sm:w-[450px] md:w-[350px] lg:w-[400px]":
+            category === "lighting",
+          "w-full sm:w-[450px] md:w-[350px] lg:w-auto": category === "audio",
         },
       )}
     >
       {isFavorite && (
-        <Badge className="pointer-events-none absolute -right-16 top-6 mb-4 flex w-52 rotate-45 justify-center bg-foreground/85 text-sm sm:text-base">
+        <Badge className="pointer-events-none absolute right-0 top-0 flex justify-center rounded-md bg-foreground/85 text-sm sm:-right-16 sm:top-6 sm:w-52 sm:rotate-45 sm:text-base">
           {t("favorite")}
         </Badge>
       )}
