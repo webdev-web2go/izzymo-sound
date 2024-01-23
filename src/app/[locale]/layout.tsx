@@ -9,6 +9,7 @@ import SessionProvider from "~/components/session-provider/session-provider";
 import { NextIntlClientProvider } from "next-intl";
 import { Toaster } from "~/components/ui/sonner";
 import NavContextProvider from "~/context/nav-context-provider";
+import Footer from "~/components/shared/footer/footer";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -47,6 +48,7 @@ export default async function RootLayout({
             <NavContextProvider>
               <Nav />
               {children}
+              <Footer />
               <Toaster richColors />
             </NavContextProvider>
           </NextIntlClientProvider>
