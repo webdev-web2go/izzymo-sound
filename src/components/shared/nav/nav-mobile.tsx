@@ -9,6 +9,7 @@ import { useContext, useEffect, useState } from "react";
 import { cn } from "~/lib/utils";
 import SelectLanguage from "./select-language";
 import { NavContext } from "~/context/nav-context-provider";
+import Whatsapp from "~/components/icons/whatsapp";
 
 export default function NavMobile() {
   const t = useTranslations("home");
@@ -42,10 +43,21 @@ export default function NavMobile() {
           },
         )}
       >
-        <button onClick={handleOpen}>
-          <X className="absolute right-8 top-14 size-8" />
-        </button>
-        <ul className="flex flex-col items-center gap-6">
+        <div className="flex w-full justify-between p-6">
+          <div className="lg:hidden">
+            <a
+              href="https://api.whatsapp.com/send?phone=529993931271"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Whatsapp className="size-8" />
+            </a>
+          </div>
+          <button onClick={handleOpen} className="size-8">
+            <X />
+          </button>
+        </div>
+        <ul className="flex grow flex-col items-center justify-center gap-6">
           {navItems.map(({ href, label }) => (
             <Link
               key={label}

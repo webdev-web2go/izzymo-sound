@@ -10,6 +10,7 @@ import { useContext } from "react";
 import { cn } from "~/lib/utils";
 import SelectLanguage from "./select-language";
 import { NavContext } from "~/context/nav-context-provider";
+import Whatsapp from "~/components/icons/whatsapp";
 
 export default function Nav() {
   const t = useTranslations("home");
@@ -18,7 +19,7 @@ export default function Nav() {
   const { activeTab } = useContext(NavContext);
 
   return (
-    <nav className="fixed top-0 z-50 flex w-full justify-between px-8 py-4 text-xl font-semibold text-white antialiased shadow-lg">
+    <nav className="fixed top-0 z-50 flex w-full items-end justify-between px-8 py-4 text-xl font-semibold text-white antialiased shadow-lg">
       <NavBackground />
       <div className="flex w-full items-end justify-between lg:hidden">
         <Link href="/">
@@ -60,6 +61,15 @@ export default function Nav() {
           />
         </li>
       </ul>
+      <div className="hidden lg:block">
+        <a
+          href="https://api.whatsapp.com/send?phone=529993931271"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <Whatsapp className="size-8" />
+        </a>
+      </div>
     </nav>
   );
 }
