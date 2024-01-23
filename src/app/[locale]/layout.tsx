@@ -8,6 +8,7 @@ import { getServerAuthSession } from "~/server/auth";
 import SessionProvider from "~/components/session-provider/session-provider";
 import { NextIntlClientProvider } from "next-intl";
 import { Toaster } from "~/components/ui/sonner";
+import NavContextProvider from "~/context/nav-context-provider";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -43,9 +44,11 @@ export default async function RootLayout({
       >
         <SessionProvider session={session}>
           <NextIntlClientProvider messages={messages}>
-            <Nav />
-            {children}
-            <Toaster richColors />
+            <NavContextProvider>
+              <Nav />
+              {children}
+              <Toaster richColors />
+            </NavContextProvider>
           </NextIntlClientProvider>
         </SessionProvider>
       </body>

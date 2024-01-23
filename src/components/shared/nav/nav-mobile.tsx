@@ -5,13 +5,16 @@ import { navItems } from "~/constants";
 import { Link } from "~/navigation";
 import NavBackground from "./nav-background";
 import { useLocale, useTranslations } from "next-intl";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { cn } from "~/lib/utils";
 import SelectLanguage from "./select-language";
+import { NavContext } from "~/context/nav-context-provider";
 
 export default function NavMobile() {
   const t = useTranslations("home");
   const locale = useLocale();
+
+  const { activeTab } = useContext(NavContext);
 
   const [isOpen, setIsOpen] = useState(false);
 
@@ -33,7 +36,7 @@ export default function NavMobile() {
       </button>
       <div
         className={cn(
-          "fixed inset-0 flex translate-x-full flex-col items-center justify-center gap-6 font-bold transition-transform duration-300",
+          "fixed inset-0 flex translate-x-full flex-col items-center justify-center font-bold transition-transform duration-300",
           {
             "translate-x-0": isOpen,
           },
@@ -42,14 +45,30 @@ export default function NavMobile() {
         <button onClick={handleOpen}>
           <X className="absolute right-8 top-14 size-8" />
         </button>
-        {navItems.map(({ href, label }) => (
-          <Link key={label} href={href} onClick={handleOpen}>
-            {t(label)}
-          </Link>
-        ))}
-        <SelectLanguage
-          placeholder={locale === "es" ? "🇲🇽 Español" : "🇺🇸 English"}
-        />
+        <ul className="flex flex-col items-center gap-6">
+          {navItems.map(({ href, label }) => (
+            <Link
+              key={label}
+              href={href}
+              className="[&>div]:hover:w-3/4"
+              onClick={() => setIsOpen(false)}
+            >
+              <li>{t(label)}</li>
+              <div
+                aria-hidden={true}
+                className={cn("h-1 bg-white transition-all duration-300", {
+                  "w-0": activeTab !== t(label),
+                  "w-3/4": activeTab === t(label),
+                })}
+              />
+            </Link>
+          ))}
+          <li>
+            <SelectLanguage
+              placeholder={locale === "es" ? "🇲🇽 Español" : "🇺🇸 English"}
+            />
+          </li>
+        </ul>
 
         <NavBackground />
       </div>

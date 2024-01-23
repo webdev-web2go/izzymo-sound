@@ -27,3 +27,8 @@ export interface Event {
   end: Date;
   allDay: boolean;
 }
+
+export interface NavContextI {
+  activeTab: string;
+  changeActiveTab: (newActiveTab: string) => void;
+}
