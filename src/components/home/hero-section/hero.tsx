@@ -3,6 +3,7 @@ import { useTranslations } from "next-intl";
 import { Button } from "~/components/ui/button";
 import HeroCarousel from "./hero-carousel";
 import RentButton from "./rent-button";
+import PackagesLink from "./packages-link";
 
 export default function Hero() {
   const t = useTranslations("home");
@@ -24,15 +25,7 @@ export default function Hero() {
           </div>
           <div className="flex w-full flex-col gap-4 md:flex-row">
             <RentButton />
-            <Button
-              asChild
-              size="lg"
-              className="flex w-full items-center justify-center gap-2 py-4 text-lg font-bold sm:text-xl"
-            >
-              <Link href="/equipment/packages">
-                {t("heroPackagesButton")} &rarr;
-              </Link>
-            </Button>
+            <PackagesLink />
           </div>
         </div>
         <HeroCarousel />
