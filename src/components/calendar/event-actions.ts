@@ -65,7 +65,7 @@ export async function updateEventAction(
     where: and(
       eq(events.title, title),
       gte(events.start, new Date(startDate.getTime() + 24 * 60 * 60 * 1000)),
-      lte(events.end, new Date(newEndDate.getTime() + 24 * 60 * 60 * 1000)),
+      lte(events.end, new Date(newEndDate.getTime() + 24 * 60 * 60 * 1000 * 2)),
       ne(events.id, id),
     ),
   });
