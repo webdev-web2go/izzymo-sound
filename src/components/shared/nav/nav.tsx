@@ -16,7 +16,7 @@ export default function Nav() {
   const t = useTranslations("home");
   const locale = useLocale();
 
-  const { activeTab } = useContext(NavContext);
+  const { activeTab, changeActiveTab } = useContext(NavContext);
 
   return (
     <nav className="fixed top-0 z-50 flex w-full items-end justify-between px-8 py-4 text-xl font-semibold text-white antialiased shadow-lg">
@@ -34,7 +34,7 @@ export default function Nav() {
       </div>
       <ul className="hidden items-end gap-4 lg:flex">
         <li>
-          <Link href="/">
+          <Link href="/" onClick={() => changeActiveTab("")}>
             <Image
               src="/logo.webp"
               alt="Basswaves logo"
@@ -44,7 +44,12 @@ export default function Nav() {
           </Link>
         </li>
         {navItems.map(({ href, label }) => (
-          <Link key={label} href={href} className="[&>div]:hover:w-3/4">
+          <Link
+            key={label}
+            href={href}
+            className="[&>div]:hover:w-3/4"
+            onClick={() => changeActiveTab(t(label))}
+          >
             <li>{t(label)}</li>
             <div
               aria-hidden={true}

@@ -1,6 +1,6 @@
 "use client";
 
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import {
   type PropsWithChildren,
   createContext,
@@ -18,6 +18,7 @@ export const NavContext = createContext<NavContextI>({
 export default function NavContextProvider({ children }: PropsWithChildren) {
   const [activeTab, setActiveTab] = useState("");
   const pathname = usePathname();
+  const locale = useLocale();
   const t = useTranslations("home");
 
   const changeActiveTab = (newActiveTab: string) => setActiveTab(newActiveTab);
@@ -32,7 +33,7 @@ export default function NavContextProvider({ children }: PropsWithChildren) {
     } else {
       changeActiveTab("");
     }
-  }, [pathname]);
+  }, [locale]);
 
   return (
     <NavContext.Provider value={{ activeTab, changeActiveTab }}>

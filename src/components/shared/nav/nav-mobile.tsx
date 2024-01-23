@@ -15,7 +15,7 @@ export default function NavMobile() {
   const t = useTranslations("home");
   const locale = useLocale();
 
-  const { activeTab } = useContext(NavContext);
+  const { activeTab, changeActiveTab } = useContext(NavContext);
 
   const [isOpen, setIsOpen] = useState(false);
 
@@ -63,7 +63,10 @@ export default function NavMobile() {
               key={label}
               href={href}
               className="[&>div]:hover:w-3/4"
-              onClick={() => setIsOpen(false)}
+              onClick={() => {
+                changeActiveTab(t(label));
+                setIsOpen(false);
+              }}
             >
               <li>{t(label)}</li>
               <div
