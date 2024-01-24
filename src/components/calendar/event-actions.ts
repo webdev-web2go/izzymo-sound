@@ -2,6 +2,8 @@
 
 import { and, eq, gte, lte, ne } from "drizzle-orm";
 import { revalidatePath } from "next/cache";
+import { adminEmails } from "~/constants";
+import { getServerAuthSession } from "~/server/auth";
 import { db } from "~/server/db";
 import { events } from "~/server/db/schema";
 
@@ -14,6 +16,12 @@ export async function getEventsAction() {
 }
 
 export async function createEventAction(formData: FormData) {
+  const session = await getServerAuthSession();
+
+  if (!session || !adminEmails.includes(session.user.email as string)) {
+    return { error: "No tienes autorización para editar reservaciones" };
+  }
+
   const title = formData.get("product") as string;
   const startDateStr = formData.get("date") as string;
   const endDateStr = formData.get("endDate") as string;
@@ -58,6 +66,12 @@ export async function updateEventAction(
   newEndDateStr: string,
   startDateStr: string,
 ) {
+  const session = await getServerAuthSession();
+
+  if (!session || !adminEmails.includes(session.user.email as string)) {
+    return { error: "No tienes autorización para editar reservaciones" };
+  }
+
   const startDate = new Date(startDateStr);
   const newEndDate = new Date(newEndDateStr);
 
@@ -90,6 +104,12 @@ export async function updateEventAction(
 }
 
 export async function deleteEventAction(id: number) {
+  const session = await getServerAuthSession();
+
+  if (!session || !adminEmails.includes(session.user.email as string)) {
+    return { error: "No tienes autorización para editar reservaciones" };
+  }
+
   try {
     await db.delete(events).where(eq(events.id, id));
     revalidatePath("/admin");
