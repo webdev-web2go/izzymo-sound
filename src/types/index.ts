@@ -10,6 +10,7 @@ export interface ProductI {
   price: string;
   image: string;
   description: string;
+  totalPieces: number;
   href: keyof typeof pathnames;
 }
 

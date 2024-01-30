@@ -92,7 +92,6 @@ export default function Calendar({ events, isForUser, setProduct }: Props) {
           end: "prev,next",
         }}
         editable={session.status === "authenticated" && !isForUser}
-        selectable={true}
         height="100%"
       />
       <ChooseEquipmentDialog

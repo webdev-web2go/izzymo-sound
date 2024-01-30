@@ -15,6 +15,7 @@ interface Props {
 export default function ProductDetail({ mainProduct, t }: Props) {
   const tHome = useTranslations("home");
   const isLightingProduct = mainProduct.image.includes("light");
+  const isSoundProduct = mainProduct.image.includes("sound");
 
   return (
     <article className="flex flex-col items-center justify-center gap-4 lg:flex-row 2xl:flex-col">
@@ -33,7 +34,10 @@ export default function ProductDetail({ mainProduct, t }: Props) {
             <Suspense fallback={<AvailabilityBadgeSkeleton />}>
               <AvailabilityBadge
                 isLightingProduct={isLightingProduct}
+                isSoundProduct={isSoundProduct}
                 model={mainProduct.model}
+                totalPieces={mainProduct.totalPieces}
+                size={mainProduct.size}
                 productFunction={mainProduct.productFunctionNoTranslate}
               />
             </Suspense>

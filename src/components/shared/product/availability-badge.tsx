@@ -1,5 +1,5 @@
 import { and, eq, gte, lte } from "drizzle-orm";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import { Badge } from "~/components/ui/badge";
 import { cn } from "~/lib/utils";
 import { db } from "~/server/db";
@@ -9,32 +9,59 @@ interface Props {
   model: string;
   productFunction: string;
   isLightingProduct: boolean;
+  isSoundProduct: boolean;
+  size?: string;
+  totalPieces: number;
 }
 
 export default async function AvailabilityBadge({
   model,
   productFunction,
   isLightingProduct,
+  isSoundProduct,
+  size,
+  totalPieces,
 }: Props) {
   const t = useTranslations("home");
-  const event = await db.query.events.findFirst({
+  const locale = useLocale();
+  const reservations = await db.query.events.findMany({
     where: and(
       eq(
         events.title,
-        isLightingProduct ? model : `${model} ${productFunction}`,
+        isLightingProduct
+          ? model
+          : isSoundProduct
+            ? `${model} ${size} ${productFunction}`
+            : `${model} ${productFunction}`,
       ),
       lte(events.start, new Date(new Date().setDate(new Date().getDate() + 1))),
       gte(events.end, new Date(new Date().setDate(new Date().getDate() + 1))),
     ),
   });
 
+  const generateBadge = (locale: string) => {
+    switch (locale) {
+      case "es": {
+        const remaining = totalPieces - reservations.length;
+        if (remaining === 1) return `${remaining} disponible`;
+        return `${remaining} disponibles`;
+      }
+      case "en": {
+        const remaining = totalPieces - reservations.length;
+        return `${remaining} available`;
+      }
+    }
+  };
+
   return (
     <Badge
       className={cn("pointer-events-none self-end text-base", {
-        "bg-muted-foreground": !!event,
+        "bg-muted-foreground": reservations.length === totalPieces,
       })}
     >
-      {event ? t("notAvailable") : t("available")}
+      {reservations.length === totalPieces
+        ? t("notAvailable")
+        : generateBadge(locale)}
     </Badge>
   );
 }

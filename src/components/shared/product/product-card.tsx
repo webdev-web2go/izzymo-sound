@@ -19,6 +19,7 @@ interface ProductCard {
   image: string;
   href: keyof typeof pathnames;
   isCarousel?: boolean;
+  totalPieces: number;
 }
 
 export default function Product({
@@ -31,10 +32,12 @@ export default function Product({
   href,
   model,
   isCarousel,
+  totalPieces,
 }: ProductCard) {
   const t = useTranslations("equipmentFeatures");
   const tHome = useTranslations("home");
   const isLightingProduct = image.includes("light");
+  const isSoundProduct = image.includes("sound");
 
   return (
     <article
@@ -58,8 +61,11 @@ export default function Product({
           <Suspense fallback={<AvailabilityBadgeSkeleton />}>
             <AvailabilityBadge
               isLightingProduct={isLightingProduct}
+              isSoundProduct={isSoundProduct}
               model={model}
+              size={size}
               productFunction={productFunctionNoTranslate}
+              totalPieces={totalPieces}
             />
           </Suspense>
           <p>

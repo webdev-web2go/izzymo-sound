@@ -21,6 +21,7 @@ export default function ProductsGrid({ products, className }: Props) {
           price={product.price}
           href={product.href}
           image={product.image}
+          totalPieces={product.totalPieces}
         />
       ))}
     </div>

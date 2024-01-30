@@ -1,11 +1,12 @@
 "use server";
 
-import { and, eq, gte, lte, ne } from "drizzle-orm";
+import { and, eq, gte, lte, ne, or } from "drizzle-orm";
 import { revalidatePath } from "next/cache";
-import { adminEmails } from "~/constants";
+import { adminEmails, allProducts } from "~/constants";
 import { getServerAuthSession } from "~/server/auth";
 import { db } from "~/server/db";
 import { events } from "~/server/db/schema";
+import type { Event } from "~/types";
 
 export async function getEventsAction() {
   try {
@@ -32,7 +33,15 @@ export async function createEventAction(formData: FormData) {
     return { error: "Es necesario elegir un producto." };
   }
 
-  const event = await db.query.events.findFirst({
+  const product = allProducts.find(
+    (prod) =>
+      `${prod.model} ${prod.productFunctionNoTranslate}` === title ||
+      `${prod.model} ${prod.size} ${prod.productFunctionNoTranslate}` ===
+        title ||
+      prod.model === title,
+  );
+
+  const reservations = await db.query.events.findMany({
     where: and(
       eq(events.title, title),
       lte(events.start, new Date(startDate.getTime() + 24 * 60 * 60 * 1000)),
@@ -40,10 +49,10 @@ export async function createEventAction(formData: FormData) {
     ),
   });
 
-  if (event) {
+  if (reservations.length === product?.totalPieces) {
     return {
       error:
-        "Ya existe una reservación de éste producto en la fecha seleccionada.",
+        "Todos los productos de éste modelo ya están reservados en la fecha seleccionada.",
     };
   }
 
@@ -75,19 +84,82 @@ export async function updateEventAction(
   const startDate = new Date(startDateStr);
   const newEndDate = new Date(newEndDateStr);
 
-  const event = await db.query.events.findFirst({
+  const product = allProducts.find(
+    (prod) =>
+      `${prod.model} ${prod.productFunctionNoTranslate}` === title ||
+      `${prod.model} ${prod.size} ${prod.productFunctionNoTranslate}` ===
+        title ||
+      prod.model === title,
+  );
+
+  const currentReservation = await db.query.events.findFirst({
+    where: eq(events.id, id),
+  });
+
+  if (newEndDate < currentReservation?.end!) {
+    try {
+      await db
+        .update(events)
+        .set({ end: new Date(newEndDate.getTime() + 24 * 60 * 60 * 1000) })
+        .where(eq(events.id, id));
+      revalidatePath("/admin");
+      return { success: "La reservación se actualizó exitosamente." };
+    } catch (err) {
+      return { error: "Ocurrió un error al actualizar la reservación." };
+    }
+  }
+
+  const reservations = await db.query.events.findMany({
     where: and(
       eq(events.title, title),
-      gte(events.start, new Date(startDate.getTime() + 24 * 60 * 60 * 1000)),
-      lte(events.end, new Date(newEndDate.getTime() + 24 * 60 * 60 * 1000)),
+      or(
+        and(lte(events.start, startDate), gte(events.end, startDate)),
+        and(
+          gte(events.start, startDate),
+          lte(events.end, new Date(newEndDate.getTime() + 24 * 60 * 60 * 1000)),
+        ),
+      ),
       ne(events.id, id),
     ),
   });
+  let overlappingReservations = 0;
 
-  if (event) {
+  if (reservations.length > 0) {
+    if (reservations.length >= 2) {
+      overlappingReservations++;
+      const checkOverlappingReservations = (reservations: Event[]): void => {
+        if (reservations.length === 0) return;
+        const newReservations: Event[] = [];
+        const { start, end } = reservations[0] as Event;
+        for (let j = 1; j < reservations.length; j++) {
+          if (start && end) {
+            const { start: otherStart, end: otherEnd } = reservations[
+              j
+            ] as Event;
+            const overlappingCondition =
+              (start >= otherStart &&
+                start <= new Date(otherEnd.getTime() - 24 * 60 * 60 * 1000)) ||
+              (start <= otherStart && end >= otherStart);
+
+            if (overlappingCondition) {
+              newReservations.push(reservations[j]!);
+            }
+          }
+        }
+        if (newReservations.length > 0) overlappingReservations++;
+        return checkOverlappingReservations(newReservations);
+      };
+
+      checkOverlappingReservations(reservations);
+    } else {
+      if (product?.totalPieces === 1) overlappingReservations++;
+    }
+  }
+
+  if (overlappingReservations >= (product?.totalPieces as number)) {
     return {
       error:
-        "Ya existe una reservación de éste producto dentro del rango seleccionado.",
+        "Todos los productos de éste modelo ya están reservados dentro del rango seleccionado.",
     };
   }
 

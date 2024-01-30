@@ -68,9 +68,9 @@ export default function ChooseEquipmentDialog({
                     type="radio"
                     name="product"
                     className="h-4 w-4 accent-primary"
-                    value={`${mixer.model} ${t(mixer.productFunction)}`}
+                    value={`${mixer.model} ${mixer.productFunctionNoTranslate}`}
                   />
-                  {`${mixer.model} ${t(mixer.productFunction)}`}
+                  {`${mixer.model} ${mixer.productFunctionNoTranslate}`}
                 </label>
               ))}
             </div>
@@ -100,9 +100,9 @@ export default function ChooseEquipmentDialog({
                     type="radio"
                     name="product"
                     className="h-4 w-4 accent-primary"
-                    value={`${product.model} ${t(product.productFunction)}`}
+                    value={`${product.model} ${product.size} ${product.productFunctionNoTranslate}`}
                   />
-                  {`${product.model} ${t(product.productFunction)}`}
+                  {`${product.model} ${product.size} ${product.productFunctionNoTranslate}`}
                 </label>
               ))}
             </div>

@@ -55,6 +55,7 @@ export default function ProductPage({ products, params }: Props) {
                     productFunctionNoTranslate={
                       product.productFunctionNoTranslate
                     }
+                    totalPieces={product.totalPieces}
                     size={product.size}
                     isCarousel
                   />
