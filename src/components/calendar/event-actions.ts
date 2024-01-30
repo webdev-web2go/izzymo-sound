@@ -96,7 +96,7 @@ export async function updateEventAction(
     where: eq(events.id, id),
   });
 
-  if (newEndDate < currentReservation?.end!) {
+  if (currentReservation && newEndDate < currentReservation.end) {
     try {
       await db
         .update(events)
