@@ -83,6 +83,8 @@ export default function Calendar({ events, isForUser, setProduct }: Props) {
               (product) =>
                 product.model === e.event.title ||
                 `${product.model} ${product.productFunctionNoTranslate}` ===
+                  e.event.title ||
+                `${product.model} ${product.size} ${product.productFunctionNoTranslate}` ===
                   e.event.title,
             );
             if (setProduct) setProduct(productToShow as ProductI);
