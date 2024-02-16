@@ -1,8 +1,27 @@
-import { unstable_setRequestLocale } from "next-intl/server";
+import { getTranslations, unstable_setRequestLocale } from "next-intl/server";
 import UserCalendar from "~/components/calendar/user-calendar";
 import MainBanner from "~/components/shared/main-banner/main-banner";
 import ProductsGrid from "~/components/shared/product/products-grid";
 import { mixerAndLightProducts } from "~/constants";
+
+export async function generateMetadata() {
+  const t = await getTranslations("home");
+  return {
+    title: t("mixerCardTitle"),
+    openGraph: {
+      type: "website",
+      url: "https://izzymo-sound.vercel.app/equipment/mixers-and-light",
+      title: "Basswaves",
+      description: t("mixerCardDescription"),
+      siteName: "Basswaves",
+      images: [
+        {
+          url: "/home/mixers/mixer1.webp",
+        },
+      ],
+    },
+  };
+}
 
 export default function MixersAndLightPage({
   params: { locale },

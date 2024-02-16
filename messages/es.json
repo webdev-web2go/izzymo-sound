@@ -53,7 +53,11 @@
     "EKX200-15": "El bafle EKX200-15P cuenta con un amplificador de potencia Clase D de alta eficiencia (hasta 1200 watts) con QuickSmartDSP integrado y proporciona un SLP de hasta 130 dB utilizando transductores concebidos y diseñados por EV (woofer EVS-15M de 15 pulgadas con driver de compresión de titanio DH-1C de 1 pulgada). Los modelos amplificados de rango completo permiten una configuración sencilla por medio de cuatro preajustes (Music, Live, Speech, Club), sistema crossovers sub-top, ecualizador de 3 bandas, cinco preajustes de usuario programables (ajustes Store y Recall), monitoreo visual de estado de limitador, control de nivel de entrada y medidores y control de volumen principal, para asegurar una estructura de ganancia óptima.",
     "EKX200-18": "Subwoofer activo de 18 pulgadas con amplificador Clase D, potencia: 1300W, respuesta de frecuencia: (-3 dB): 40 Hz – 150 Hz, (-10 dB): 35 Hz – 180 Hz, SPL máximo: 134 dB, conectores: (2) XLR/TRS combo jacks y (2) salidas XLR link, gabinete de madera contrachapada de 15 mm con acabado EVCoat, rejilla de acero 18 AWG con pintura en polvo, dimensiones: 520 x 606 x 612 mm, peso: 32.8 kg.",
     "EKX200-12": "Bafle activo, serie EKX, potencia: 1500W, impedancia: 8 ohms, transductores diseñados y desarrollados por EV, transductores de señal sincronizada patentados (SST) diseño de guía de onda que ofrece precisión y cobertura constante, patas de goma, sensibilidad: 95 dB, SPL máximo: 132 dB, respuesta de frecuencia (-3 dB): 60 Hz – 18 kHz, (-10 dB): 50 Hz – 20 kHz, cobertura: 90° x 60°, transductor LF: EVS-12M de 12 pulgadas, transductor HF: driver de compresión de titanio de 1″ pulgada DH-1M, entradas: 1 RCA estéreo, 2 XLR/TRS combo jack, salidas: 1 XLR link, gabinetede madera contrachapada de 15 mm con recubrimiento EVCoat, rejilla de acero calibre 18 con pintura en polvo, dimensiones: altura: 607 mm, ancho: 375 mm, profundidad: 356 mm, peso: 18.8 kg.",
-    "ELX200-18": "Subwoofer activo de 18 pulgadas con amplificador Clase D, potencia: 1500W, respuesta de frecuencia: (-3 dB): 40 Hz – 150 Hz, (-10 dB): 35 Hz – 180 Hz, SPL máximo: 134 dB, conectores: (2) XLR/TRS combo jacks y (2) salidas XLR link, gabinete de madera contrachapada de 15 mm con acabado EVCoat, rejilla de acero 18 AWG con pintura en polvo, dimensiones: 520 x 606 x 612 mm, peso: 32.8 kg."
+    "ELX200-18": "Subwoofer activo de 18 pulgadas con amplificador Clase D, potencia: 1500W, respuesta de frecuencia: (-3 dB): 40 Hz – 150 Hz, (-10 dB): 35 Hz – 180 Hz, SPL máximo: 134 dB, conectores: (2) XLR/TRS combo jacks y (2) salidas XLR link, gabinete de madera contrachapada de 15 mm con acabado EVCoat, rejilla de acero 18 AWG con pintura en polvo, dimensiones: 520 x 606 x 612 mm, peso: 32.8 kg.",
+    "sBarDescription": "Este foco LED RGB te ofrece una experiencia lumínica sin igual. Dispone de 320 LEDs de 10mm (128 rojos, 96 verdes y 96 azules) que te permiten crear una paleta ilimitada de colores. Su amplio ángulo de proyección de 180º asegura una iluminación uniforme y sin sombras. Podrás elegir entre programas preestablecidos, audiorítmico, automático o DMX 512 para crear efectos dinámicos y sincronizar la luz con la música. Además, los 7 canales seleccionables DMX te dan un control preciso sobre la iluminación. Los botones de acceso al menú con display facilitan el manejo de las opciones y la configuración de la luz.",
+    "towerDescription": "Par LED 18 x 15 watts, RGBW + a 5 en 1 full color (rojo, verde, azul, blanco + ámbar) 8 canales dmx512, activación audio rítmica, automática, dmx512 y maestro-esclavo, cambio de colores rápidos y velocidad ajustable.",
+    "siteDescription": "Sonido de alta fidelidad, las mejores mezcladoras del mercado e iluminación con variedad de efectos y colores",
+    "keywords": "Música|Sonido|Mezcladora|Iluminación|Eventos sociales|Reserva de equipos|Alquiler de equipos|Calidad|Alta calidad|Basswaves|Paquetes de equipos|Paquetes de música|Renta de equipos para eventos sociales|Mezcladoras de DJ en renta|Iluminación para eventos en alquiler|Bocinas en renta para fiestas|Paquetes de renta para eventos|Equipos de audio y luces en alquiler|Alquiler de mezcladoras profesionales|Soluciones de sonido para eventos|Servicio de alquiler de iluminación para fiestas|Alquiler de equipos para eventos sociales|Bocinas y luces para renta|Mezcla perfecta: renta de mezcladoras y bocinas|Ilumina tu evento: alquiler de equipos de iluminación|Paquetes completos para eventos con mezcladoras, iluminación y bocinas|Sonido profesional para tu fiesta: renta de equipos|Luces espectaculares en alquiler para eventos sociales|Equipos de audiovisuales en renta|Experiencia musical única: renta de mezcladoras y bocinas|Ilumina tu celebración con nuestros servicios de alquiler|Soluciones personalizadas de sonido e iluminación para eventos"
   },
   "equipmentFeatures": {
     "size": "Medidas",
@@ -65,11 +69,12 @@
     "4ChannelFunction": "4 canales",
     "allInOne": "Todo en uno",
     "LEDFunction": "Luces LED dispersas en 8 secciones, efecto  multicolor",
-    "sBarPower": "240 LED de alta intensidad con 15 metros de alcance",
+    "sBarPower": "40 W de potencia",
+    "sBarFunction": "320 piezas LED (128 rojos, 96 verdes, 96 azules)",
     "18LEDEach": "Luces con 18 LED cada una",
     "RGBLight": "RGB, luz ámbar y luz negra",
     "25MtsRange": "25 metros de alcance",
     "monitor": "Monitor y medios",
-    "sub": "Sub buffer"
+    "sub": "Sub woofer"
   }
 }

@@ -53,7 +53,11 @@
     "EKX200-15": "The EKX200-15P loudspeaker features a high-efficiency Class D power amplifier (up to 1200 watts) with integrated QuickSmartDSP and provides an SLP of up to 130 dB using transducers conceived and designed by EV (EVS-15M 15 inch woofer with 1 inch driver DH-1C titanium compression fitting). Full-range powered models allow easy setup via four presets (Music, Live, Speech, Club), sub-top crossovers, 3-band equalizer, five programmable user presets (Store and Recall settings), visual monitoring limiter status, input level control and meters and master volume control, to ensure optimal gain structure.",
     "EKX200-18": "18 inch active subwoofer with Class D amplifier, power: 1300W, frequency response: (-3 dB): 40 Hz – 150 Hz, (-10 dB): 35 Hz – 180 Hz, maximum SPL: 134 dB, connectors : (2) XLR/TRS combo jacks and (2) XLR link outputs, 15 mm plywood cabinet with EVCoat finish, 18 AWG powder-coated steel grille, dimensions: 520 x 606 x 612 mm, weight: 32.8 kg.",
     "EKX200-12": "Active speaker, EKX series, power: 1500W, impedance: 8 ohms, transducers designed and developed by EV, patented synchronized signal transducers (SST) waveguide design that offers precision and constant coverage, rubber feet, sensitivity: 95 dB , Maximum SPL: 132 dB, frequency Response (-3 dB): 60 Hz – 18 kHz, (-10 dB): 50 Hz – 20 kHz, Coverage: 90° x 60°, LF Transducer: 12 inch EVS-12M, HF transducer: 1 inch DH-1M titanium compression driver, inputs: 1 stereo RCA, 2 XLR/TRS combo jack, outputs: 1 XLR link, 15 mm plywood cabinet with EVCoat coating, steel grill 18 gauge powder coated, dimensions: height: 607 mm, width: 375 mm, depth: 356 mm, weight: 18.8 kg.",
-    "ELX200-18": "18 inch active subwoofer with Class D amplifier, power: 1500W, frequency response: (-3 dB): 40 Hz – 150 Hz, (-10 dB): 35 Hz – 180 Hz, maximum SPL: 134 dB, connectors : (2) XLR/TRS combo jacks and (2) XLR link outputs, 15 mm plywood cabinet with EVCoat finish, 18 AWG powder-coated steel grille, dimensions: 520 x 606 x 612 mm, weight: 32.8 kg."
+    "ELX200-18": "18 inch active subwoofer with Class D amplifier, power: 1500W, frequency response: (-3 dB): 40 Hz – 150 Hz, (-10 dB): 35 Hz – 180 Hz, maximum SPL: 134 dB, connectors : (2) XLR/TRS combo jacks and (2) XLR link outputs, 15 mm plywood cabinet with EVCoat finish, 18 AWG powder-coated steel grille, dimensions: 520 x 606 x 612 mm, weight: 32.8 kg.",
+    "sBarDescription": "This RGB LED spotlight offers you an unparalleled lighting experience. It has 320 10mm LEDs (128 red, 96 green and 96 blue) that allow you to create an unlimited palette of colors. Its wide projection angle of 180º ensures uniform lighting without shadows. You can choose between preset, audio-rhythmic, automatic or DMX 512 programs to create dynamic effects and synchronize light with music. Plus, the 7 selectable DMX channels give you precise control over the lighting. The menu access buttons with display make it easy to manage the options and configure the light.",
+    "towerDescription": "LED Par 18 x 15 watts, RGBW + 5 in 1 full color (red, green, blue, white + amber) 8 DMX512 channels, rhythmic, automatic audio activation, DMX512 and master-slave, quick color change and adjustable speed.",
+    "siteDescription": "High fidelity sound, the best mixers on the market and lighting with a variety of effects and colors",
+    "keywords": "Music|Sound|Mixer|Lighting|Social Events|Equipment Booking|Equipment Rental|Quality|High Quality|Basswaves|Equipment Packages|Music Packages|Equipment Rental for Social Events|DJ Mixers for Rent|Event Lighting for rent|Speakers for rent for parties|Rental packages for events|Audio equipment and lights for rent|Professional mixer rentals|Sound solutions for events|Lighting rental service for parties|Equipment rental for social events|Speakers and lights for rental|Perfect mix: mixer and speaker rentals|Light up your event: lighting equipment rental|Complete event packages with mixers, lighting and speakers|Professional sound for your party: equipment rental|Spectacular lights for rent for social events|Audiovisual equipment for rent|Unique musical experience: mixer and speaker rental|Light up your celebration with our rental services|Custom sound and lighting solutions for events"
   },
   "equipmentFeatures": {
     "size": "Size",
@@ -65,11 +69,12 @@
     "4ChannelFunction": "4 channels",
     "allInOne": "All in one",
     "LEDFunction": "LED lights scattered in 8 sections, multi-color effect",
-    "sBarPower": "240 high intensity LEDs with 15 meters range",
+    "sBarPower": "40 W of power",
+    "sBarFunction": "320 LED pieces (128 red, 96 green, 96 blue)",
     "18LEDEach": "Lights with 18 LEDs each",
     "RGBLight": "RGB, ambar light and black light",
     "25MtsRange": "25 meters range",
     "monitor": "Monitor and media",
-    "sub": "Sub-buffer"
+    "sub": "Sub-woofer"
   }
 }

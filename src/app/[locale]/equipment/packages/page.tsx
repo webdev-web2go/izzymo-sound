@@ -1,9 +1,28 @@
 import { useTranslations } from "next-intl";
-import { unstable_setRequestLocale } from "next-intl/server";
+import { getTranslations, unstable_setRequestLocale } from "next-intl/server";
 import UserCalendar from "~/components/calendar/user-calendar";
 import PackageCard from "~/components/packages/package-card";
 import MainBanner from "~/components/shared/main-banner/main-banner";
 import { packages } from "~/constants";
+
+export async function generateMetadata() {
+  const t = await getTranslations("home");
+  return {
+    title: t("equipmentCardTitle"),
+    openGraph: {
+      type: "website",
+      url: "https://izzymo-sound.vercel.app/equipment/packages",
+      title: "Basswaves",
+      description: t("equipmentCardDescription"),
+      siteName: "Basswaves",
+      images: [
+        {
+          url: "/home/packages-banner.webp",
+        },
+      ],
+    },
+  };
+}
 
 export default function PackagesPage({
   params: { locale },

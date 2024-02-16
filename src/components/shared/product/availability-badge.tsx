@@ -34,8 +34,8 @@ export default async function AvailabilityBadge({
             ? `${model} ${size} ${productFunction}`
             : `${model} ${productFunction}`,
       ),
-      lte(events.start, new Date(new Date().setDate(new Date().getDate() + 1))),
-      gte(events.end, new Date(new Date().setDate(new Date().getDate() + 1))),
+      lte(events.start, new Date(new Date().getTime() + 24 * 60 * 60 * 1000)),
+      gte(events.end, new Date(new Date().getTime() + 24 * 60 * 60 * 1000)),
     ),
   });
 
