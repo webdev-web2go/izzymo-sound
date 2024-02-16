@@ -76,6 +76,7 @@ export default function ProductDetail({ mainProduct, t }: Props) {
           isPackage={false}
           model={mainProduct.model}
           productFunction={mainProduct.productFunction}
+          image={mainProduct.image}
         />
       </div>
     </article>

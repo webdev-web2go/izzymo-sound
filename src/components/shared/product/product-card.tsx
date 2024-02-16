@@ -58,16 +58,21 @@ export default function Product({
       />
       <div className="flex w-full flex-col gap-6 px-4 text-lg text-muted-foreground antialiased">
         <header className="flex flex-col gap-1">
-          <Suspense fallback={<AvailabilityBadgeSkeleton />}>
-            <AvailabilityBadge
-              isLightingProduct={isLightingProduct}
-              isSoundProduct={isSoundProduct}
-              model={model}
-              size={size}
-              productFunction={productFunctionNoTranslate}
-              totalPieces={totalPieces}
-            />
-          </Suspense>
+          <div className="flex flex-col gap-2 self-end">
+            <p>
+              {t("quantity")}: {totalPieces}
+            </p>
+            <Suspense fallback={<AvailabilityBadgeSkeleton />}>
+              <AvailabilityBadge
+                isLightingProduct={isLightingProduct}
+                isSoundProduct={isSoundProduct}
+                model={model}
+                size={size}
+                productFunction={productFunctionNoTranslate}
+                totalPieces={totalPieces}
+              />
+            </Suspense>
+          </div>
           <p>
             <span className="font-semibold">{t("model")}:</span> {model}
           </p>

@@ -43,12 +43,12 @@ export default async function AvailabilityBadge({
     switch (locale) {
       case "es": {
         const remaining = totalPieces - reservations.length;
-        if (remaining === 1) return `${remaining} disponible`;
-        return `${remaining} disponibles`;
+        if (remaining === 1) return `${remaining} disponible hoy`;
+        return `${remaining} disponibles hoy`;
       }
       case "en": {
         const remaining = totalPieces - reservations.length;
-        return `${remaining} available`;
+        return `${remaining} available today`;
       }
     }
   };

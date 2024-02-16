@@ -27,8 +27,7 @@
     "clickTag": "Da click a la etiqueta para visualizar el artículo",
     "reserve": "Reservar",
     "seeMore": "Ver más",
-    "available": "Disponible",
-    "notAvailable": "No disponible",
+    "notAvailable": "No disponible hoy",
     "interest": "También podría interesarte",
     "language": "Idioma",
     "package": "Paquete",
@@ -75,6 +74,7 @@
     "RGBLight": "RGB, luz ámbar y luz negra",
     "25MtsRange": "25 metros de alcance",
     "monitor": "Monitor y medios",
-    "sub": "Sub woofer"
+    "sub": "Sub woofer",
+    "quantity": "Cantidad de equipos"
   }
 }
