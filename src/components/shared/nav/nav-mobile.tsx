@@ -1,6 +1,6 @@
 "use client";
 
-import { MenuIcon, X } from "lucide-react";
+import { LogOutIcon, MenuIcon, X } from "lucide-react";
 import { navItems } from "~/constants";
 import { Link } from "~/navigation";
 import NavBackground from "./nav-background";
@@ -10,12 +10,15 @@ import { cn } from "~/lib/utils";
 import SelectLanguage from "./select-language";
 import { NavContext } from "~/context/nav-context-provider";
 import Whatsapp from "~/components/icons/whatsapp";
+import { signOut, useSession } from "next-auth/react";
 
 export default function NavMobile() {
   const t = useTranslations("home");
   const locale = useLocale();
 
   const { activeTab, changeActiveTab } = useContext(NavContext);
+
+  const session = useSession();
 
   const [isOpen, setIsOpen] = useState(false);
 
@@ -44,7 +47,7 @@ export default function NavMobile() {
         )}
       >
         <div className="flex w-full justify-between p-6">
-          <div className="lg:hidden">
+          <div className="flex items-center gap-2 lg:hidden">
             <a
               href="https://api.whatsapp.com/send?phone=529993931271"
               target="_blank"
@@ -52,6 +55,11 @@ export default function NavMobile() {
             >
               <Whatsapp className="size-8" />
             </a>
+            {session.status === "authenticated" && (
+              <button onClick={async () => await signOut()}>
+                <LogOutIcon />
+              </button>
+            )}
           </div>
           <button onClick={handleOpen} className="size-8">
             <X />

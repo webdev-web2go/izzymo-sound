@@ -11,12 +11,16 @@ import { cn } from "~/lib/utils";
 import SelectLanguage from "./select-language";
 import { NavContext } from "~/context/nav-context-provider";
 import Whatsapp from "~/components/icons/whatsapp";
+import { LogOutIcon } from "lucide-react";
+import { signOut, useSession } from "next-auth/react";
 
 export default function Nav() {
   const t = useTranslations("home");
   const locale = useLocale();
 
   const { activeTab, changeActiveTab } = useContext(NavContext);
+
+  const session = useSession();
 
   return (
     <nav className="fixed top-0 z-50 flex w-full items-end justify-between px-8 py-4 text-xl font-semibold text-white antialiased shadow-lg">
@@ -66,7 +70,7 @@ export default function Nav() {
           />
         </li>
       </ul>
-      <div className="hidden lg:block">
+      <div className="hidden items-center gap-2 lg:flex">
         <a
           href="https://api.whatsapp.com/send?phone=529993931271"
           target="_blank"
@@ -74,6 +78,11 @@ export default function Nav() {
         >
           <Whatsapp className="size-8" />
         </a>
+        {session.status === "authenticated" && (
+          <button onClick={async () => await signOut()}>
+            <LogOutIcon />
+          </button>
+        )}
       </div>
     </nav>
   );
