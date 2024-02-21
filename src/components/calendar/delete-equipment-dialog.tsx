@@ -51,12 +51,11 @@ export default function DeleteEquipmentDialog({ open, setOpen, event }: Props) {
         <DialogDescription className="space-y-2">
           <p className="text-base font-semibold">{event?.title}</p>
           <ul className="space-y-1">
-            {event &&
-              event.extendedProps.split("|").map((product: string) => (
-                <li className="flex items-center gap-1 text-base">
-                  <Music /> {product}
-                </li>
-              ))}
+            {event?.extendedProps.split("|").map((product: string) => (
+              <li className="flex items-center gap-1 text-base">
+                <Music /> {product}
+              </li>
+            ))}
           </ul>
         </DialogDescription>
         <Button

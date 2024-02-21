@@ -1,6 +1,4 @@
-import { Link } from "~/navigation";
 import { useTranslations } from "next-intl";
-import { Button } from "~/components/ui/button";
 import HeroCarousel from "./hero-carousel";
 import RentButton from "./rent-button";
 import PackagesLink from "./packages-link";

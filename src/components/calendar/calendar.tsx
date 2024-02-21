@@ -9,7 +9,7 @@ import type { Event, ProductI } from "~/types";
 import { useSession } from "next-auth/react";
 import { mixerAndLightProducts, soundProducts } from "~/constants";
 import { useLocale } from "next-intl";
-import { EventSourceInput } from "@fullcalendar/core/index.js";
+import type { EventSourceInput } from "@fullcalendar/core/index.js";
 import { getEventByIdAction } from "./event-actions";
 
 interface Props {
@@ -37,7 +37,7 @@ export default function Calendar({ events, isForUser, setProducts }: Props) {
           minute: "2-digit",
           meridiem: "short",
         }}
-        dateClick={(e) => {
+        dateClick={() => {
           if (session.status === "unauthenticated") return;
           if (!isForUser) {
             setOpenReservation(true);
@@ -67,7 +67,7 @@ export default function Calendar({ events, isForUser, setProducts }: Props) {
                     `${product.model} ${product.size} ${product.productFunctionNoTranslate}`,
               );
             });
-            if (setProducts) setProducts(productsToShow as ProductI[]);
+            if (setProducts) setProducts(productsToShow);
           }
         }}
         headerToolbar={{

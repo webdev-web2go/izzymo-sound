@@ -22,7 +22,6 @@ export default async function AvailabilityBadge({
   size,
   totalPieces,
 }: Props) {
-  const t = useTranslations("home");
   const locale = useLocale();
   const reservations = await db.query.events.findMany({
     where: and(

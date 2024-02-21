@@ -5,7 +5,6 @@ import {
   datetime,
   index,
   int,
-  json,
   mysqlTableCreator,
   primaryKey,
   text,
