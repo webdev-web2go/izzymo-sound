@@ -2,9 +2,10 @@ import { relations, sql } from "drizzle-orm";
 import {
   bigint,
   boolean,
-  date,
+  datetime,
   index,
   int,
+  json,
   mysqlTableCreator,
   primaryKey,
   text,
@@ -26,9 +27,10 @@ export const events = mysqlTable(
   {
     id: bigint("id", { mode: "number" }).primaryKey().autoincrement(),
     title: varchar("title", { length: 256 }).notNull(),
-    start: date("start").notNull(),
-    end: date("end").notNull(),
-    allDay: boolean("all_day").notNull().default(true),
+    start: datetime("start").notNull(),
+    end: datetime("end").notNull(),
+    allDay: boolean("all_day").notNull().default(false),
+    extendedProps: varchar("extended_props", { length: 256 }).notNull(),
     createdAt: timestamp("created_at")
       .default(sql`CURRENT_TIMESTAMP`)
       .notNull(),

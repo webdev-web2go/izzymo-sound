@@ -20,6 +20,22 @@ html {
   cursor: pointer;
 }
 
+.fc-event {
+  flex-wrap: wrap;
+}
+
+@media (max-width: 700px) {
+  .fc-event-time {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    max-width: 100%;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+}
+
 @layer base {
   :root {
     --background: 0 0% 100%;

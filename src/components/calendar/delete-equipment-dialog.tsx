@@ -7,10 +7,11 @@ import {
   DialogTitle,
 } from "~/components/ui/dialog";
 import { Button } from "~/components/ui/button";
-import type { Event } from "~/types";
 import { deleteEventAction } from "~/components/calendar/event-actions";
 import { toast } from "sonner";
 import { cn } from "~/lib/utils";
+import { Music } from "lucide-react";
+import type { Event } from "~/types";
 
 interface Props {
   open: boolean;
@@ -47,10 +48,20 @@ export default function DeleteEquipmentDialog({ open, setOpen, event }: Props) {
             ¿Deseas eliminar ésta reservación?
           </DialogTitle>
         </DialogHeader>
-        <DialogDescription>{event?.title}</DialogDescription>
+        <DialogDescription className="space-y-2">
+          <p className="text-base font-semibold">{event?.title}</p>
+          <ul className="space-y-1">
+            {event &&
+              event.extendedProps.split("|").map((product: string) => (
+                <li className="flex items-center gap-1 text-base">
+                  <Music /> {product}
+                </li>
+              ))}
+          </ul>
+        </DialogDescription>
         <Button
           className={cn(loading && "animate-pulse")}
-          onClick={() => deleteEvent(Number(event?.id))}
+          onClick={async () => await deleteEvent(Number(event?.id))}
         >
           {loading ? "Eliminando reservación..." : "Eliminar reservación"}
         </Button>
@@ -58,26 +69,3 @@ export default function DeleteEquipmentDialog({ open, setOpen, event }: Props) {
     </Dialog>
   );
 }
-
-// function SubmitButton({
-//   setOpen,
-//   setSuccess,
-//   success,
-// }: {
-//   setOpen: Dispatch<SetStateAction<boolean>>;
-//   setSuccess: Dispatch<SetStateAction<boolean>>;
-//   success: boolean;
-// }) {
-//   const { pending } = useFormStatus();
-
-//   useEffect(() => {
-//     if (success) setOpen(false);
-//     setSuccess(false);
-//   }, [success]);
-
-//   return (
-//     <Button className={cn(pending && "animate-pulse")}>
-//       {pending ? "Creando reservación..." : "Crear reservación"}
-//     </Button>
-//   );
-// }

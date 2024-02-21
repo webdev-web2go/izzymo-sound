@@ -9,6 +9,7 @@ export default async function AdminCalendar() {
       start: true,
       end: true,
       allDay: true,
+      extendedProps: true,
     },
   });
   return <Calendar events={events} />;

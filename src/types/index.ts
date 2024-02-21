@@ -27,6 +27,7 @@ export interface Event {
   start: Date;
   end: Date;
   allDay: boolean;
+  extendedProps: string;
 }
 
 export interface NavContextI {

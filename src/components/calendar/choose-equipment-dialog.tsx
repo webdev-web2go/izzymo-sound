@@ -8,7 +8,6 @@ import { lights, mixers, sound } from "~/constants";
 import { Button } from "~/components/ui/button";
 import { createEventAction } from "~/components/calendar/event-actions";
 import { Input } from "~/components/ui/input";
-import { useTranslations } from "next-intl";
 import { useState, type Dispatch, type SetStateAction, useEffect } from "react";
 import { toast } from "sonner";
 import { useFormStatus } from "react-dom";
@@ -17,17 +16,9 @@ import { cn } from "~/lib/utils";
 interface Props {
   open: boolean;
   setOpen: Dispatch<SetStateAction<boolean>>;
-  startDate: string;
-  endDate: string;
 }
 
-export default function ChooseEquipmentDialog({
-  open,
-  setOpen,
-  startDate,
-  endDate,
-}: Props) {
-  const t = useTranslations("equipmentFeatures");
+export default function ChooseEquipmentDialog({ open, setOpen }: Props) {
   const [success, setSuccess] = useState(false);
 
   const createEvent = async (formData: FormData) => {
@@ -50,22 +41,36 @@ export default function ChooseEquipmentDialog({
       <DialogContent>
         <DialogHeader>
           <DialogTitle className="text-primary">
-            Elige el equipo que se rentó
+            Edita la información del evento
           </DialogTitle>
         </DialogHeader>
         <form
           action={createEvent}
           className="flex flex-col gap-4 text-muted-foreground antialiased"
         >
-          <input type="hidden" name="date" value={startDate} />
-          <input type="hidden" name="endDate" value={endDate?.toString()} />
+          <div className="flex flex-col gap-2">
+            <div>
+              <label htmlFor="title">Nombre del evento</label>
+              <Input id="title" type="text" name="title" />
+            </div>
+            <div className="flex gap-2">
+              <div className="w-full">
+                <label htmlFor="start">Inicio</label>
+                <Input id="start" type="datetime-local" name="start" />
+              </div>
+              <div className="w-full">
+                <label htmlFor="end">Fin</label>
+                <Input id="end" type="datetime-local" name="end" />
+              </div>
+            </div>
+          </div>
           <div className="flex flex-col gap-2">
             <p className="font-semibold">Mezcladoras</p>
             <div className="flex flex-wrap gap-x-4 gap-y-2">
               {mixers.map((mixer) => (
                 <label key={mixer.image} className="flex items-center gap-1">
                   <Input
-                    type="radio"
+                    type="checkbox"
                     name="product"
                     className="h-4 w-4 accent-primary"
                     value={`${mixer.model} ${mixer.productFunctionNoTranslate}`}
@@ -81,7 +86,7 @@ export default function ChooseEquipmentDialog({
               {lights.map((light) => (
                 <label key={light.image} className="flex items-center gap-1">
                   <Input
-                    type="radio"
+                    type="checkbox"
                     name="product"
                     className="h-4 w-4 accent-primary"
                     value={light.model}
@@ -97,7 +102,7 @@ export default function ChooseEquipmentDialog({
               {sound.map((product) => (
                 <label key={product.image} className="flex items-center gap-1">
                   <Input
-                    type="radio"
+                    type="checkbox"
                     name="product"
                     className="h-4 w-4 accent-primary"
                     value={`${product.model} ${product.size} ${product.productFunctionNoTranslate}`}

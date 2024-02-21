@@ -27,7 +27,7 @@ export default function ProductDetail({ mainProduct, t }: Props) {
       />
       <div className="flex flex-col gap-4 text-lg text-muted-foreground antialiased">
         <header className="flex flex-col gap-2">
-          <div className="flex items-center justify-between">
+          <div className="flex flex-col-reverse gap-2 sm:flex-row sm:items-center sm:justify-between sm:gap-0">
             <strong className="text-5xl text-primary">
               {mainProduct.price}
             </strong>

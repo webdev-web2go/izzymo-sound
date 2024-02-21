@@ -1,4 +1,4 @@
-import { and, eq, gte, lte } from "drizzle-orm";
+import { and, gte, lte } from "drizzle-orm";
 import { useLocale, useTranslations } from "next-intl";
 import { Badge } from "~/components/ui/badge";
 import { cn } from "~/lib/utils";
@@ -26,29 +26,32 @@ export default async function AvailabilityBadge({
   const locale = useLocale();
   const reservations = await db.query.events.findMany({
     where: and(
-      eq(
-        events.title,
-        isLightingProduct
-          ? model
-          : isSoundProduct
-            ? `${model} ${size} ${productFunction}`
-            : `${model} ${productFunction}`,
-      ),
-      lte(events.start, new Date(new Date().getTime() + 24 * 60 * 60 * 1000)),
-      gte(events.end, new Date(new Date().getTime() + 24 * 60 * 60 * 1000)),
+      lte(events.start, new Date(Date.now())),
+      gte(events.end, new Date(Date.now())),
     ),
   });
 
   const generateBadge = (locale: string) => {
+    let remaining = totalPieces;
+    reservations.forEach((res) => {
+      if (
+        (isLightingProduct && res.extendedProps.includes(model)) ||
+        (isSoundProduct &&
+          res.extendedProps.includes(`${model} ${size} ${productFunction}`)) ||
+        res.extendedProps.includes(`${model} ${productFunction}`)
+      ) {
+        remaining--;
+      }
+    });
     switch (locale) {
       case "es": {
-        const remaining = totalPieces - reservations.length;
-        if (remaining === 1) return `${remaining} disponible hoy`;
-        return `${remaining} disponibles hoy`;
+        if (remaining === 1) return `${remaining} disponible ahora`;
+        else if (remaining === 0) return "No disponible ahora";
+        return `${remaining} disponibles ahora`;
       }
       case "en": {
-        const remaining = totalPieces - reservations.length;
-        return `${remaining} available today`;
+        if (remaining === 0) return "Not available now";
+        return `${remaining} available now`;
       }
     }
   };
@@ -56,12 +59,10 @@ export default async function AvailabilityBadge({
   return (
     <Badge
       className={cn("pointer-events-none self-end text-base", {
-        "bg-muted-foreground": reservations.length === totalPieces,
+        "bg-muted-foreground": generateBadge(locale)?.includes("No"),
       })}
     >
-      {reservations.length === totalPieces
-        ? t("notAvailable")
-        : generateBadge(locale)}
+      {generateBadge(locale)}
     </Badge>
   );
 }
