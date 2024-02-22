@@ -35,7 +35,7 @@ export async function createEventAction(formData: FormData) {
   const end = new Date(formData.get("end") as string);
 
   const equipment = [...formData.entries()]
-    .filter(([name, value]) => Number(value))
+    .filter(([_, value]) => Number(value))
     .flatMap(([name, value]) => `${value} ${name.replace("%22", '"')}`)
     .join("|");
 

@@ -24,6 +24,8 @@ const config = {
     "@typescript-eslint/no-empty-interface": "off",
     "@typescript-eslint/non-nullable-type-assertion-style": "off",
     "@typescript-eslint/no-empty-function": "off",
+    "@typescript-eslint/no-base-to-string": "off",
+    "@typescript-eslint/restrict-template-expressions": "off",
     "@typescript-eslint/consistent-type-imports": [
       "warn",
       {
