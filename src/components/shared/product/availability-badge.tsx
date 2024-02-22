@@ -33,13 +33,26 @@ export default async function AvailabilityBadge({
   const generateBadge = (locale: string) => {
     let remaining = totalPieces;
     reservations.forEach((res) => {
-      if (
-        (isLightingProduct && res.extendedProps.includes(model)) ||
-        (isSoundProduct &&
-          res.extendedProps.includes(`${model} ${size} ${productFunction}`)) ||
-        res.extendedProps.includes(`${model} ${productFunction}`)
+      const equipmentArray = res.extendedProps.split("|");
+      if (isLightingProduct && res.extendedProps.includes(model)) {
+        remaining -= Number(
+          equipmentArray.find((el: string) => el.includes(model))?.[0],
+        );
+      } else if (
+        isSoundProduct &&
+        res.extendedProps.includes(`${model} ${size}`)
       ) {
-        remaining--;
+        remaining -= Number(
+          equipmentArray.find((el: string) =>
+            el.includes(`${model} ${size}`),
+          )?.[0],
+        );
+      } else if (res.extendedProps.includes(`${model} ${productFunction}`)) {
+        remaining -= Number(
+          equipmentArray.find((el: string) =>
+            el.includes(`${model} ${productFunction}`),
+          )?.[0],
+        );
       }
     });
     switch (locale) {

@@ -46,7 +46,7 @@ export default function ChooseEquipmentDialog({ open, setOpen }: Props) {
         </DialogHeader>
         <form
           action={createEvent}
-          className="flex flex-col gap-4 text-muted-foreground antialiased"
+          className="flex flex-col gap-2 text-muted-foreground antialiased"
         >
           <div className="flex flex-col gap-2">
             <div>
@@ -66,49 +66,73 @@ export default function ChooseEquipmentDialog({ open, setOpen }: Props) {
           </div>
           <div className="flex flex-col gap-2">
             <p className="font-semibold">Mezcladoras</p>
-            <div className="flex flex-wrap gap-x-4 gap-y-2">
+            <div className="grid grid-cols-2 gap-x-4">
               {mixers.map((mixer) => (
-                <label key={mixer.image} className="flex items-center gap-1">
+                <div className="relative">
+                  <label
+                    key={mixer.image}
+                    className="absolute -top-2 left-3 bg-white px-2 text-sm"
+                    htmlFor={`${mixer.model} ${mixer.productFunctionNoTranslate}`}
+                  >
+                    {`${mixer.model} ${mixer.productFunctionNoTranslate}`}
+                  </label>
                   <Input
-                    type="checkbox"
-                    name="product"
-                    className="h-4 w-4 accent-primary"
-                    value={`${mixer.model} ${mixer.productFunctionNoTranslate}`}
+                    id={`${mixer.model} ${mixer.productFunctionNoTranslate}`}
+                    type="number"
+                    name={`${mixer.model} ${mixer.productFunctionNoTranslate}`}
+                    min={1}
+                    max={mixer.totalPieces}
+                    className="accent-primary"
                   />
-                  {`${mixer.model} ${mixer.productFunctionNoTranslate}`}
-                </label>
+                </div>
               ))}
             </div>
           </div>
           <div className="flex flex-col gap-2">
             <p className="font-semibold">Iluminación</p>
-            <div className="flex flex-wrap gap-x-4 gap-y-2">
+            <div className="grid grid-cols-2 gap-x-4">
               {lights.map((light) => (
-                <label key={light.image} className="flex items-center gap-1">
+                <div className="relative">
+                  <label
+                    key={light.image}
+                    className="absolute -top-2 left-3 bg-white px-2 text-sm"
+                    htmlFor={light.model}
+                  >
+                    {light.model}
+                  </label>
                   <Input
-                    type="checkbox"
-                    name="product"
-                    className="h-4 w-4 accent-primary"
-                    value={light.model}
+                    id={light.model}
+                    type="number"
+                    name={light.model}
+                    min={1}
+                    max={light.totalPieces}
+                    className="accent-primary"
                   />
-                  {light.model}
-                </label>
+                </div>
               ))}
             </div>
           </div>
           <div className="flex flex-col gap-2">
             <p className="font-semibold">Sonido</p>
-            <div className="flex flex-wrap gap-x-4 gap-y-2">
+            <div className="grid grid-cols-2 gap-x-4 gap-y-4">
               {sound.map((product) => (
-                <label key={product.image} className="flex items-center gap-1">
+                <div className="relative">
+                  <label
+                    key={product.image}
+                    className="absolute -top-2 left-3 bg-white px-2 text-sm"
+                    htmlFor={`${product.model} ${product.size}`}
+                  >
+                    {`${product.model} ${product.size}`}
+                  </label>
                   <Input
-                    type="checkbox"
-                    name="product"
-                    className="h-4 w-4 accent-primary"
-                    value={`${product.model} ${product.size} ${product.productFunctionNoTranslate}`}
+                    id={`${product.model} ${product.size}`}
+                    type="number"
+                    name={`${product.model} ${product.size}`}
+                    min={1}
+                    max={product.totalPieces}
+                    className="accent-primary"
                   />
-                  {`${product.model} ${product.size} ${product.productFunctionNoTranslate}`}
-                </label>
+                </div>
               ))}
             </div>
           </div>

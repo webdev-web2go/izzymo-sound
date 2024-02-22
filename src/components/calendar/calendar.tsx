@@ -60,11 +60,10 @@ export default function Calendar({ events, isForUser, setProducts }: Props) {
                 .split("|");
               return equipment.some(
                 (el) =>
-                  el === `${product.model}` ||
-                  el ===
+                  el.slice(2) === `${product.model}` ||
+                  el.slice(2) ===
                     `${product.model} ${product.productFunctionNoTranslate}` ||
-                  el ===
-                    `${product.model} ${product.size} ${product.productFunctionNoTranslate}`,
+                  el.slice(2) === `${product.model} ${product.size}`,
               );
             });
             if (setProducts) setProducts(productsToShow);
