@@ -68,7 +68,7 @@ export default function ChooseEquipmentDialog({ open, setOpen }: Props) {
             <p className="font-semibold">Mezcladoras</p>
             <div className="grid grid-cols-2 gap-x-4">
               {mixers.map((mixer) => (
-                <div className="relative">
+                <div key={mixer.image} className="relative">
                   <label
                     key={mixer.image}
                     className="absolute -top-2 left-3 bg-white px-2 text-sm"
@@ -92,7 +92,7 @@ export default function ChooseEquipmentDialog({ open, setOpen }: Props) {
             <p className="font-semibold">Iluminación</p>
             <div className="grid grid-cols-2 gap-x-4">
               {lights.map((light) => (
-                <div className="relative">
+                <div key={light.image} className="relative">
                   <label
                     key={light.image}
                     className="absolute -top-2 left-3 bg-white px-2 text-sm"
@@ -116,7 +116,7 @@ export default function ChooseEquipmentDialog({ open, setOpen }: Props) {
             <p className="font-semibold">Sonido</p>
             <div className="grid grid-cols-2 gap-x-4 gap-y-4">
               {sound.map((product) => (
-                <div className="relative">
+                <div key={product.image} className="relative">
                   <label
                     key={product.image}
                     className="absolute -top-2 left-3 bg-white px-2 text-sm"
