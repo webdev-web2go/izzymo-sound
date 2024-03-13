@@ -19,7 +19,7 @@ import { type AdapterAccount } from "next-auth/adapters";
  *
  * @see https://orm.drizzle.team/docs/goodies#multi-project-schema
  */
-export const mysqlTable = mysqlTableCreator((name) => `izzymo-sound_${name}`);
+export const mysqlTable = mysqlTableCreator((name) => `izzymosound_${name}`);
 
 export const events = mysqlTable(
   "event",
