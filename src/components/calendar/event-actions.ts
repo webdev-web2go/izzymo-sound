@@ -34,6 +34,8 @@ export async function createEventAction(formData: FormData) {
   const start = new Date(formData.get("start") as string);
   const end = new Date(formData.get("end") as string);
 
+  const offset = start.getTimezoneOffset();
+
   const equipment = [...formData.entries()]
     .filter(([_, value]) => Number(value))
     .flatMap(([name, value]) => `${value} ${name.replace("%22", '"')}`)
@@ -46,8 +48,8 @@ export async function createEventAction(formData: FormData) {
   try {
     await db.insert(events).values({
       title,
-      start,
-      end,
+      start: new Date(start.getTime() + offset * 60 * 1000),
+      end: new Date(end.getTime() + offset * 60 * 1000),
       extendedProps: equipment,
     });
     revalidatePath("/admin");
