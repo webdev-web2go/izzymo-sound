@@ -36,13 +36,13 @@ export async function generateMetadata(): Promise<Metadata> {
     metadataBase: new URL("https://izzymo-sound.vercel.app"),
     openGraph: {
       type: "website",
-      url: "https://izzymo-sound.vercel.app/",
+      url: "https://www.basswaves.com.mx",
       title: "Basswaves",
       description: t("siteDescription"),
       siteName: "Basswaves",
       images: [
         {
-          url: "/home/hero2.webp",
+          url: "https://www.basswaves.com.mx/home/hero2.webp",
         },
       ],
     },

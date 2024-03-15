@@ -10,13 +10,13 @@ export async function generateMetadata() {
     title: t("mixerCardTitle"),
     openGraph: {
       type: "website",
-      url: "https://izzymo-sound.vercel.app/equipment/mixers-and-light",
+      url: "https://www.basswaves.com.mx/equipment/mixers-and-light",
       title: "Basswaves",
       description: t("mixerCardDescription"),
       siteName: "Basswaves",
       images: [
         {
-          url: "/home/mixers/mixer1.webp",
+          url: "https://www.basswaves.com.mx/home/mixers/mixer1.webp",
         },
       ],
     },

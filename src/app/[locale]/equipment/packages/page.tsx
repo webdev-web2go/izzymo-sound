@@ -11,13 +11,13 @@ export async function generateMetadata() {
     title: t("equipmentCardTitle"),
     openGraph: {
       type: "website",
-      url: "https://izzymo-sound.vercel.app/equipment/packages",
+      url: "https://www.basswaves.com.mx/equipment/packages",
       title: "Basswaves",
       description: t("equipmentCardDescription"),
       siteName: "Basswaves",
       images: [
         {
-          url: "/home/packages-banner.webp",
+          url: "https://www.basswaves.com.mx/home/packages-banner.webp",
         },
       ],
     },
